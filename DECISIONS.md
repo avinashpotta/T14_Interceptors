@@ -190,3 +190,76 @@ which is exactly the kind of bias that makes a comparison table lie.
 `_say` now rejects any segment under 80 ms and retries up to three times
 before raising, rather than trusting the exit code. Corpus re-validated:
 440/440 spans land on real speech, 440/440 character offsets consistent.
+
+---
+
+## Day 2 (evening) — the normalisation result
+
+## D16. The regex baseline is ASR-aware, because a weak one would flatter us
+**Date:** 9 Nov · **Affects:** §4.3, every later comparison
+
+§4.3 says comparing against a weak regex would be unfair *in our favour*.
+Measured on the corpus, that is worth **49 points of recall** on numeric
+identifiers, so a naive baseline would have inflated every later level by the
+same amount. The Level 1 patterns are therefore written against what the ASR
+actually emits, not against clean typed text.
+
+**Rejected:** rewriting the transcript to normalise it before matching. The
+tolerant pattern matches in the original string, so character offsets stay
+valid and no offset remapping is needed.
+
+---
+
+## Findings (measured on 152 dialogues, 440 spans)
+
+**F1 — resolved. Whisper always normalises spoken digits, but fragments the
+run.** Of 96 numeric identifiers, **0 were left as words**. §1's premise — that
+regex fails because spoken numbers stay as words — is simply false for
+Whisper. But the naive opposite reading is also false. Whisper preserves the
+speaker's prosodic grouping as *punctuation*:
+
+```
+spoken  "nine six zero, five nine five, seven four five, four"
+ASR     960 -595 -745 -4
+spoken  "ninety seven, forty seven, seventy six, sixty nine, fourteen"
+ASR     97, 47, 76, 69, 14
+```
+
+The digits are present and correct. A pattern demanding ten *consecutive*
+digits cannot see them.
+
+| pattern | recall on numeric PII | false positives |
+|---|---|---|
+| consecutive digits | 32.3% (31/96) | 0 |
+| separator-tolerant | **81.2% (78/96)** | 0 |
+
+The fix costs nothing in precision. Note 81% exceeds the 78% of cases where
+the digits were fully correct — **for redaction the transcript does not need
+to be right, it needs to be wrong in a shape-preserving way.** A mangled phone
+number still gets beeped; a fragmented one does not.
+
+**F2 — emails get a half-normalisation matching neither form.** "dot" becomes
+a literal "." glued to the next token while "at" stays a word:
+`neha dot goli at gmail dot com` → `neha .goli at gmail .com`. Matches neither
+the typed pattern nor the spoken one. Every separator in Level 1 now accepts
+all three surface forms.
+
+**F4 — `with_doubles` is the worst speaking style, and the mechanism is not
+what it first appeared.** Digit-count recovery by style: grouped 22/24,
+paired 22/24, digit_by_digit 19/24, **with_doubles 16/24**.
+
+An early single example suggested "double" survives as a literal word and
+breaks the run. Measured across the corpus that happens **once in 24**. The
+dominant failure is Whisper *understanding* "double four" and emitting a
+single `4` — a silently dropped digit (4/24, delta −1). In 2/24 it mishears
+"double" into words entirely ("the second architecture"), an artefact that
+appears in **0 of 72** spans in every other style.
+
+This matters for the report because "double seven" is a common way to read a
+number aloud in India, and it is the style the ASR handles worst.
+
+**F5 — Level 1 baseline established.** Regex reaches **76% recall (134/176)**
+on the four types it can address, with **0 false positives** across 36
+dialogues containing none. It cannot address PERSON or LOCATION at all, so
+across all 440 spans Level 1 recovers **30%**. That 220-span gap is what
+Levels 2–4 exist to close.
