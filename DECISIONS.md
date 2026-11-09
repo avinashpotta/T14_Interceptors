@@ -173,3 +173,20 @@ depends only on its output, so the corpus is transcribed once per
 (dialogue, model, beam_size) and reloaded thereafter. Detector changes then
 cost nothing to re-evaluate, which is what makes Day 3's four-way comparison
 and Day 4's attribution experiment affordable.
+
+## D15. Render-time validation: `say` reports success while writing silence
+**Date:** 9 Nov · **Affects:** ground-truth integrity
+
+Five PII segments in the first corpus build came back as 0.017–0.032 s —
+exactly the 15 ms trim padding, meaning a transient followed by silence.
+`say` had exited 0 in every case. The renders most likely failed during the
+memory thrashing in D13.
+
+This is worse than it looks for 5/440. A silent gold span is PII that **no
+detector can ever find**, so it is an unfixable miss that depresses every
+recall number we report — and not equally across the four comparison levels,
+which is exactly the kind of bias that makes a comparison table lie.
+
+`_say` now rejects any segment under 80 ms and retries up to three times
+before raising, rather than trusting the exit code. Corpus re-validated:
+440/440 spans land on real speech, 440/440 character offsets consistent.

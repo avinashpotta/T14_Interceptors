@@ -72,14 +72,36 @@ class GoldSpan:
     style: str | None = None   # which speaking style produced `text`
 
 
+# Any real utterance is longer than this. A shorter result means `say`
+# exited cleanly but wrote essentially nothing - observed under memory
+# pressure, where five name segments came back as a transient plus silence.
+# Those become gold spans no detector can ever find, which silently depresses
+# every recall number we report, so we catch them at render time instead.
+MIN_SEGMENT_SEC = 0.08
+_RENDER_ATTEMPTS = 3
+
+
 def _say(text: str, voice: str, out_path: Path) -> np.ndarray:
-    """Render one utterance and return trimmed samples."""
-    subprocess.run(
-        ["say", "-v", voice, "-o", str(out_path), "--data-format=LEI16@16000", text],
-        check=True,
-        capture_output=True,
+    """Render one utterance and return trimmed samples.
+
+    Retries on an implausibly short result rather than trusting the exit code:
+    `say` reports success even when it has written silence.
+    """
+    last = 0.0
+    for attempt in range(_RENDER_ATTEMPTS):
+        subprocess.run(
+            ["say", "-v", voice, "-o", str(out_path), "--data-format=LEI16@16000", text],
+            check=True,
+            capture_output=True,
+        )
+        samples = trim_silence(read_wav(out_path))
+        last = samples.size / SAMPLE_RATE
+        if last >= MIN_SEGMENT_SEC:
+            return samples
+    raise RuntimeError(
+        f"`say` produced {last:.3f}s for {text!r} (voice {voice}) after "
+        f"{_RENDER_ATTEMPTS} attempts; expected at least {MIN_SEGMENT_SEC}s"
     )
-    return trim_silence(read_wav(out_path))
 
 
 def _join(prefix: str, piece: str) -> str:
