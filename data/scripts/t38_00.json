@@ -1,0 +1,58 @@
+{
+ "id": "t38_00",
+ "template": "t38",
+ "scenario": "newsletter",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can add you to the priority support list. Which email should I use?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Use"
+    },
+    {
+     "text": "pooja dot antony at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "pooja.antony@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "please, and the name is"
+    },
+    {
+     "text": "Pooja",
+     "pii": "GIVEN_NAME",
+     "canonical": "Pooja"
+    },
+    {
+     "text": "Antony",
+     "pii": "SURNAME",
+     "canonical": "Antony"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Added. You'll get a confirmation shortly."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

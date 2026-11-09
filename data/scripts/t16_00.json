@@ -1,0 +1,73 @@
+{
+ "id": "t16_00",
+ "template": "t16",
+ "scenario": "insurance",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "To process the claim I need to confirm a few things. Your registered address?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Lake View Heights, Marine Drive",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "in Coimbatore."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Is there a landmark? Our surveyors sometimes struggle."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "opposite the Forum Mall petrol pump",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Divya",
+     "pii": "GIVEN_NAME",
+     "canonical": "Divya"
+    },
+    {
+     "text": ", I've noted that."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

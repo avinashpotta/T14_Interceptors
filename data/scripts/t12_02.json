@@ -1,0 +1,73 @@
+{
+ "id": "t12_02",
+ "template": "t12",
+ "scenario": "bank_support",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can raise a dispute for you. First, your full name?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Nikhil",
+     "pii": "GIVEN_NAME",
+     "canonical": "Nikhil"
+    },
+    {
+     "text": "Menon",
+     "pii": "SURNAME",
+     "canonical": "Menon"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And where should I send the dispute reference number?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Email it to"
+    },
+    {
+     "text": "nikhil dot menon at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "nikhil.menon@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "please."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Done. You should receive it within the hour."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

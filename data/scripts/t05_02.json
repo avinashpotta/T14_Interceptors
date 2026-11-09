@@ -1,0 +1,71 @@
+{
+ "id": "t05_02",
+ "template": "t05",
+ "scenario": "kyc_update",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "QuickCart compliance team here. We need to re-verify your identity documents."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Alright, what do you need?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your Aadhaar number to begin with."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "ninety three, eighty six, twenty eight, eighty six, forty three, forty three",
+     "pii": "AADHAAR",
+     "canonical": "938628864343",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Dimple",
+     "pii": "GIVEN_NAME",
+     "canonical": "Dimple"
+    },
+    {
+     "text": ", that's verified."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

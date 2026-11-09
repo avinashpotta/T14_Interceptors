@@ -1,0 +1,68 @@
+{
+ "id": "t22_02",
+ "template": "t22",
+ "scenario": "ecommerce",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Hello"
+    },
+    {
+     "text": "Neha",
+     "pii": "GIVEN_NAME",
+     "canonical": "Neha"
+    },
+    {
+     "text": ", I'm calling about the refund you raised."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, it's been two weeks now."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I apologise. Could you confirm the mobile number on the account?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "sixty six, zero six, twenty eight, zero one, thirty",
+     "pii": "PHONE",
+     "canonical": "6606280130",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The refund has been re-initiated, you'll get a confirmation email."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

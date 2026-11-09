@@ -1,0 +1,83 @@
+{
+ "id": "t07_01",
+ "template": "t07",
+ "scenario": "delivery",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Hi, I'm calling from QuickCart about your delivery scheduled for tomorrow."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, I was expecting a call."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Could you confirm the delivery address?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "flat four oh two, Gokul Nivas",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "behind the police station",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And a number the delivery partner can reach you on?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "seven zero eight double zero five one eight two five",
+     "pii": "PHONE",
+     "canonical": "7080051825",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

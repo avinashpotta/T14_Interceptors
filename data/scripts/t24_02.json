@@ -1,0 +1,70 @@
+{
+ "id": "t24_02",
+ "template": "t24",
+ "scenario": "utility",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "We have a meter reading discrepancy at the property. Who am I speaking to?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Amitesh",
+     "pii": "GIVEN_NAME",
+     "canonical": "Amitesh"
+    },
+    {
+     "text": "Nair",
+     "pii": "SURNAME",
+     "canonical": "Nair"
+    },
+    {
+     "text": ", I'm the owner."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Could you share a contact number for the meter reader?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "seventy seven, thirty six, thirty one, seventy five, zero five",
+     "pii": "PHONE",
+     "canonical": "7736317505",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Someone will visit this week."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

@@ -1,0 +1,94 @@
+{
+ "id": "t25_01",
+ "template": "t25",
+ "scenario": "appointment",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can book that appointment. Name please?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Dimple",
+     "pii": "GIVEN_NAME",
+     "canonical": "Dimple"
+    },
+    {
+     "text": "Goli",
+     "pii": "SURNAME",
+     "canonical": "Goli"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Contact number?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "seven double two three two one six four one seven",
+     "pii": "PHONE",
+     "canonical": "7223216417",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And email for the reminder?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "dimple dot goli at yahoo dot com",
+     "pii": "EMAIL",
+     "canonical": "dimple.goli@yahoo.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "You're confirmed for Thursday at four."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

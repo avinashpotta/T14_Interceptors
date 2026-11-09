@@ -1,0 +1,68 @@
+{
+ "id": "t13_03",
+ "template": "t13",
+ "scenario": "callback",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I'm afraid the specialist team is closed now. Can I arrange a callback?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes please. The number is"
+    },
+    {
+     "text": "eight two four, three six four, four six three, eight",
+     "pii": "PHONE",
+     "canonical": "8243644638",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And who should they ask for?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sneha",
+     "pii": "GIVEN_NAME",
+     "canonical": "Sneha"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "They'll call between ten and twelve tomorrow."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

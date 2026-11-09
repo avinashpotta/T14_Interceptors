@@ -1,0 +1,67 @@
+{
+ "id": "t11_03",
+ "template": "t11",
+ "scenario": "bank_support",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you for holding. Could I have the registered mobile number to pull up your file?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "six three five, two seven five, seven three seven, zero",
+     "pii": "PHONE",
+     "canonical": "6352757370",
+     "style": "grouped"
+    },
+    {
+     "text": ", under the name"
+    },
+    {
+     "text": "Karthik",
+     "pii": "GIVEN_NAME",
+     "canonical": "Karthik"
+    },
+    {
+     "text": "Garg",
+     "pii": "SURNAME",
+     "canonical": "Garg"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I see it. What seems to be the problem?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "The net banking login keeps failing after I enter the OTP."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

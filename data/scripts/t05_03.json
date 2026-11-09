@@ -1,0 +1,71 @@
+{
+ "id": "t05_03",
+ "template": "t05",
+ "scenario": "kyc_update",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Bluestar Bank compliance team here. We need to re-verify your identity documents."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Alright, what do you need?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your Aadhaar number to begin with."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "three three three, zero three four, zero four eight, three three five",
+     "pii": "AADHAAR",
+     "canonical": "333034048335",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Pearl",
+     "pii": "GIVEN_NAME",
+     "canonical": "Pearl"
+    },
+    {
+     "text": ", that's verified."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

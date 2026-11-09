@@ -1,0 +1,69 @@
+{
+ "id": "t08_00",
+ "template": "t08",
+ "scenario": "delivery",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Our delivery partner couldn't locate the address. Could you give me directions?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure. The address is"
+    },
+    {
+     "text": "flat four oh two, Brindavan Complex, Marine Drive",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ". Tell him it's"
+    },
+    {
+     "text": "next to the Apollo pharmacy",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Understood, I'll pass that along. And the name for the package?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Anjali",
+     "pii": "GIVEN_NAME",
+     "canonical": "Anjali"
+    },
+    {
+     "text": "Reddy",
+     "pii": "SURNAME",
+     "canonical": "Reddy"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

@@ -1,0 +1,94 @@
+{
+ "id": "t01_02",
+ "template": "t01",
+ "scenario": "account_verification",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you for calling CityFirst Bank support, this is Divya. Could I take your full name please?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, it's"
+    },
+    {
+     "text": "Joy",
+     "pii": "GIVEN_NAME",
+     "canonical": "Joy"
+    },
+    {
+     "text": "Chopra",
+     "pii": "SURNAME",
+     "canonical": "Chopra"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. And the mobile number registered on the account?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "ninety seven, forty seven, seventy six, sixty nine, fourteen",
+     "pii": "PHONE",
+     "canonical": "9747766914",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Perfect, I can see the account now. Is there an email I should send the confirmation to?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "You can use"
+    },
+    {
+     "text": "joy dot chopra at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "joy.chopra@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

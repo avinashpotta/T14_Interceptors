@@ -1,0 +1,45 @@
+{
+ "id": "t30_02",
+ "template": "t30",
+ "scenario": "no_pii",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Good evening, how can I help?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "My internet has been very slow since this morning. Is there an outage in the area?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Let me check. Yes, there is scheduled maintenance in your region until about six o'clock."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Alright, I'll wait then. Thanks for confirming."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

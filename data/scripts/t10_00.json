@@ -1,0 +1,76 @@
+{
+ "id": "t10_00",
+ "template": "t10",
+ "scenario": "bank_support",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Bluestar Bank fraud desk, this is Divya. We've flagged a transaction on your card."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I was worried about that. My name is"
+    },
+    {
+     "text": "Ganesh",
+     "pii": "GIVEN_NAME",
+     "canonical": "Ganesh"
+    },
+    {
+     "text": "Garg",
+     "pii": "SURNAME",
+     "canonical": "Garg"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "For security, could you confirm the PAN linked to this account?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "C R E S E six one nine nine V",
+     "pii": "PAN",
+     "canonical": "CRESE6199V",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. I'm blocking the card now and a replacement will be sent."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

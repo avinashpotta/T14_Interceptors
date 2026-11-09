@@ -1,0 +1,75 @@
+{
+ "id": "t18_02",
+ "template": "t18",
+ "scenario": "telecom",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your broadband installation is scheduled. Confirming the address: could you read it out?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat twelve A, Gokul Nivas",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "near the HDFC ATM",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the account is under which name?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Harish",
+     "pii": "GIVEN_NAME",
+     "canonical": "Harish"
+    },
+    {
+     "text": "Joshi",
+     "pii": "SURNAME",
+     "canonical": "Joshi"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The technician will call you on arrival."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

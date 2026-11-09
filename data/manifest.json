@@ -1,0 +1,914 @@
+[
+ {
+  "id": "t01_00",
+  "template": "t01",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t01_01",
+  "template": "t01",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t01_02",
+  "template": "t01",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t01_03",
+  "template": "t01",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t02_00",
+  "template": "t02",
+  "scenario": "account_verification",
+  "split": "dev"
+ },
+ {
+  "id": "t02_01",
+  "template": "t02",
+  "scenario": "account_verification",
+  "split": "dev"
+ },
+ {
+  "id": "t02_02",
+  "template": "t02",
+  "scenario": "account_verification",
+  "split": "dev"
+ },
+ {
+  "id": "t02_03",
+  "template": "t02",
+  "scenario": "account_verification",
+  "split": "dev"
+ },
+ {
+  "id": "t03_00",
+  "template": "t03",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t03_01",
+  "template": "t03",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t03_02",
+  "template": "t03",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t03_03",
+  "template": "t03",
+  "scenario": "account_verification",
+  "split": "test"
+ },
+ {
+  "id": "t04_00",
+  "template": "t04",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t04_01",
+  "template": "t04",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t04_02",
+  "template": "t04",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t04_03",
+  "template": "t04",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t05_00",
+  "template": "t05",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t05_01",
+  "template": "t05",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t05_02",
+  "template": "t05",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t05_03",
+  "template": "t05",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t06_00",
+  "template": "t06",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t06_01",
+  "template": "t06",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t06_02",
+  "template": "t06",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t06_03",
+  "template": "t06",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t07_00",
+  "template": "t07",
+  "scenario": "delivery",
+  "split": "dev"
+ },
+ {
+  "id": "t07_01",
+  "template": "t07",
+  "scenario": "delivery",
+  "split": "dev"
+ },
+ {
+  "id": "t07_02",
+  "template": "t07",
+  "scenario": "delivery",
+  "split": "dev"
+ },
+ {
+  "id": "t07_03",
+  "template": "t07",
+  "scenario": "delivery",
+  "split": "dev"
+ },
+ {
+  "id": "t08_00",
+  "template": "t08",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t08_01",
+  "template": "t08",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t08_02",
+  "template": "t08",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t08_03",
+  "template": "t08",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t09_00",
+  "template": "t09",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t09_01",
+  "template": "t09",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t09_02",
+  "template": "t09",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t09_03",
+  "template": "t09",
+  "scenario": "delivery",
+  "split": "test"
+ },
+ {
+  "id": "t10_00",
+  "template": "t10",
+  "scenario": "bank_support",
+  "split": "dev"
+ },
+ {
+  "id": "t10_01",
+  "template": "t10",
+  "scenario": "bank_support",
+  "split": "dev"
+ },
+ {
+  "id": "t10_02",
+  "template": "t10",
+  "scenario": "bank_support",
+  "split": "dev"
+ },
+ {
+  "id": "t10_03",
+  "template": "t10",
+  "scenario": "bank_support",
+  "split": "dev"
+ },
+ {
+  "id": "t11_00",
+  "template": "t11",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t11_01",
+  "template": "t11",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t11_02",
+  "template": "t11",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t11_03",
+  "template": "t11",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t12_00",
+  "template": "t12",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t12_01",
+  "template": "t12",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t12_02",
+  "template": "t12",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t12_03",
+  "template": "t12",
+  "scenario": "bank_support",
+  "split": "test"
+ },
+ {
+  "id": "t13_00",
+  "template": "t13",
+  "scenario": "callback",
+  "split": "dev"
+ },
+ {
+  "id": "t13_01",
+  "template": "t13",
+  "scenario": "callback",
+  "split": "dev"
+ },
+ {
+  "id": "t13_02",
+  "template": "t13",
+  "scenario": "callback",
+  "split": "dev"
+ },
+ {
+  "id": "t13_03",
+  "template": "t13",
+  "scenario": "callback",
+  "split": "dev"
+ },
+ {
+  "id": "t14_00",
+  "template": "t14",
+  "scenario": "callback",
+  "split": "test"
+ },
+ {
+  "id": "t14_01",
+  "template": "t14",
+  "scenario": "callback",
+  "split": "test"
+ },
+ {
+  "id": "t14_02",
+  "template": "t14",
+  "scenario": "callback",
+  "split": "test"
+ },
+ {
+  "id": "t14_03",
+  "template": "t14",
+  "scenario": "callback",
+  "split": "test"
+ },
+ {
+  "id": "t15_00",
+  "template": "t15",
+  "scenario": "insurance",
+  "split": "dev"
+ },
+ {
+  "id": "t15_01",
+  "template": "t15",
+  "scenario": "insurance",
+  "split": "dev"
+ },
+ {
+  "id": "t15_02",
+  "template": "t15",
+  "scenario": "insurance",
+  "split": "dev"
+ },
+ {
+  "id": "t15_03",
+  "template": "t15",
+  "scenario": "insurance",
+  "split": "dev"
+ },
+ {
+  "id": "t16_00",
+  "template": "t16",
+  "scenario": "insurance",
+  "split": "test"
+ },
+ {
+  "id": "t16_01",
+  "template": "t16",
+  "scenario": "insurance",
+  "split": "test"
+ },
+ {
+  "id": "t16_02",
+  "template": "t16",
+  "scenario": "insurance",
+  "split": "test"
+ },
+ {
+  "id": "t16_03",
+  "template": "t16",
+  "scenario": "insurance",
+  "split": "test"
+ },
+ {
+  "id": "t17_00",
+  "template": "t17",
+  "scenario": "telecom",
+  "split": "dev"
+ },
+ {
+  "id": "t17_01",
+  "template": "t17",
+  "scenario": "telecom",
+  "split": "dev"
+ },
+ {
+  "id": "t17_02",
+  "template": "t17",
+  "scenario": "telecom",
+  "split": "dev"
+ },
+ {
+  "id": "t17_03",
+  "template": "t17",
+  "scenario": "telecom",
+  "split": "dev"
+ },
+ {
+  "id": "t18_00",
+  "template": "t18",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t18_01",
+  "template": "t18",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t18_02",
+  "template": "t18",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t18_03",
+  "template": "t18",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t19_00",
+  "template": "t19",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t19_01",
+  "template": "t19",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t19_02",
+  "template": "t19",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t19_03",
+  "template": "t19",
+  "scenario": "telecom",
+  "split": "test"
+ },
+ {
+  "id": "t20_00",
+  "template": "t20",
+  "scenario": "ecommerce",
+  "split": "dev"
+ },
+ {
+  "id": "t20_01",
+  "template": "t20",
+  "scenario": "ecommerce",
+  "split": "dev"
+ },
+ {
+  "id": "t20_02",
+  "template": "t20",
+  "scenario": "ecommerce",
+  "split": "dev"
+ },
+ {
+  "id": "t20_03",
+  "template": "t20",
+  "scenario": "ecommerce",
+  "split": "dev"
+ },
+ {
+  "id": "t21_00",
+  "template": "t21",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t21_01",
+  "template": "t21",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t21_02",
+  "template": "t21",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t21_03",
+  "template": "t21",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t22_00",
+  "template": "t22",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t22_01",
+  "template": "t22",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t22_02",
+  "template": "t22",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t22_03",
+  "template": "t22",
+  "scenario": "ecommerce",
+  "split": "test"
+ },
+ {
+  "id": "t23_00",
+  "template": "t23",
+  "scenario": "utility",
+  "split": "test"
+ },
+ {
+  "id": "t23_01",
+  "template": "t23",
+  "scenario": "utility",
+  "split": "test"
+ },
+ {
+  "id": "t23_02",
+  "template": "t23",
+  "scenario": "utility",
+  "split": "test"
+ },
+ {
+  "id": "t23_03",
+  "template": "t23",
+  "scenario": "utility",
+  "split": "test"
+ },
+ {
+  "id": "t24_00",
+  "template": "t24",
+  "scenario": "utility",
+  "split": "dev"
+ },
+ {
+  "id": "t24_01",
+  "template": "t24",
+  "scenario": "utility",
+  "split": "dev"
+ },
+ {
+  "id": "t24_02",
+  "template": "t24",
+  "scenario": "utility",
+  "split": "dev"
+ },
+ {
+  "id": "t24_03",
+  "template": "t24",
+  "scenario": "utility",
+  "split": "dev"
+ },
+ {
+  "id": "t25_00",
+  "template": "t25",
+  "scenario": "appointment",
+  "split": "dev"
+ },
+ {
+  "id": "t25_01",
+  "template": "t25",
+  "scenario": "appointment",
+  "split": "dev"
+ },
+ {
+  "id": "t25_02",
+  "template": "t25",
+  "scenario": "appointment",
+  "split": "dev"
+ },
+ {
+  "id": "t25_03",
+  "template": "t25",
+  "scenario": "appointment",
+  "split": "dev"
+ },
+ {
+  "id": "t26_00",
+  "template": "t26",
+  "scenario": "appointment",
+  "split": "test"
+ },
+ {
+  "id": "t26_01",
+  "template": "t26",
+  "scenario": "appointment",
+  "split": "test"
+ },
+ {
+  "id": "t26_02",
+  "template": "t26",
+  "scenario": "appointment",
+  "split": "test"
+ },
+ {
+  "id": "t26_03",
+  "template": "t26",
+  "scenario": "appointment",
+  "split": "test"
+ },
+ {
+  "id": "t27_00",
+  "template": "t27",
+  "scenario": "code_switching",
+  "split": "test"
+ },
+ {
+  "id": "t27_01",
+  "template": "t27",
+  "scenario": "code_switching",
+  "split": "test"
+ },
+ {
+  "id": "t27_02",
+  "template": "t27",
+  "scenario": "code_switching",
+  "split": "test"
+ },
+ {
+  "id": "t27_03",
+  "template": "t27",
+  "scenario": "code_switching",
+  "split": "test"
+ },
+ {
+  "id": "t28_00",
+  "template": "t28",
+  "scenario": "code_switching",
+  "split": "dev"
+ },
+ {
+  "id": "t28_01",
+  "template": "t28",
+  "scenario": "code_switching",
+  "split": "dev"
+ },
+ {
+  "id": "t28_02",
+  "template": "t28",
+  "scenario": "code_switching",
+  "split": "dev"
+ },
+ {
+  "id": "t28_03",
+  "template": "t28",
+  "scenario": "code_switching",
+  "split": "dev"
+ },
+ {
+  "id": "t29_00",
+  "template": "t29",
+  "scenario": "no_pii",
+  "split": "dev"
+ },
+ {
+  "id": "t29_01",
+  "template": "t29",
+  "scenario": "no_pii",
+  "split": "dev"
+ },
+ {
+  "id": "t29_02",
+  "template": "t29",
+  "scenario": "no_pii",
+  "split": "dev"
+ },
+ {
+  "id": "t29_03",
+  "template": "t29",
+  "scenario": "no_pii",
+  "split": "dev"
+ },
+ {
+  "id": "t30_00",
+  "template": "t30",
+  "scenario": "no_pii",
+  "split": "test"
+ },
+ {
+  "id": "t30_01",
+  "template": "t30",
+  "scenario": "no_pii",
+  "split": "test"
+ },
+ {
+  "id": "t30_02",
+  "template": "t30",
+  "scenario": "no_pii",
+  "split": "test"
+ },
+ {
+  "id": "t30_03",
+  "template": "t30",
+  "scenario": "no_pii",
+  "split": "test"
+ },
+ {
+  "id": "t31_00",
+  "template": "t31",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t31_01",
+  "template": "t31",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t31_02",
+  "template": "t31",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t31_03",
+  "template": "t31",
+  "scenario": "kyc_update",
+  "split": "test"
+ },
+ {
+  "id": "t32_00",
+  "template": "t32",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t32_01",
+  "template": "t32",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t32_02",
+  "template": "t32",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t32_03",
+  "template": "t32",
+  "scenario": "kyc_update",
+  "split": "dev"
+ },
+ {
+  "id": "t33_00",
+  "template": "t33",
+  "scenario": "tax_filing",
+  "split": "dev"
+ },
+ {
+  "id": "t33_01",
+  "template": "t33",
+  "scenario": "tax_filing",
+  "split": "dev"
+ },
+ {
+  "id": "t33_02",
+  "template": "t33",
+  "scenario": "tax_filing",
+  "split": "dev"
+ },
+ {
+  "id": "t33_03",
+  "template": "t33",
+  "scenario": "tax_filing",
+  "split": "dev"
+ },
+ {
+  "id": "t34_00",
+  "template": "t34",
+  "scenario": "tax_filing",
+  "split": "test"
+ },
+ {
+  "id": "t34_01",
+  "template": "t34",
+  "scenario": "tax_filing",
+  "split": "test"
+ },
+ {
+  "id": "t34_02",
+  "template": "t34",
+  "scenario": "tax_filing",
+  "split": "test"
+ },
+ {
+  "id": "t34_03",
+  "template": "t34",
+  "scenario": "tax_filing",
+  "split": "test"
+ },
+ {
+  "id": "t35_00",
+  "template": "t35",
+  "scenario": "subsidy",
+  "split": "test"
+ },
+ {
+  "id": "t35_01",
+  "template": "t35",
+  "scenario": "subsidy",
+  "split": "test"
+ },
+ {
+  "id": "t35_02",
+  "template": "t35",
+  "scenario": "subsidy",
+  "split": "test"
+ },
+ {
+  "id": "t35_03",
+  "template": "t35",
+  "scenario": "subsidy",
+  "split": "test"
+ },
+ {
+  "id": "t36_00",
+  "template": "t36",
+  "scenario": "account_recovery",
+  "split": "test"
+ },
+ {
+  "id": "t36_01",
+  "template": "t36",
+  "scenario": "account_recovery",
+  "split": "test"
+ },
+ {
+  "id": "t36_02",
+  "template": "t36",
+  "scenario": "account_recovery",
+  "split": "test"
+ },
+ {
+  "id": "t36_03",
+  "template": "t36",
+  "scenario": "account_recovery",
+  "split": "test"
+ },
+ {
+  "id": "t37_00",
+  "template": "t37",
+  "scenario": "account_recovery",
+  "split": "dev"
+ },
+ {
+  "id": "t37_01",
+  "template": "t37",
+  "scenario": "account_recovery",
+  "split": "dev"
+ },
+ {
+  "id": "t37_02",
+  "template": "t37",
+  "scenario": "account_recovery",
+  "split": "dev"
+ },
+ {
+  "id": "t37_03",
+  "template": "t37",
+  "scenario": "account_recovery",
+  "split": "dev"
+ },
+ {
+  "id": "t38_00",
+  "template": "t38",
+  "scenario": "newsletter",
+  "split": "test"
+ },
+ {
+  "id": "t38_01",
+  "template": "t38",
+  "scenario": "newsletter",
+  "split": "test"
+ },
+ {
+  "id": "t38_02",
+  "template": "t38",
+  "scenario": "newsletter",
+  "split": "test"
+ },
+ {
+  "id": "t38_03",
+  "template": "t38",
+  "scenario": "newsletter",
+  "split": "test"
+ }
+]

@@ -1,0 +1,76 @@
+{
+ "id": "t27_03",
+ "template": "t27",
+ "scenario": "code_switching",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Haan sir, bataiye, how can I help you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Mera naam"
+    },
+    {
+     "text": "Rohit",
+     "pii": "GIVEN_NAME",
+     "canonical": "Rohit"
+    },
+    {
+     "text": "Krishnan",
+     "pii": "SURNAME",
+     "canonical": "Krishnan"
+    },
+    {
+     "text": "hai, and my number is"
+    },
+    {
+     "text": "nine one seven, three zero three, one three seven, two",
+     "pii": "PHONE",
+     "canonical": "9173031372",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Ji, ek minute. Aapka account mil gaya."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Theek hai. Email bhi update kar dijiye, it's"
+    },
+    {
+     "text": "rohit dot krishnan at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "rohit.krishnan@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

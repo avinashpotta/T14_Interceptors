@@ -1,0 +1,50 @@
+{
+ "id": "t28_02",
+ "template": "t28",
+ "scenario": "code_switching",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Address confirm kar dijiye please, for the delivery."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Haan,"
+    },
+    {
+     "text": "Green Valley Apartments, Kalyan Nagar main road",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "hai, aur"
+    },
+    {
+     "text": "next to the government school",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Perfect, delivery kal ho jayegi."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

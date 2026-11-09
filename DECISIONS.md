@@ -102,3 +102,74 @@ transcript and lost it on the ASR transcript.
 
 **F3. Name corruption confirmed.** "Mathew" → "Matthew"; "petrol pump" →
 "petrol firm". Both are §1 predictions holding up.
+
+---
+
+## Day 2
+
+## D9. Split by template, never by dialogue
+**Date:** 9 Nov · **Affects:** §4.2, every number we report
+
+Dialogues generated from one template share their phrasing; only slot fills
+differ. Splitting at the dialogue level would put the same sentences in both
+halves, so anything keyed on phrasing — a tuned threshold, a rule, a model —
+would be scored on material it had effectively already seen.
+
+Whole templates are assigned to a split: 15 templates (60 dialogues) dev,
+23 templates (92 dialogues) test, **zero template overlap**, stratified by
+scenario so both halves see a similar mix of call types.
+
+We train nothing, but we *tune* the detection threshold and redaction margin
+on dev and report on test. Same leakage risk, same fix.
+
+## D10. How a number is read aloud is an experimental variable
+**Date:** 9 Nov · **Affects:** §4.2, §5, finding F1
+
+Day 1 showed Whisper silently normalising spoken digits into numerals, which
+made the regex succeed where §1 predicted failure. So speaking style is now
+the independent variable, not an incidental detail. Every numeric identifier
+is generated with a known canonical value and rendered in one of four
+realistic styles — `digit_by_digit`, `with_doubles` ("double seven"),
+`paired` ("ninety eight, seventy six"), `grouped` ("nine eight seven, six
+five four") — balanced across the corpus at 24 instances each.
+
+`GoldSpan` now carries `canonical` and `style` alongside the spoken text, so
+we can ask "did Whisper recover the right digits?" separately from "how were
+they spoken?". Without the canonical value a correctly-normalised transcript
+would look like a mismatch against the spoken form.
+
+## D11. Only PII slots break a rendering segment
+**Date:** 9 Nov · **Affects:** audio naturalness
+
+Every segment boundary is an unnatural pause (D1's declared cost), so we
+create as few as possible. Plain slots like `{{city}}` are substituted into
+the surrounding literal text and cost no seam. Only PII slots split a
+segment, because only those need their own timing.
+
+## D12. Punctuation-only segments are transcribed but not rendered
+**Date:** 9 Nov · **Affects:** corpus integrity
+
+`say` *speaks* bare punctuation rather than pausing — measured at 0.96 s for
+"." and 1.10 s for "?". The corpus had 288 punctuation-only segments, almost
+all of them immediately after a PII span, which would have injected roughly
+four minutes of spurious audio exactly where timing accuracy matters most.
+They now stay in the reference transcript and render nothing.
+
+## D13. Two render workers, not six
+**Date:** 9 Nov · **Affects:** build time
+
+Six concurrent `say` processes plus Python drove the 8 GB M2 into swap: load
+average 15 on 8 cores, 2.6 GB swapped, 1.2 M pageouts. Throughput collapsed
+about 30× — the first 20 dialogues took 59 s, the next 20 took 32 minutes.
+The binding constraint is memory, not CPU, so a smaller pool is strictly
+faster on this hardware. Rendering is now resumable, so an interrupted run
+costs nothing.
+
+## D14. Transcriptions are cached to disk
+**Date:** 9 Nov · **Affects:** iteration speed all week
+
+ASR is the expensive step (~4 s per dialogue) and everything downstream
+depends only on its output, so the corpus is transcribed once per
+(dialogue, model, beam_size) and reloaded thereafter. Detector changes then
+cost nothing to re-evaluate, which is what makes Day 3's four-way comparison
+and Day 4's attribution experiment affordable.

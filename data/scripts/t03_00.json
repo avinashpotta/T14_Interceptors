@@ -1,0 +1,73 @@
+{
+ "id": "t03_00",
+ "template": "t03",
+ "scenario": "account_verification",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Welcome to QuickCart. Before we proceed I'll need to verify a few details. Your name?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Preeti",
+     "pii": "GIVEN_NAME",
+     "canonical": "Preeti"
+    },
+    {
+     "text": "Reddy",
+     "pii": "SURNAME",
+     "canonical": "Reddy"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And an email address on file?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "That would be"
+    },
+    {
+     "text": "preeti dot reddy at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "preeti.reddy@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you, verification complete."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

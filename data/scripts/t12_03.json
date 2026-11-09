@@ -1,0 +1,73 @@
+{
+ "id": "t12_03",
+ "template": "t12",
+ "scenario": "bank_support",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can raise a dispute for you. First, your full name?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Preeti",
+     "pii": "GIVEN_NAME",
+     "canonical": "Preeti"
+    },
+    {
+     "text": "Goli",
+     "pii": "SURNAME",
+     "canonical": "Goli"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And where should I send the dispute reference number?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Email it to"
+    },
+    {
+     "text": "preeti dot goli at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "preeti.goli@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "please."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Done. You should receive it within the hour."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

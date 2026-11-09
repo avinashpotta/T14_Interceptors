@@ -48,6 +48,8 @@ from .audio import SAMPLE_RATE, read_wav, write_wav, trim_silence, silence
 # genuinely Indian-accented voices for zero install cost, which is the point.
 VOICES: tuple[str, ...] = ("Rishi", "Aman", "Tara")
 
+_EMPTY = np.zeros(0, dtype=np.float32)
+
 _NO_SPACE_BEFORE = set(".,!?;:')")
 
 INTRA_TURN_GAP_MS = 10   # between segments of one sentence
@@ -57,11 +59,17 @@ INTER_TURN_GAP_MS = 280  # between speakers
 @dataclass(frozen=True)
 class GoldSpan:
     pii: str          # leaf category from taxonomy
-    text: str         # exactly what was spoken
+    text: str         # exactly what was spoken, e.g. "nine eight seven ..."
     start: float      # seconds into the audio
     end: float
     char_start: int   # offset into the reference transcript
     char_end: int
+    # The underlying value, independent of how it was read aloud ("9876543210").
+    # Day 1 finding F1 means we must be able to ask "did Whisper recover the
+    # right digits?" separately from "how were they spoken?" - without this,
+    # a normalised transcript looks like a mismatch against the spoken text.
+    canonical: str | None = None
+    style: str | None = None   # which speaking style produced `text`
 
 
 def _say(text: str, voice: str, out_path: Path) -> np.ndarray:
@@ -105,12 +113,19 @@ def render_dialogue(script: dict) -> tuple[np.ndarray, dict]:
                 text = seg["text"].strip()
                 if not text:
                     continue
-                if s_i > 0:
+
+                # `say` SPEAKS bare punctuation rather than pausing - measured
+                # at 0.96 s for "." and 1.10 s for "?". Rendering these would
+                # inject a second of spurious audio immediately after most PII
+                # spans. Keep them in the reference transcript, render nothing.
+                renderable = any(c.isalnum() for c in text)
+
+                if s_i > 0 and renderable:
                     gap = silence(INTRA_TURN_GAP_MS)
                     chunks.append(gap)
                     n_samples += gap.size
 
-                samples = _say(text, voice, tmp)
+                samples = _say(text, voice, tmp) if renderable else _EMPTY
 
                 # _join only ever appends `text` (after an optional separator),
                 # so the start offset falls out of the resulting length.
@@ -128,6 +143,8 @@ def render_dialogue(script: dict) -> tuple[np.ndarray, dict]:
                             end=(n_samples + samples.size) / SAMPLE_RATE,
                             char_start=char_start,
                             char_end=char_end,
+                            canonical=seg.get("canonical"),
+                            style=seg.get("style"),
                         )
                     )
 

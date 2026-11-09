@@ -1,0 +1,87 @@
+{
+ "id": "t32_01",
+ "template": "t32",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can complete the verification over the call if you have the documents handy."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes I do. Aadhaar first? It's"
+    },
+    {
+     "text": "two nine five zero seven five two four three nine one six",
+     "pii": "AADHAAR",
+     "canonical": "295075243916",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. Could you also read out the PAN?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure,"
+    },
+    {
+     "text": "W I Y Y K two six six two F",
+     "pii": "PAN",
+     "canonical": "WIYYK2662F",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And an email to send the acknowledgement?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "aditya dot nair at outlook dot com",
+     "pii": "EMAIL",
+     "canonical": "aditya.nair@outlook.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

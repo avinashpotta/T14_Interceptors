@@ -1,0 +1,61 @@
+{
+ "id": "t26_00",
+ "template": "t26",
+ "scenario": "appointment",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Can I get an address so the technician knows where to come?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Prestige Towers on FC Road, Pune",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ". It's a bit tricky,"
+    },
+    {
+     "text": "behind the Ganesh temple",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted, and your name for the job card?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Rithwik",
+     "pii": "GIVEN_NAME",
+     "canonical": "Rithwik"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

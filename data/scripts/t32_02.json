@@ -1,0 +1,87 @@
+{
+ "id": "t32_02",
+ "template": "t32",
+ "scenario": "kyc_update",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can complete the verification over the call if you have the documents handy."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes I do. Aadhaar first? It's"
+    },
+    {
+     "text": "forty four, seventy one, eighty five, eighty nine, forty six, fifteen",
+     "pii": "AADHAAR",
+     "canonical": "447185894615",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. Could you also read out the PAN?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure,"
+    },
+    {
+     "text": "N D O T P zero one nine eight X",
+     "pii": "PAN",
+     "canonical": "NDOTP0198X",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And an email to send the acknowledgement?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "lovely dot nambiar at yahoo dot com",
+     "pii": "EMAIL",
+     "canonical": "lovely.nambiar@yahoo.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

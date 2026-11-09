@@ -1,0 +1,109 @@
+{
+ "id": "t04_00",
+ "template": "t04",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Hello, this is Sneha from Nexa Telecom calling regarding your pending KYC update."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Oh yes, I've been meaning to finish that."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Could you confirm your full name as it appears on the document?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "Ganesh",
+     "pii": "GIVEN_NAME",
+     "canonical": "Ganesh"
+    },
+    {
+     "text": "Menon",
+     "pii": "SURNAME",
+     "canonical": "Menon"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And your Aadhaar number please?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "two one seven five nine six nine six four six three zero",
+     "pii": "AADHAAR",
+     "canonical": "217596964630",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted. I'll also need your PAN."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "M W P H M eight one three three G",
+     "pii": "PAN",
+     "canonical": "MWPHM8133G",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

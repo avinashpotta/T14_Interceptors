@@ -1,0 +1,87 @@
+{
+ "id": "t32_03",
+ "template": "t32",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can complete the verification over the call if you have the documents handy."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes I do. Aadhaar first? It's"
+    },
+    {
+     "text": "five six one, five two zero, two two nine, three eight five",
+     "pii": "AADHAAR",
+     "canonical": "561520229385",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. Could you also read out the PAN?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure,"
+    },
+    {
+     "text": "I L B K C four four five six Q",
+     "pii": "PAN",
+     "canonical": "ILBKC4456Q",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And an email to send the acknowledgement?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "karthik dot banerjee at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "karthik.banerjee@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

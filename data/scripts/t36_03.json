@@ -1,0 +1,72 @@
+{
+ "id": "t36_03",
+ "template": "t36",
+ "scenario": "account_recovery",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "To reset the password I'll send a link to the registered email."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "That's"
+    },
+    {
+     "text": "lakshmi dot chopra at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "lakshmi.chopra@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": ", I think."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "That matches. And a backup email in case this one is inaccessible?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "You could use"
+    },
+    {
+     "text": "lakshmi dot chopra at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "lakshmi.chopra@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "as well, actually just the first one is fine."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Understood, the link is on its way."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

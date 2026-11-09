@@ -1,0 +1,65 @@
+{
+ "id": "t21_01",
+ "template": "t21",
+ "scenario": "ecommerce",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Which email is the order placed under?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "rohit dot mehta at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "rohit.mehta@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Found it. And should I send the replacement to the same address?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "flat seven B, Silver Oak Apartments, Anna Salai",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "just before the railway crossing",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

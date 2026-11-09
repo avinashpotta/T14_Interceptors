@@ -1,0 +1,66 @@
+{
+ "id": "t37_02",
+ "template": "t37",
+ "scenario": "account_recovery",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The account is locked after too many attempts. Could I have the email on it?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "rose dot patel at outlook dot com",
+     "pii": "EMAIL",
+     "canonical": "rose.patel@outlook.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the mobile number to send the OTP?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "ninety eight, ninety eight, fifty five, seventy three, thirty four",
+     "pii": "PHONE",
+     "canonical": "9898557334",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Please read back the code once you receive it."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

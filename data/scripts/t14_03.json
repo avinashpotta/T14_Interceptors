@@ -1,0 +1,60 @@
+{
+ "id": "t14_03",
+ "template": "t14",
+ "scenario": "callback",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Sorry about the wait. Would you prefer I email you the details instead?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Email is fine, it's"
+    },
+    {
+     "text": "ashok dot desai at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "ashok.desai@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And a contact number as backup?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "nine four zero, six six four, seven three eight, four",
+     "pii": "PHONE",
+     "canonical": "9406647384",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

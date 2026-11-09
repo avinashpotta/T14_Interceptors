@@ -1,0 +1,94 @@
+{
+ "id": "t01_00",
+ "template": "t01",
+ "scenario": "account_verification",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you for calling Bluestar Bank support, this is Priya. Could I take your full name please?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, it's"
+    },
+    {
+     "text": "Pearl",
+     "pii": "GIVEN_NAME",
+     "canonical": "Pearl"
+    },
+    {
+     "text": "Shetty",
+     "pii": "SURNAME",
+     "canonical": "Shetty"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. And the mobile number registered on the account?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "seven six six nine seven nine one one nine nine",
+     "pii": "PHONE",
+     "canonical": "7669791199",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Perfect, I can see the account now. Is there an email I should send the confirmation to?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "You can use"
+    },
+    {
+     "text": "pearl dot shetty at outlook dot com",
+     "pii": "EMAIL",
+     "canonical": "pearl.shetty@outlook.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

@@ -1,0 +1,66 @@
+{
+ "id": "t19_03",
+ "template": "t19",
+ "scenario": "telecom",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can port your number today. What is the number you wish to port?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "seven three six, three eight eight, eight five one, one",
+     "pii": "PHONE",
+     "canonical": "7363888511",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And for identity verification, your PAN?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "O W D C N seven three four three S",
+     "pii": "PAN",
+     "canonical": "OWDCN7343S",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you, the porting request is raised."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

@@ -1,0 +1,75 @@
+{
+ "id": "t23_03",
+ "template": "t23",
+ "scenario": "utility",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Metro Broadband billing. Could I have the consumer name on the connection?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Rahul",
+     "pii": "GIVEN_NAME",
+     "canonical": "Rahul"
+    },
+    {
+     "text": "Antony",
+     "pii": "SURNAME",
+     "canonical": "Antony"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the service address?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat twelve A, Gokul Nivas",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "opposite the Big Bazaar",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": ", Trivandrum."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your bill has been corrected, apologies for the error."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

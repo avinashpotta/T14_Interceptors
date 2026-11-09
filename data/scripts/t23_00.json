@@ -1,0 +1,75 @@
+{
+ "id": "t23_00",
+ "template": "t23",
+ "scenario": "utility",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "QuickCart billing. Could I have the consumer name on the connection?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Bobby",
+     "pii": "GIVEN_NAME",
+     "canonical": "Bobby"
+    },
+    {
+     "text": "Goli",
+     "pii": "SURNAME",
+     "canonical": "Goli"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the service address?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Prestige Towers, Kalyan Nagar main road",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "near the HDFC ATM",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": ", Chennai."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your bill has been corrected, apologies for the error."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

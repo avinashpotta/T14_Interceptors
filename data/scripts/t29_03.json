@@ -1,0 +1,63 @@
+{
+ "id": "t29_03",
+ "template": "t29",
+ "scenario": "no_pii",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you for calling. How may I assist you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I just wanted to understand the difference between the two plans you advertise."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Certainly. The basic plan includes unlimited calls and five gigabytes of data, while the premium adds international roaming."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "And is there a contract period for either of them?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The basic is month to month. The premium requires a twelve month commitment."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "That's helpful, thank you. I'll think about it and call back."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

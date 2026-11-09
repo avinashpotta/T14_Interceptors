@@ -1,0 +1,93 @@
+{
+ "id": "t15_01",
+ "template": "t15",
+ "scenario": "insurance",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Bluestar Bank claims department. Could I start with the policy holder's name?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Dimple",
+     "pii": "GIVEN_NAME",
+     "canonical": "Dimple"
+    },
+    {
+     "text": "Bose",
+     "pii": "SURNAME",
+     "canonical": "Bose"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the Aadhaar number for the claim form?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "double three two double zero two seven two one eight zero eight",
+     "pii": "AADHAAR",
+     "canonical": "332002721808",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Where should the surveyor visit?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat six oh four, Sai Krupa",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "next to the government school",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

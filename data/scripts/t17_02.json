@@ -1,0 +1,87 @@
+{
+ "id": "t17_02",
+ "template": "t17",
+ "scenario": "telecom",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Sunrise Insurance here. You'd requested a SIM replacement, is that right?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, I lost my phone yesterday."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I'll need the Aadhaar number used at the time of activation."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "nine eight one seven six three zero five one three one zero",
+     "pii": "AADHAAR",
+     "canonical": "981763051310",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the number to be replaced?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "double eight seven five seven three seven six nine three",
+     "pii": "PHONE",
+     "canonical": "8875737693",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The new SIM will be delivered to your registered address."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

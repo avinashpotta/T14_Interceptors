@@ -1,0 +1,94 @@
+{
+ "id": "t25_00",
+ "template": "t25",
+ "scenario": "appointment",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can book that appointment. Name please?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Prince",
+     "pii": "GIVEN_NAME",
+     "canonical": "Prince"
+    },
+    {
+     "text": "Desai",
+     "pii": "SURNAME",
+     "canonical": "Desai"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Contact number?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "eight eight four eight three five zero seven three eight",
+     "pii": "PHONE",
+     "canonical": "8848350738",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And email for the reminder?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "prince dot desai at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "prince.desai@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "You're confirmed for Thursday at four."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

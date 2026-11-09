@@ -1,0 +1,85 @@
+{
+ "id": "t02_03",
+ "template": "t02",
+ "scenario": "account_verification",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Good afternoon, QuickCart customer care. May I know who I'm speaking with?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "This is"
+    },
+    {
+     "text": "Golden",
+     "pii": "GIVEN_NAME",
+     "canonical": "Golden"
+    },
+    {
+     "text": "Nambiar",
+     "pii": "SURNAME",
+     "canonical": "Nambiar"
+    },
+    {
+     "text": "calling about my account."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Sure. For verification, can you confirm your registered mobile number?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure,"
+    },
+    {
+     "text": "six two two, two zero three, five nine eight, zero",
+     "pii": "PHONE",
+     "canonical": "6222035980",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "That matches. How can I help you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I wanted to check why my last payment did not go through."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

@@ -1,0 +1,94 @@
+{
+ "id": "t01_03",
+ "template": "t01",
+ "scenario": "account_verification",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you for calling Nexa Telecom support, this is Divya. Could I take your full name please?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, it's"
+    },
+    {
+     "text": "Pooja",
+     "pii": "GIVEN_NAME",
+     "canonical": "Pooja"
+    },
+    {
+     "text": "Desai",
+     "pii": "SURNAME",
+     "canonical": "Desai"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. And the mobile number registered on the account?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "nine six zero, five nine five, seven four five, four",
+     "pii": "PHONE",
+     "canonical": "9605957454",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Perfect, I can see the account now. Is there an email I should send the confirmation to?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "You can use"
+    },
+    {
+     "text": "pooja dot desai at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "pooja.desai@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

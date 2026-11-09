@@ -1,0 +1,94 @@
+{
+ "id": "t25_02",
+ "template": "t25",
+ "scenario": "appointment",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can book that appointment. Name please?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Rithwik",
+     "pii": "GIVEN_NAME",
+     "canonical": "Rithwik"
+    },
+    {
+     "text": "Sharma",
+     "pii": "SURNAME",
+     "canonical": "Sharma"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Contact number?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "eighty two, ninety six, thirty six, sixteen, forty one",
+     "pii": "PHONE",
+     "canonical": "8296361641",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And email for the reminder?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "rithwik dot sharma at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "rithwik.sharma@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "You're confirmed for Thursday at four."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

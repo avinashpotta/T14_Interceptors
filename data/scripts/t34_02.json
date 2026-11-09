@@ -1,0 +1,69 @@
+{
+ "id": "t34_02",
+ "template": "t34",
+ "scenario": "tax_filing",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Has your PAN been linked with Aadhaar already?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I'm not sure. The PAN is"
+    },
+    {
+     "text": "F E E C W nine four six zero E",
+     "pii": "PAN",
+     "canonical": "FEECW9460E",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Let me check. Could you read the Aadhaar as well?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "seventy seven, eighteen, ninety nine, seventy nine, sixty three, fifty five",
+     "pii": "AADHAAR",
+     "canonical": "771899796355",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "They are linked. Nothing further is needed."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

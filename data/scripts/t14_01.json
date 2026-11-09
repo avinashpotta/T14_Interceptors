@@ -1,0 +1,60 @@
+{
+ "id": "t14_01",
+ "template": "t14",
+ "scenario": "callback",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Sorry about the wait. Would you prefer I email you the details instead?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Email is fine, it's"
+    },
+    {
+     "text": "suresh dot pillai at outlook dot com",
+     "pii": "EMAIL",
+     "canonical": "suresh.pillai@outlook.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And a contact number as backup?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "eight seven four nine eight one zero five three zero",
+     "pii": "PHONE",
+     "canonical": "8749810530",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

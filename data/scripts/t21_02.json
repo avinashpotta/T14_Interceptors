@@ -1,0 +1,65 @@
+{
+ "id": "t21_02",
+ "template": "t21",
+ "scenario": "ecommerce",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Which email is the order placed under?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "arjun dot thakur at outlook dot com",
+     "pii": "EMAIL",
+     "canonical": "arjun.thakur@outlook.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Found it. And should I send the replacement to the same address?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "flat six oh four, Green Valley Apartments, MG Road",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "opposite the Forum Mall petrol pump",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

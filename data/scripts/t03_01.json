@@ -1,0 +1,73 @@
+{
+ "id": "t03_01",
+ "template": "t03",
+ "scenario": "account_verification",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Welcome to CityFirst Bank. Before we proceed I'll need to verify a few details. Your name?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Meera",
+     "pii": "GIVEN_NAME",
+     "canonical": "Meera"
+    },
+    {
+     "text": "Mehta",
+     "pii": "SURNAME",
+     "canonical": "Mehta"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And an email address on file?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "That would be"
+    },
+    {
+     "text": "meera dot mehta at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "meera.mehta@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you, verification complete."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

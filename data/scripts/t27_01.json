@@ -1,0 +1,76 @@
+{
+ "id": "t27_01",
+ "template": "t27",
+ "scenario": "code_switching",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Haan sir, bataiye, how can I help you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Mera naam"
+    },
+    {
+     "text": "Vijay",
+     "pii": "GIVEN_NAME",
+     "canonical": "Vijay"
+    },
+    {
+     "text": "Nair",
+     "pii": "SURNAME",
+     "canonical": "Nair"
+    },
+    {
+     "text": "hai, and my number is"
+    },
+    {
+     "text": "eight six five two four double six four one seven",
+     "pii": "PHONE",
+     "canonical": "8652466417",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Ji, ek minute. Aapka account mil gaya."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Theek hai. Email bhi update kar dijiye, it's"
+    },
+    {
+     "text": "vijay dot nair at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "vijay.nair@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

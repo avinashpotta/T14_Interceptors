@@ -1,0 +1,93 @@
+{
+ "id": "t15_00",
+ "template": "t15",
+ "scenario": "insurance",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Nexa Telecom claims department. Could I start with the policy holder's name?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Rahul",
+     "pii": "GIVEN_NAME",
+     "canonical": "Rahul"
+    },
+    {
+     "text": "Kulkarni",
+     "pii": "SURNAME",
+     "canonical": "Kulkarni"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the Aadhaar number for the claim form?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "nine three five four four six two eight three one five nine",
+     "pii": "AADHAAR",
+     "canonical": "935446283159",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Where should the surveyor visit?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat four oh two, Sree Nilayam, Marine Drive",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "beside the Reliance Fresh",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

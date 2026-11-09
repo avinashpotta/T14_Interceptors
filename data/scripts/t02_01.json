@@ -1,0 +1,85 @@
+{
+ "id": "t02_01",
+ "template": "t02",
+ "scenario": "account_verification",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Good afternoon, Metro Broadband customer care. May I know who I'm speaking with?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "This is"
+    },
+    {
+     "text": "Arjun",
+     "pii": "GIVEN_NAME",
+     "canonical": "Arjun"
+    },
+    {
+     "text": "Sharma",
+     "pii": "SURNAME",
+     "canonical": "Sharma"
+    },
+    {
+     "text": "calling about my account."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Sure. For verification, can you confirm your registered mobile number?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure,"
+    },
+    {
+     "text": "eight five zero eight nine two eight three five seven",
+     "pii": "PHONE",
+     "canonical": "8508928357",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "That matches. How can I help you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I wanted to check why my last payment did not go through."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

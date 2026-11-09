@@ -1,0 +1,68 @@
+{
+ "id": "t20_01",
+ "template": "t20",
+ "scenario": "ecommerce",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I see an order under your account. Could you confirm the name on it?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Golden",
+     "pii": "GIVEN_NAME",
+     "canonical": "Golden"
+    },
+    {
+     "text": "Bhat",
+     "pii": "SURNAME",
+     "canonical": "Bhat"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the shipping address?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sai Krupa on FC Road, Mysore",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I'll process the return and refund to the original method."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

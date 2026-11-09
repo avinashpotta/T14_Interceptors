@@ -1,0 +1,50 @@
+{
+ "id": "t28_00",
+ "template": "t28",
+ "scenario": "code_switching",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Address confirm kar dijiye please, for the delivery."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Haan,"
+    },
+    {
+     "text": "Lake View Heights on Jubilee Hills Road number ten, Mumbai",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "hai, aur"
+    },
+    {
+     "text": "next to the Apollo pharmacy",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Perfect, delivery kal ho jayegi."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

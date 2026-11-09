@@ -1,0 +1,65 @@
+{
+ "id": "t21_00",
+ "template": "t21",
+ "scenario": "ecommerce",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Which email is the order placed under?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "golden dot potta at yahoo dot com",
+     "pii": "EMAIL",
+     "canonical": "golden.potta@yahoo.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Found it. And should I send the replacement to the same address?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "Shanti Residency on Jubilee Hills Road number ten, Chennai",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "opposite the Big Bazaar",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

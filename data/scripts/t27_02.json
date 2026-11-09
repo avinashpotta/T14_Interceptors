@@ -1,0 +1,76 @@
+{
+ "id": "t27_02",
+ "template": "t27",
+ "scenario": "code_switching",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Haan sir, bataiye, how can I help you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Mera naam"
+    },
+    {
+     "text": "Swathi",
+     "pii": "GIVEN_NAME",
+     "canonical": "Swathi"
+    },
+    {
+     "text": "Kulkarni",
+     "pii": "SURNAME",
+     "canonical": "Kulkarni"
+    },
+    {
+     "text": "hai, and my number is"
+    },
+    {
+     "text": "seventy four, thirty five, sixty seven, thirty nine, twenty one",
+     "pii": "PHONE",
+     "canonical": "7435673921",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Ji, ek minute. Aapka account mil gaya."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Theek hai. Email bhi update kar dijiye, it's"
+    },
+    {
+     "text": "swathi dot kulkarni at rediffmail dot com",
+     "pii": "EMAIL",
+     "canonical": "swathi.kulkarni@rediffmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

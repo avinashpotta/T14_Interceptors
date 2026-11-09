@@ -1,0 +1,77 @@
+{
+ "id": "t31_02",
+ "template": "t31",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your account will be frozen unless the KYC is completed this week."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I understand. My Aadhaar is"
+    },
+    {
+     "text": "eighty one, seventy six, forty one, eleven, forty five, twenty one",
+     "pii": "AADHAAR",
+     "canonical": "817641114521",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. And the PAN associated with it?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "J E B L X four nine one eight Z",
+     "pii": "PAN",
+     "canonical": "JEBLX4918Z",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Both are now on file,"
+    },
+    {
+     "text": "Ravi",
+     "pii": "GIVEN_NAME",
+     "canonical": "Ravi"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

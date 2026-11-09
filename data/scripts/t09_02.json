@@ -1,0 +1,91 @@
+{
+ "id": "t09_02",
+ "template": "t09",
+ "scenario": "delivery",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Good morning, CityFirst Bank logistics. Am I speaking to"
+    },
+    {
+     "text": "Honey",
+     "pii": "GIVEN_NAME",
+     "canonical": "Honey"
+    },
+    {
+     "text": "?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Speaking."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "We have a package for"
+    },
+    {
+     "text": "Gokul Nivas on MG Road, Chennai",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ". Is someone available there today?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, but the gate is hard to find. It's"
+    },
+    {
+     "text": "just after the flyover",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted. Best number to call on arrival?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "eighty six, zero zero, zero six, zero zero, seventy three",
+     "pii": "PHONE",
+     "canonical": "8600060073",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

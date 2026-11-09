@@ -1,0 +1,998 @@
+[
+ {
+  "id": "t01",
+  "scenario": "account_verification",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Thank you for calling {{brand}} support, this is {{agent_name}}. Could I take your full name please?"
+   },
+   {
+    "role": "customer",
+    "text": "Yes, it's {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you. And the mobile number registered on the account?"
+   },
+   {
+    "role": "customer",
+    "text": "It is {{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "Perfect, I can see the account now. Is there an email I should send the confirmation to?"
+   },
+   {
+    "role": "customer",
+    "text": "You can use {{EMAIL}}."
+   }
+  ]
+ },
+ {
+  "id": "t02",
+  "scenario": "account_verification",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Good afternoon, {{brand}} customer care. May I know who I'm speaking with?"
+   },
+   {
+    "role": "customer",
+    "text": "This is {{GIVEN_NAME}} {{SURNAME}} calling about my account."
+   },
+   {
+    "role": "agent",
+    "text": "Sure. For verification, can you confirm your registered mobile number?"
+   },
+   {
+    "role": "customer",
+    "text": "Sure, {{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "That matches. How can I help you today?"
+   },
+   {
+    "role": "customer",
+    "text": "I wanted to check why my last payment did not go through."
+   }
+  ]
+ },
+ {
+  "id": "t03",
+  "scenario": "account_verification",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Welcome to {{brand}}. Before we proceed I'll need to verify a few details. Your name?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And an email address on file?"
+   },
+   {
+    "role": "customer",
+    "text": "That would be {{EMAIL}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you, verification complete."
+   }
+  ]
+ },
+ {
+  "id": "t04",
+  "scenario": "kyc_update",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Hello, this is {{agent_name}} from {{brand}} calling regarding your pending KYC update."
+   },
+   {
+    "role": "customer",
+    "text": "Oh yes, I've been meaning to finish that."
+   },
+   {
+    "role": "agent",
+    "text": "Could you confirm your full name as it appears on the document?"
+   },
+   {
+    "role": "customer",
+    "text": "It's {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And your Aadhaar number please?"
+   },
+   {
+    "role": "customer",
+    "text": "It's {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "Noted. I'll also need your PAN."
+   },
+   {
+    "role": "customer",
+    "text": "{{PAN}}."
+   }
+  ]
+ },
+ {
+  "id": "t05",
+  "scenario": "kyc_update",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "{{brand}} compliance team here. We need to re-verify your identity documents."
+   },
+   {
+    "role": "customer",
+    "text": "Alright, what do you need?"
+   },
+   {
+    "role": "agent",
+    "text": "Your Aadhaar number to begin with."
+   },
+   {
+    "role": "customer",
+    "text": "It is {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you {{GIVEN_NAME}}, that's verified."
+   }
+  ]
+ },
+ {
+  "id": "t06",
+  "scenario": "kyc_update",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I'll need your PAN card details to update the tax records."
+   },
+   {
+    "role": "customer",
+    "text": "The PAN is {{PAN}}, and the name on it is {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "Got it. And is the Aadhaar linked to this PAN the same one ending in the usual digits?"
+   },
+   {
+    "role": "customer",
+    "text": "Yes, {{AADHAAR}}."
+   }
+  ]
+ },
+ {
+  "id": "t07",
+  "scenario": "delivery",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Hi, I'm calling from {{brand}} about your delivery scheduled for tomorrow."
+   },
+   {
+    "role": "customer",
+    "text": "Yes, I was expecting a call."
+   },
+   {
+    "role": "agent",
+    "text": "Could you confirm the delivery address?"
+   },
+   {
+    "role": "customer",
+    "text": "It's {{ADDRESS}}, {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "And a number the delivery partner can reach you on?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   }
+  ]
+ },
+ {
+  "id": "t08",
+  "scenario": "delivery",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Our delivery partner couldn't locate the address. Could you give me directions?"
+   },
+   {
+    "role": "customer",
+    "text": "Sure. The address is {{ADDRESS}}. Tell him it's {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "Understood, I'll pass that along. And the name for the package?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   }
+  ]
+ },
+ {
+  "id": "t09",
+  "scenario": "delivery",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Good morning, {{brand}} logistics. Am I speaking to {{GIVEN_NAME}}?"
+   },
+   {
+    "role": "customer",
+    "text": "Speaking."
+   },
+   {
+    "role": "agent",
+    "text": "We have a package for {{ADDRESS}}. Is someone available there today?"
+   },
+   {
+    "role": "customer",
+    "text": "Yes, but the gate is hard to find. It's {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "Noted. Best number to call on arrival?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   }
+  ]
+ },
+ {
+  "id": "t10",
+  "scenario": "bank_support",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "{{brand}} fraud desk, this is {{agent_name}}. We've flagged a transaction on your card."
+   },
+   {
+    "role": "customer",
+    "text": "I was worried about that. My name is {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "For security, could you confirm the PAN linked to this account?"
+   },
+   {
+    "role": "customer",
+    "text": "It's {{PAN}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you. I'm blocking the card now and a replacement will be sent."
+   }
+  ]
+ },
+ {
+  "id": "t11",
+  "scenario": "bank_support",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Thank you for holding. Could I have the registered mobile number to pull up your file?"
+   },
+   {
+    "role": "customer",
+    "text": "It's {{PHONE}}, under the name {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "I see it. What seems to be the problem?"
+   },
+   {
+    "role": "customer",
+    "text": "The net banking login keeps failing after I enter the OTP."
+   }
+  ]
+ },
+ {
+  "id": "t12",
+  "scenario": "bank_support",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I can raise a dispute for you. First, your full name?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And where should I send the dispute reference number?"
+   },
+   {
+    "role": "customer",
+    "text": "Email it to {{EMAIL}} please."
+   },
+   {
+    "role": "agent",
+    "text": "Done. You should receive it within the hour."
+   }
+  ]
+ },
+ {
+  "id": "t13",
+  "scenario": "callback",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I'm afraid the specialist team is closed now. Can I arrange a callback?"
+   },
+   {
+    "role": "customer",
+    "text": "Yes please. The number is {{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "And who should they ask for?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "They'll call between ten and twelve tomorrow."
+   }
+  ]
+ },
+ {
+  "id": "t14",
+  "scenario": "callback",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Sorry about the wait. Would you prefer I email you the details instead?"
+   },
+   {
+    "role": "customer",
+    "text": "Email is fine, it's {{EMAIL}}."
+   },
+   {
+    "role": "agent",
+    "text": "And a contact number as backup?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   }
+  ]
+ },
+ {
+  "id": "t15",
+  "scenario": "insurance",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "{{brand}} claims department. Could I start with the policy holder's name?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the Aadhaar number for the claim form?"
+   },
+   {
+    "role": "customer",
+    "text": "It's {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "Where should the surveyor visit?"
+   },
+   {
+    "role": "customer",
+    "text": "{{ADDRESS}}, {{LANDMARK}}."
+   }
+  ]
+ },
+ {
+  "id": "t16",
+  "scenario": "insurance",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "To process the claim I need to confirm a few things. Your registered address?"
+   },
+   {
+    "role": "customer",
+    "text": "{{ADDRESS}} in {{city}}."
+   },
+   {
+    "role": "agent",
+    "text": "Is there a landmark? Our surveyors sometimes struggle."
+   },
+   {
+    "role": "customer",
+    "text": "Yes, {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you {{GIVEN_NAME}}, I've noted that."
+   }
+  ]
+ },
+ {
+  "id": "t17",
+  "scenario": "telecom",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "{{brand}} here. You'd requested a SIM replacement, is that right?"
+   },
+   {
+    "role": "customer",
+    "text": "Yes, I lost my phone yesterday."
+   },
+   {
+    "role": "agent",
+    "text": "I'll need the Aadhaar number used at the time of activation."
+   },
+   {
+    "role": "customer",
+    "text": "It's {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the number to be replaced?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "The new SIM will be delivered to your registered address."
+   }
+  ]
+ },
+ {
+  "id": "t18",
+  "scenario": "telecom",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Your broadband installation is scheduled. Confirming the address: could you read it out?"
+   },
+   {
+    "role": "customer",
+    "text": "{{ADDRESS}}, {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the account is under which name?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "The technician will call you on arrival."
+   }
+  ]
+ },
+ {
+  "id": "t19",
+  "scenario": "telecom",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I can port your number today. What is the number you wish to port?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "And for identity verification, your PAN?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PAN}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you, the porting request is raised."
+   }
+  ]
+ },
+ {
+  "id": "t20",
+  "scenario": "ecommerce",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I see an order under your account. Could you confirm the name on it?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the shipping address?"
+   },
+   {
+    "role": "customer",
+    "text": "{{ADDRESS}}."
+   },
+   {
+    "role": "agent",
+    "text": "I'll process the return and refund to the original method."
+   }
+  ]
+ },
+ {
+  "id": "t21",
+  "scenario": "ecommerce",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Which email is the order placed under?"
+   },
+   {
+    "role": "customer",
+    "text": "{{EMAIL}}."
+   },
+   {
+    "role": "agent",
+    "text": "Found it. And should I send the replacement to the same address?"
+   },
+   {
+    "role": "customer",
+    "text": "Yes, {{ADDRESS}}, {{LANDMARK}}."
+   }
+  ]
+ },
+ {
+  "id": "t22",
+  "scenario": "ecommerce",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Hello {{GIVEN_NAME}}, I'm calling about the refund you raised."
+   },
+   {
+    "role": "customer",
+    "text": "Yes, it's been two weeks now."
+   },
+   {
+    "role": "agent",
+    "text": "I apologise. Could you confirm the mobile number on the account?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "The refund has been re-initiated, you'll get a confirmation email."
+   }
+  ]
+ },
+ {
+  "id": "t23",
+  "scenario": "utility",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "{{brand}} billing. Could I have the consumer name on the connection?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the service address?"
+   },
+   {
+    "role": "customer",
+    "text": "{{ADDRESS}}, {{LANDMARK}}, {{city}}."
+   },
+   {
+    "role": "agent",
+    "text": "Your bill has been corrected, apologies for the error."
+   }
+  ]
+ },
+ {
+  "id": "t24",
+  "scenario": "utility",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "We have a meter reading discrepancy at the property. Who am I speaking to?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}, I'm the owner."
+   },
+   {
+    "role": "agent",
+    "text": "Could you share a contact number for the meter reader?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "Someone will visit this week."
+   }
+  ]
+ },
+ {
+  "id": "t25",
+  "scenario": "appointment",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I can book that appointment. Name please?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "Contact number?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "And email for the reminder?"
+   },
+   {
+    "role": "customer",
+    "text": "{{EMAIL}}."
+   },
+   {
+    "role": "agent",
+    "text": "You're confirmed for Thursday at four."
+   }
+  ]
+ },
+ {
+  "id": "t26",
+  "scenario": "appointment",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Can I get an address so the technician knows where to come?"
+   },
+   {
+    "role": "customer",
+    "text": "{{ADDRESS}}. It's a bit tricky, {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "Noted, and your name for the job card?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}}."
+   }
+  ]
+ },
+ {
+  "id": "t27",
+  "scenario": "code_switching",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Haan sir, bataiye, how can I help you today?"
+   },
+   {
+    "role": "customer",
+    "text": "Mera naam {{GIVEN_NAME}} {{SURNAME}} hai, and my number is {{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "Ji, ek minute. Aapka account mil gaya."
+   },
+   {
+    "role": "customer",
+    "text": "Theek hai. Email bhi update kar dijiye, it's {{EMAIL}}."
+   }
+  ]
+ },
+ {
+  "id": "t28",
+  "scenario": "code_switching",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Address confirm kar dijiye please, for the delivery."
+   },
+   {
+    "role": "customer",
+    "text": "Haan, {{ADDRESS}} hai, aur {{LANDMARK}}."
+   },
+   {
+    "role": "agent",
+    "text": "Perfect, delivery kal ho jayegi."
+   }
+  ]
+ },
+ {
+  "id": "t29",
+  "scenario": "no_pii",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Thank you for calling. How may I assist you today?"
+   },
+   {
+    "role": "customer",
+    "text": "I just wanted to understand the difference between the two plans you advertise."
+   },
+   {
+    "role": "agent",
+    "text": "Certainly. The basic plan includes unlimited calls and five gigabytes of data, while the premium adds international roaming."
+   },
+   {
+    "role": "customer",
+    "text": "And is there a contract period for either of them?"
+   },
+   {
+    "role": "agent",
+    "text": "The basic is month to month. The premium requires a twelve month commitment."
+   },
+   {
+    "role": "customer",
+    "text": "That's helpful, thank you. I'll think about it and call back."
+   }
+  ]
+ },
+ {
+  "id": "t30",
+  "scenario": "no_pii",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Good evening, how can I help?"
+   },
+   {
+    "role": "customer",
+    "text": "My internet has been very slow since this morning. Is there an outage in the area?"
+   },
+   {
+    "role": "agent",
+    "text": "Let me check. Yes, there is scheduled maintenance in your region until about six o'clock."
+   },
+   {
+    "role": "customer",
+    "text": "Alright, I'll wait then. Thanks for confirming."
+   }
+  ]
+ },
+ {
+  "id": "t31",
+  "scenario": "kyc_update",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Your account will be frozen unless the KYC is completed this week."
+   },
+   {
+    "role": "customer",
+    "text": "I understand. My Aadhaar is {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you. And the PAN associated with it?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PAN}}."
+   },
+   {
+    "role": "agent",
+    "text": "Both are now on file, {{GIVEN_NAME}}."
+   }
+  ]
+ },
+ {
+  "id": "t32",
+  "scenario": "kyc_update",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I can complete the verification over the call if you have the documents handy."
+   },
+   {
+    "role": "customer",
+    "text": "Yes I do. Aadhaar first? It's {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "Thank you. Could you also read out the PAN?"
+   },
+   {
+    "role": "customer",
+    "text": "Sure, {{PAN}}."
+   },
+   {
+    "role": "agent",
+    "text": "And an email to send the acknowledgement?"
+   },
+   {
+    "role": "customer",
+    "text": "{{EMAIL}}."
+   }
+  ]
+ },
+ {
+  "id": "t33",
+  "scenario": "tax_filing",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "For the filing I'll need the PAN exactly as printed."
+   },
+   {
+    "role": "customer",
+    "text": "It's {{PAN}}, in the name of {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the Aadhaar for linking?"
+   },
+   {
+    "role": "customer",
+    "text": "{{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "The return will be filed by Friday."
+   }
+  ]
+ },
+ {
+  "id": "t34",
+  "scenario": "tax_filing",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "Has your PAN been linked with Aadhaar already?"
+   },
+   {
+    "role": "customer",
+    "text": "I'm not sure. The PAN is {{PAN}}."
+   },
+   {
+    "role": "agent",
+    "text": "Let me check. Could you read the Aadhaar as well?"
+   },
+   {
+    "role": "customer",
+    "text": "{{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "They are linked. Nothing further is needed."
+   }
+  ]
+ },
+ {
+  "id": "t35",
+  "scenario": "subsidy",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "The subsidy application needs your Aadhaar for the direct transfer."
+   },
+   {
+    "role": "customer",
+    "text": "It is {{AADHAAR}}."
+   },
+   {
+    "role": "agent",
+    "text": "And confirming the beneficiary name?"
+   },
+   {
+    "role": "customer",
+    "text": "{{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "The amount will be credited within ten working days."
+   }
+  ]
+ },
+ {
+  "id": "t36",
+  "scenario": "account_recovery",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "To reset the password I'll send a link to the registered email."
+   },
+   {
+    "role": "customer",
+    "text": "That's {{EMAIL}}, I think."
+   },
+   {
+    "role": "agent",
+    "text": "That matches. And a backup email in case this one is inaccessible?"
+   },
+   {
+    "role": "customer",
+    "text": "You could use {{EMAIL}} as well, actually just the first one is fine."
+   },
+   {
+    "role": "agent",
+    "text": "Understood, the link is on its way."
+   }
+  ]
+ },
+ {
+  "id": "t37",
+  "scenario": "account_recovery",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "The account is locked after too many attempts. Could I have the email on it?"
+   },
+   {
+    "role": "customer",
+    "text": "{{EMAIL}}."
+   },
+   {
+    "role": "agent",
+    "text": "And the mobile number to send the OTP?"
+   },
+   {
+    "role": "customer",
+    "text": "{{PHONE}}."
+   },
+   {
+    "role": "agent",
+    "text": "Please read back the code once you receive it."
+   }
+  ]
+ },
+ {
+  "id": "t38",
+  "scenario": "newsletter",
+  "turns": [
+   {
+    "role": "agent",
+    "text": "I can add you to the priority support list. Which email should I use?"
+   },
+   {
+    "role": "customer",
+    "text": "Use {{EMAIL}} please, and the name is {{GIVEN_NAME}} {{SURNAME}}."
+   },
+   {
+    "role": "agent",
+    "text": "Added. You'll get a confirmation shortly."
+   }
+  ]
+ }
+]

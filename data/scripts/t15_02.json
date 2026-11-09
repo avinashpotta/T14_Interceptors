@@ -1,0 +1,93 @@
+{
+ "id": "t15_02",
+ "template": "t15",
+ "scenario": "insurance",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Bluestar Bank claims department. Could I start with the policy holder's name?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Aditya",
+     "pii": "GIVEN_NAME",
+     "canonical": "Aditya"
+    },
+    {
+     "text": "Kulkarni",
+     "pii": "SURNAME",
+     "canonical": "Kulkarni"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the Aadhaar number for the claim form?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "sixty, twenty four, fourteen, fifteen, sixty seven, twenty",
+     "pii": "AADHAAR",
+     "canonical": "602414156720",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Where should the surveyor visit?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat one oh one, Brindavan Complex, Kalyan Nagar main road",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "next to the Apollo pharmacy",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

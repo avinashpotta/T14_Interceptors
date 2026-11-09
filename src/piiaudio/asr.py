@@ -60,6 +60,36 @@ class Transcription:
             return None
         return min(w.start for w in hit), max(w.end for w in hit)
 
+    # --- serialisation -----------------------------------------------------
+    # Transcription is the expensive step (~4 s per dialogue, and the corpus is
+    # transcribed repeatedly this week as detectors change). Everything
+    # downstream depends only on this output, so we compute it once per
+    # (audio, model, beam) and reload from disk thereafter.
+
+    def to_dict(self) -> dict:
+        return {
+            "text": self.text,
+            "language": self.language,
+            "model": self.model,
+            "beam_size": self.beam_size,
+            "words": [
+                {"text": w.text, "start": w.start, "end": w.end,
+                 "probability": w.probability,
+                 "char_start": w.char_start, "char_end": w.char_end}
+                for w in self.words
+            ],
+        }
+
+    @classmethod
+    def from_dict(cls, d: dict) -> "Transcription":
+        return cls(
+            text=d["text"],
+            words=tuple(Word(**w) for w in d["words"]),
+            language=d["language"],
+            model=d["model"],
+            beam_size=d["beam_size"],
+        )
+
 
 @lru_cache(maxsize=2)
 def _load(model_size: str, compute_type: str) -> WhisperModel:

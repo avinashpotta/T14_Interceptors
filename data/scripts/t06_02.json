@@ -1,0 +1,76 @@
+{
+ "id": "t06_02",
+ "template": "t06",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I'll need your PAN card details to update the tax records."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "The PAN is"
+    },
+    {
+     "text": "D P X U P zero three seven zero B",
+     "pii": "PAN",
+     "canonical": "DPXUP0370B",
+     "style": "letters_digits"
+    },
+    {
+     "text": ", and the name on it is"
+    },
+    {
+     "text": "Avinash",
+     "pii": "GIVEN_NAME",
+     "canonical": "Avinash"
+    },
+    {
+     "text": "Bhat",
+     "pii": "SURNAME",
+     "canonical": "Bhat"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Got it. And is the Aadhaar linked to this PAN the same one ending in the usual digits?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "forty six, twenty nine, thirty two, sixty, thirty four, twenty",
+     "pii": "AADHAAR",
+     "canonical": "462932603420",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

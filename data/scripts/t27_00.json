@@ -1,0 +1,76 @@
+{
+ "id": "t27_00",
+ "template": "t27",
+ "scenario": "code_switching",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Haan sir, bataiye, how can I help you today?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Mera naam"
+    },
+    {
+     "text": "Divya",
+     "pii": "GIVEN_NAME",
+     "canonical": "Divya"
+    },
+    {
+     "text": "Menon",
+     "pii": "SURNAME",
+     "canonical": "Menon"
+    },
+    {
+     "text": "hai, and my number is"
+    },
+    {
+     "text": "nine seven nine six seven two six eight six two",
+     "pii": "PHONE",
+     "canonical": "9796726862",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Ji, ek minute. Aapka account mil gaya."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Theek hai. Email bhi update kar dijiye, it's"
+    },
+    {
+     "text": "divya dot menon at yahoo dot com",
+     "pii": "EMAIL",
+     "canonical": "divya.menon@yahoo.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

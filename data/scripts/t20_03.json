@@ -1,0 +1,68 @@
+{
+ "id": "t20_03",
+ "template": "t20",
+ "scenario": "ecommerce",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I see an order under your account. Could you confirm the name on it?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Swathi",
+     "pii": "GIVEN_NAME",
+     "canonical": "Swathi"
+    },
+    {
+     "text": "Garg",
+     "pii": "SURNAME",
+     "canonical": "Garg"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the shipping address?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat four oh two, Green Valley Apartments, Jubilee Hills Road number ten",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I'll process the return and refund to the original method."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

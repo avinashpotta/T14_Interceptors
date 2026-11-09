@@ -1,0 +1,73 @@
+{
+ "id": "t16_03",
+ "template": "t16",
+ "scenario": "insurance",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "To process the claim I need to confirm a few things. Your registered address?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat six oh four, Green Valley Apartments",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "in Mumbai."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Is there a landmark? Our surveyors sometimes struggle."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "behind the Ganesh temple",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Joy",
+     "pii": "GIVEN_NAME",
+     "canonical": "Joy"
+    },
+    {
+     "text": ", I've noted that."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

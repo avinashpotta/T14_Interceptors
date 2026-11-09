@@ -1,0 +1,109 @@
+{
+ "id": "t04_02",
+ "template": "t04",
+ "scenario": "kyc_update",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Hello, this is Sneha from Bluestar Bank calling regarding your pending KYC update."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Oh yes, I've been meaning to finish that."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Could you confirm your full name as it appears on the document?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "Honey",
+     "pii": "GIVEN_NAME",
+     "canonical": "Honey"
+    },
+    {
+     "text": "Gupta",
+     "pii": "SURNAME",
+     "canonical": "Gupta"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And your Aadhaar number please?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "sixty seven, fifty four, fifty two, twenty, thirty eight, twelve",
+     "pii": "AADHAAR",
+     "canonical": "675452203812",
+     "style": "paired"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted. I'll also need your PAN."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "S H J M S seven nine five two L",
+     "pii": "PAN",
+     "canonical": "SHJMS7952L",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

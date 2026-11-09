@@ -1,0 +1,109 @@
+{
+ "id": "t04_03",
+ "template": "t04",
+ "scenario": "kyc_update",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Hello, this is Divya from QuickCart calling regarding your pending KYC update."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Oh yes, I've been meaning to finish that."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Could you confirm your full name as it appears on the document?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "Dimple",
+     "pii": "GIVEN_NAME",
+     "canonical": "Dimple"
+    },
+    {
+     "text": "Gupta",
+     "pii": "SURNAME",
+     "canonical": "Gupta"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And your Aadhaar number please?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "four four three, three one eight, three six four, nine seven one",
+     "pii": "AADHAAR",
+     "canonical": "443318364971",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted. I'll also need your PAN."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "M Y D O Y nine one eight three B",
+     "pii": "PAN",
+     "canonical": "MYDOY9183B",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

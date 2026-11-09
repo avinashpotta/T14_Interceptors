@@ -1,0 +1,19 @@
+{
+  "_comment": "Slot fill values. GIVEN_NAME deliberately mixes ordinary Indian names with names that are also common English words - that collision is the Section 1 hard case for any name detector.",
+
+  "GIVEN_NAME_wordlike": ["Rose", "Prince", "Happy", "Sunny", "Lovely", "Bobby", "Golden", "Jolly", "Dimple", "Honey", "Pearl", "Joy"],
+  "GIVEN_NAME_common": ["Arjun", "Priya", "Rahul", "Ananya", "Vikram", "Deepa", "Karthik", "Meera", "Sanjay", "Divya", "Rohit", "Kavya", "Aditya", "Sneha", "Nikhil", "Pooja", "Suresh", "Lakshmi", "Ganesh", "Anjali", "Ravi", "Shruti", "Manoj", "Neha", "Vijay", "Swathi", "Harish", "Ritu", "Ashok", "Preeti", "Avinash", "Aravind", "Amitesh", "Rithwik", "Srivasthav"],
+
+  "SURNAME": ["Mathew", "Nambiar", "Garg", "Rudra", "Potta", "Goli", "Antony", "Sharma", "Reddy", "Iyer", "Banerjee", "Menon", "Pillai", "Chopra", "Desai", "Joshi", "Kulkarni", "Nair", "Rao", "Verma", "Gupta", "Shetty", "Bhat", "Singh", "Das", "Bose", "Patel", "Mehta", "Thakur", "Krishnan"],
+
+  "building": ["Shanti Residency", "Green Valley Apartments", "Sai Krupa", "Lake View Heights", "Brindavan Complex", "Prestige Towers", "Gokul Nivas", "Silver Oak Apartments", "Sree Nilayam", "Palm Grove Enclave"],
+  "street": ["MG Road", "Bannerghatta Road", "Anna Salai", "Jubilee Hills Road number ten", "FC Road", "Marine Drive", "Residency Road", "Kalyan Nagar main road"],
+  "city": ["Hyderabad", "Bangalore", "Chennai", "Pune", "Kochi", "Mumbai", "Coimbatore", "Vijayawada", "Mysore", "Trivandrum"],
+
+  "LANDMARK": ["opposite the Forum Mall petrol pump", "behind the Ganesh temple", "near the HDFC ATM", "next to the government school", "just after the flyover", "beside the Reliance Fresh", "opposite the old bus stand", "near the water tank", "behind the police station", "next to the Apollo pharmacy", "just before the railway crossing", "opposite the Big Bazaar"],
+
+  "brand": ["Nexa Telecom", "Bluestar Bank", "QuickCart", "Sunrise Insurance", "Metro Broadband", "CityFirst Bank"],
+  "agent_name": ["Priya", "Rahul", "Sneha", "Karthik", "Divya"],
+  "mail_domain": ["gmail.com", "yahoo.com", "outlook.com", "rediffmail.com"],
+  "flat_no": ["four oh two", "two one three", "one oh one", "seven B", "three oh five", "twelve A", "six oh four"]
+}

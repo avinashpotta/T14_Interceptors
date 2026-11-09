@@ -1,0 +1,71 @@
+{
+ "id": "t05_01",
+ "template": "t05",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Nexa Telecom compliance team here. We need to re-verify your identity documents."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Alright, what do you need?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your Aadhaar number to begin with."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "seven zero eight seven five double zero eight six double three eight",
+     "pii": "AADHAAR",
+     "canonical": "708750086338",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Amitesh",
+     "pii": "GIVEN_NAME",
+     "canonical": "Amitesh"
+    },
+    {
+     "text": ", that's verified."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

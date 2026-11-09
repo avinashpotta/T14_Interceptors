@@ -1,0 +1,76 @@
+{
+ "id": "t06_03",
+ "template": "t06",
+ "scenario": "kyc_update",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I'll need your PAN card details to update the tax records."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "The PAN is"
+    },
+    {
+     "text": "E B K K S nine six nine six T",
+     "pii": "PAN",
+     "canonical": "EBKKS9696T",
+     "style": "letters_digits"
+    },
+    {
+     "text": ", and the name on it is"
+    },
+    {
+     "text": "Vikram",
+     "pii": "GIVEN_NAME",
+     "canonical": "Vikram"
+    },
+    {
+     "text": "Kulkarni",
+     "pii": "SURNAME",
+     "canonical": "Kulkarni"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Got it. And is the Aadhaar linked to this PAN the same one ending in the usual digits?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "two eight seven, zero zero zero, one six three, nine nine zero",
+     "pii": "AADHAAR",
+     "canonical": "287000163990",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

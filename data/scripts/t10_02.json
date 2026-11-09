@@ -1,0 +1,76 @@
+{
+ "id": "t10_02",
+ "template": "t10",
+ "scenario": "bank_support",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Sunrise Insurance fraud desk, this is Sneha. We've flagged a transaction on your card."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I was worried about that. My name is"
+    },
+    {
+     "text": "Joy",
+     "pii": "GIVEN_NAME",
+     "canonical": "Joy"
+    },
+    {
+     "text": "Pillai",
+     "pii": "SURNAME",
+     "canonical": "Pillai"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "For security, could you confirm the PAN linked to this account?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "A L Y H Q zero two five five A",
+     "pii": "PAN",
+     "canonical": "ALYHQ0255A",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. I'm blocking the card now and a replacement will be sent."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

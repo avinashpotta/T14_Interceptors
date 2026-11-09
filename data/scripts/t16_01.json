@@ -1,0 +1,73 @@
+{
+ "id": "t16_01",
+ "template": "t16",
+ "scenario": "insurance",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "To process the claim I need to confirm a few things. Your registered address?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat two one three, Prestige Towers, FC Road",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "in Pune."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Is there a landmark? Our surveyors sometimes struggle."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "next to the Apollo pharmacy",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Ananya",
+     "pii": "GIVEN_NAME",
+     "canonical": "Ananya"
+    },
+    {
+     "text": ", I've noted that."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

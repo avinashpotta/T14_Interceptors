@@ -1,0 +1,50 @@
+{
+ "id": "t28_01",
+ "template": "t28",
+ "scenario": "code_switching",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Address confirm kar dijiye please, for the delivery."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Haan,"
+    },
+    {
+     "text": "flat seven B, Lake View Heights",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "hai, aur"
+    },
+    {
+     "text": "opposite the Big Bazaar",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Perfect, delivery kal ho jayegi."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

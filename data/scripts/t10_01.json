@@ -1,0 +1,76 @@
+{
+ "id": "t10_01",
+ "template": "t10",
+ "scenario": "bank_support",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Metro Broadband fraud desk, this is Rahul. We've flagged a transaction on your card."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "I was worried about that. My name is"
+    },
+    {
+     "text": "Pearl",
+     "pii": "GIVEN_NAME",
+     "canonical": "Pearl"
+    },
+    {
+     "text": "Sharma",
+     "pii": "SURNAME",
+     "canonical": "Sharma"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "For security, could you confirm the PAN linked to this account?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "S F K J S seven three nine two B",
+     "pii": "PAN",
+     "canonical": "SFKJS7392B",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you. I'm blocking the card now and a replacement will be sent."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

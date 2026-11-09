@@ -1,0 +1,73 @@
+{
+ "id": "t16_02",
+ "template": "t16",
+ "scenario": "insurance",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "To process the claim I need to confirm a few things. Your registered address?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Brindavan Complex on Bannerghatta Road, Vijayawada",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": "in Mumbai."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Is there a landmark? Our surveyors sometimes struggle."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes,"
+    },
+    {
+     "text": "opposite the Forum Mall petrol pump",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you"
+    },
+    {
+     "text": "Deepa",
+     "pii": "GIVEN_NAME",
+     "canonical": "Deepa"
+    },
+    {
+     "text": ", I've noted that."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

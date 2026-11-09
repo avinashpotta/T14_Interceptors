@@ -1,0 +1,58 @@
+{
+ "id": "t38_03",
+ "template": "t38",
+ "scenario": "newsletter",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "I can add you to the priority support list. Which email should I use?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Use"
+    },
+    {
+     "text": "pooja dot chopra at yahoo dot com",
+     "pii": "EMAIL",
+     "canonical": "pooja.chopra@yahoo.com",
+     "style": "spoken"
+    },
+    {
+     "text": "please, and the name is"
+    },
+    {
+     "text": "Pooja",
+     "pii": "GIVEN_NAME",
+     "canonical": "Pooja"
+    },
+    {
+     "text": "Chopra",
+     "pii": "SURNAME",
+     "canonical": "Chopra"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Added. You'll get a confirmation shortly."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

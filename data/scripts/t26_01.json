@@ -1,0 +1,61 @@
+{
+ "id": "t26_01",
+ "template": "t26",
+ "scenario": "appointment",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Can I get an address so the technician knows where to come?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat six oh four, Lake View Heights",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ". It's a bit tricky,"
+    },
+    {
+     "text": "next to the government school",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted, and your name for the job card?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Rithwik",
+     "pii": "GIVEN_NAME",
+     "canonical": "Rithwik"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

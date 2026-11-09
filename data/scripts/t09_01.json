@@ -1,0 +1,91 @@
+{
+ "id": "t09_01",
+ "template": "t09",
+ "scenario": "delivery",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Good morning, Sunrise Insurance logistics. Am I speaking to"
+    },
+    {
+     "text": "Honey",
+     "pii": "GIVEN_NAME",
+     "canonical": "Honey"
+    },
+    {
+     "text": "?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Speaking."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "We have a package for"
+    },
+    {
+     "text": "Sree Nilayam, Jubilee Hills Road number ten",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ". Is someone available there today?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Yes, but the gate is hard to find. It's"
+    },
+    {
+     "text": "just after the flyover",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted. Best number to call on arrival?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "double eight double eight one zero three seven six nine",
+     "pii": "PHONE",
+     "canonical": "8888103769",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

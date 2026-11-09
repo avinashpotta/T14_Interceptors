@@ -1,0 +1,75 @@
+{
+ "id": "t18_00",
+ "template": "t18",
+ "scenario": "telecom",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your broadband installation is scheduled. Confirming the address: could you read it out?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat two one three, Palm Grove Enclave, Residency Road",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "just after the flyover",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the account is under which name?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Joy",
+     "pii": "GIVEN_NAME",
+     "canonical": "Joy"
+    },
+    {
+     "text": "Reddy",
+     "pii": "SURNAME",
+     "canonical": "Reddy"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The technician will call you on arrival."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

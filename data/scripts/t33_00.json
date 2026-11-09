@@ -1,0 +1,82 @@
+{
+ "id": "t33_00",
+ "template": "t33",
+ "scenario": "tax_filing",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "For the filing I'll need the PAN exactly as printed."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "L W V K N eight three zero three U",
+     "pii": "PAN",
+     "canonical": "LWVKN8303U",
+     "style": "letters_digits"
+    },
+    {
+     "text": ", in the name of"
+    },
+    {
+     "text": "Aditya",
+     "pii": "GIVEN_NAME",
+     "canonical": "Aditya"
+    },
+    {
+     "text": "Verma",
+     "pii": "SURNAME",
+     "canonical": "Verma"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the Aadhaar for linking?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "eight four one one two nine six nine six nine one two",
+     "pii": "AADHAAR",
+     "canonical": "841129696912",
+     "style": "digit_by_digit"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The return will be filed by Friday."
+    }
+   ]
+  }
+ ],
+ "split": "dev"
+}

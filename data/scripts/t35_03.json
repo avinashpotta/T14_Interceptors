@@ -1,0 +1,73 @@
+{
+ "id": "t35_03",
+ "template": "t35",
+ "scenario": "subsidy",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The subsidy application needs your Aadhaar for the direct transfer."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It is"
+    },
+    {
+     "text": "eight five zero, nine seven eight, six nine nine, one two nine",
+     "pii": "AADHAAR",
+     "canonical": "850978699129",
+     "style": "grouped"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And confirming the beneficiary name?"
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Honey",
+     "pii": "GIVEN_NAME",
+     "canonical": "Honey"
+    },
+    {
+     "text": "Singh",
+     "pii": "SURNAME",
+     "canonical": "Singh"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The amount will be credited within ten working days."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

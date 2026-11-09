@@ -9,7 +9,7 @@ leaves the machine.
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/python scripts/render_dataset.py        # build audio + ground truth
+.venv/bin/python scripts/render_corpus.py        # build audio + ground truth
 .venv/bin/python scripts/demo.py data/audio/d001.wav out.wav
 ```
 

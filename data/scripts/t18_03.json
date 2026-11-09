@@ -1,0 +1,75 @@
+{
+ "id": "t18_03",
+ "template": "t18",
+ "scenario": "telecom",
+ "wordlike_name": false,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Your broadband installation is scheduled. Confirming the address: could you read it out?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "flat two one three, Gokul Nivas, Anna Salai",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ","
+    },
+    {
+     "text": "opposite the Forum Mall petrol pump",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And the account is under which name?"
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Divya",
+     "pii": "GIVEN_NAME",
+     "canonical": "Divya"
+    },
+    {
+     "text": "Banerjee",
+     "pii": "SURNAME",
+     "canonical": "Banerjee"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "The technician will call you on arrival."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

@@ -1,0 +1,109 @@
+{
+ "id": "t04_01",
+ "template": "t04",
+ "scenario": "kyc_update",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Hello, this is Divya from Sunrise Insurance calling regarding your pending KYC update."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Oh yes, I've been meaning to finish that."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Could you confirm your full name as it appears on the document?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "Prince",
+     "pii": "GIVEN_NAME",
+     "canonical": "Prince"
+    },
+    {
+     "text": "Sharma",
+     "pii": "SURNAME",
+     "canonical": "Sharma"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And your Aadhaar number please?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "It's"
+    },
+    {
+     "text": "eight seven three double one two five seven three six one nine",
+     "pii": "AADHAAR",
+     "canonical": "873112573619",
+     "style": "with_doubles"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Noted. I'll also need your PAN."
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "L P G Y V five five seven eight J",
+     "pii": "PAN",
+     "canonical": "LPGYV5578J",
+     "style": "letters_digits"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

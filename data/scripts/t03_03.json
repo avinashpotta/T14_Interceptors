@@ -1,0 +1,73 @@
+{
+ "id": "t03_03",
+ "template": "t03",
+ "scenario": "account_verification",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Welcome to Metro Broadband. Before we proceed I'll need to verify a few details. Your name?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Honey",
+     "pii": "GIVEN_NAME",
+     "canonical": "Honey"
+    },
+    {
+     "text": "Gupta",
+     "pii": "SURNAME",
+     "canonical": "Gupta"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "And an email address on file?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "That would be"
+    },
+    {
+     "text": "honey dot gupta at gmail dot com",
+     "pii": "EMAIL",
+     "canonical": "honey.gupta@gmail.com",
+     "style": "spoken"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Rishi",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Thank you, verification complete."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}

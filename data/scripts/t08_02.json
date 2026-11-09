@@ -1,0 +1,69 @@
+{
+ "id": "t08_02",
+ "template": "t08",
+ "scenario": "delivery",
+ "wordlike_name": true,
+ "turns": [
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Our delivery partner couldn't locate the address. Could you give me directions?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Sure. The address is"
+    },
+    {
+     "text": "Silver Oak Apartments on Residency Road, Coimbatore",
+     "pii": "ADDRESS"
+    },
+    {
+     "text": ". Tell him it's"
+    },
+    {
+     "text": "opposite the old bus stand",
+     "pii": "LANDMARK"
+    },
+    {
+     "text": "."
+    }
+   ]
+  },
+  {
+   "voice": "Tara",
+   "speaker": "agent",
+   "segments": [
+    {
+     "text": "Understood, I'll pass that along. And the name for the package?"
+    }
+   ]
+  },
+  {
+   "voice": "Aman",
+   "speaker": "customer",
+   "segments": [
+    {
+     "text": "Golden",
+     "pii": "GIVEN_NAME",
+     "canonical": "Golden"
+    },
+    {
+     "text": "Goli",
+     "pii": "SURNAME",
+     "canonical": "Goli"
+    },
+    {
+     "text": "."
+    }
+   ]
+  }
+ ],
+ "split": "test"
+}
