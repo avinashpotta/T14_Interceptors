@@ -1,0 +1,42 @@
+{
+  "id": "d001",
+  "template": "t01_account_verification",
+  "notes": "Hard cases: given name is an ordinary English word; phone read out as words; landmark-relative address.",
+  "turns": [
+    {"voice": "Rishi", "speaker": "agent", "segments": [
+      {"text": "Thank you for calling customer support. Before I pull up the account, could I take your full name please?"}
+    ]},
+    {"voice": "Aman", "speaker": "customer", "segments": [
+      {"text": "Sure, it's"},
+      {"text": "Rose", "pii": "GIVEN_NAME"},
+      {"text": "Mathew", "pii": "SURNAME"},
+      {"text": "."}
+    ]},
+    {"voice": "Rishi", "speaker": "agent", "segments": [
+      {"text": "Thanks. And the mobile number registered with us?"}
+    ]},
+    {"voice": "Aman", "speaker": "customer", "segments": [
+      {"text": "It is"},
+      {"text": "nine eight seven six five four three two one zero", "pii": "PHONE"},
+      {"text": "."}
+    ]},
+    {"voice": "Rishi", "speaker": "agent", "segments": [
+      {"text": "Got it. Could you confirm the delivery address on file?"}
+    ]},
+    {"voice": "Aman", "speaker": "customer", "segments": [
+      {"text": "Yes, it's"},
+      {"text": "flat four oh two, Shanti Residency", "pii": "ADDRESS"},
+      {"text": ","},
+      {"text": "opposite the Forum Mall petrol pump", "pii": "LANDMARK"},
+      {"text": "."}
+    ]},
+    {"voice": "Rishi", "speaker": "agent", "segments": [
+      {"text": "Perfect. And an email where I can send the confirmation?"}
+    ]},
+    {"voice": "Aman", "speaker": "customer", "segments": [
+      {"text": "You can use"},
+      {"text": "rose dot mathew at gmail dot com", "pii": "EMAIL"},
+      {"text": ". Thank you."}
+    ]}
+  ]
+}
