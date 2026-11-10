@@ -22,7 +22,7 @@ from piiaudio.evaluate import Span, Tally, score_dialogue, paired_delta
 from piiaudio.redact import DEFAULT_MARGIN_MS
 
 M = DEFAULT_MARGIN_MS / 1000.0
-CONDS = ["clean", "noise20", "noise10", "echo"]
+CONDS = ["clean", "noise20", "noise10", "echo", "phone", "phone_noisy"]
 
 
 def cache(did, cond):

@@ -317,17 +317,39 @@ ASR cost on names, emails and addresses is clean.)
 | condition | F2 | ΔF2 vs clean | significant |
 |---|---|---|---|
 | clean | 0.719 | — | — |
-| pink noise, 20 dB SNR | 0.728 | +0.008 | no |
-| pink noise, 10 dB SNR | 0.704 | −0.015 | no |
-| room echo | 0.721 | +0.001 | no |
-| telephone band | *(pending)* | | |
-| telephone + noise | *(pending)* | | |
+| pink noise, 20 dB SNR | 0.728 | +0.008 [−0.014, +0.034] | no |
+| pink noise, 10 dB SNR | 0.704 | −0.015 [−0.044, +0.017] | no |
+| room echo | 0.721 | +0.001 [−0.023, +0.029] | no |
+| telephone band | 0.688 | −0.031 [−0.069, +0.004] | borderline |
+| **telephone + noise** | **0.666** | **−0.053 [−0.095, −0.013]** | **yes** |
 
-Additive noise and reverberation produced **no measurable degradation** at
-these levels. This is a negative result worth stating plainly: Whisper was
+Additive noise and reverberation produce **no measurable degradation** at
+these levels. This is worth stating plainly rather than burying: Whisper was
 trained on 680,000 hours of noisy web audio and is robust to exactly this kind
-of corruption. It also means our first attempt tested the wrong thing, which
-is why the telephony conditions were added.
+of corruption. Our first attempt therefore tested the wrong thing.
+
+The degradation that matters for this domain is the **telephone line itself** —
+restriction to 300–3400 Hz and 8-bit μ-law companding, which removes frequency
+bands outright rather than burying them under noise. Band-limiting alone is
+borderline; band-limiting *with* background noise is the only condition in
+this study that significantly degrades the system, and it is also the one that
+most resembles a real support call.
+
+Per-type under telephone + noise, against clean:
+
+| type | clean | telephone + noise | change |
+|---|---|---|---|
+| EMAIL | 75% | **56%** | −19 |
+| AADHAAR | 85% | 75% | −10 |
+| PAN | 81% | 69% | −12 |
+| GIVEN_NAME | 84% | 79% | −5 |
+| SURNAME | 89% | 86% | −3 |
+| PHONE | 68% | 64% | −4 |
+
+Email degrades worst by a wide margin. This follows from §5.1: an email
+survives as a *multi-token structure* (`neha .goli at gmail .com`) and the
+pattern needs nearly all of it intact, so corruption anywhere breaks the
+match. Names need only one token to survive.
 
 ### 5.7 What nothing detects
 

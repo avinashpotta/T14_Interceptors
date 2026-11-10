@@ -545,3 +545,46 @@ effect is real and mechanistically explained, but its magnitude partly
 reflects our pattern coverage, and a spoken-form pattern set would narrow it.
 The open-class types (names, addresses, emails) carry no such confound — the
 gazetteer and NER are text-agnostic — so the 9–22% ASR cost there is clean.
+
+---
+
+## Day 4 — degraded audio
+
+## D30. Pink noise, not white; and telephony, after the first attempt failed
+**Date:** 10 Nov · **Affects:** §4.2, §5.6
+
+White noise has flat power per hertz, so most of its energy sits above the
+speech band and the ASR shrugs it off. Pink noise falls at 1/f, roughly how
+room hum, traffic and chatter are distributed, so it competes with speech.
+Level is set by SNR against the speech itself, so quiet and loud dialogues are
+degraded comparably.
+
+It made no difference anyway. **Neither pink noise at 10 dB SNR nor room echo
+produced a measurable change in F2** — every interval crossed zero. Whisper
+was trained on 680k hours of noisy web audio and is robust to this.
+
+So we tested the degradation this project's domain actually involves: a
+telephone line. Band-limiting to 300-3400 Hz plus 8-bit μ-law companding
+removes frequency bands outright. Band-limiting alone is borderline
+(−0.031 [−0.069, +0.004]); with background noise it is the only condition that
+significantly degrades the system (**−0.053 [−0.095, −0.013]**).
+
+The first attempt testing the wrong thing is itself worth reporting — "we
+added noise and nothing happened" is a result about Whisper's robustness, not
+a failed experiment.
+
+---
+
+## Finding F13 — only a phone line degrades the system, and email suffers most
+
+| type | clean | telephone + noise |
+|---|---|---|
+| EMAIL | 75% | **56%** |
+| PAN | 81% | 69% |
+| AADHAAR | 85% | 75% |
+| GIVEN_NAME | 84% | 79% |
+| SURNAME | 89% | 86% |
+
+Email degrades worst because it survives as a multi-token structure
+(`neha .goli at gmail .com`) and the pattern needs nearly all of it intact.
+A name needs one token to survive; an email needs five.
