@@ -325,3 +325,82 @@ TTS twin holds.
 Sheets carry no PII markup at all, for the same reason: marking the sensitive
 words would invite careful over-enunciation of precisely the words whose
 natural pronunciation we are measuring.
+
+---
+
+## Day 3 — scoring and the name layer
+
+## D22. Recall is span-level, precision is duration-level
+**Date:** 10 Nov · **Affects:** every headline number
+
+Recall asks "was each sensitive item protected?" — a person is either
+protected or not, so items are the unit. Precision asks "how much of what we
+destroyed needed destroying?" — seconds are the unit, because one enormous
+beep is far worse than one small one.
+
+Span-counted precision gets this catastrophically wrong, and our own harness
+proved it before any detector ran: a detector beeping the **entire recording**
+overlaps every gold span, records zero false positives, and scores a perfect
+P=1.00 R=1.00 F2=1.00 while producing audio nobody can use. Under
+duration-based precision the same detector scores F2 0.62 with over-redaction
+flagged at 100%.
+
+## D23. Bootstrap resamples dialogues, not spans
+**Date:** 10 Nov · **Affects:** every confidence interval
+
+Spans inside one dialogue share a speaker, a template and a transcription, so
+they are not independent. Resampling spans would give intervals several times
+too narrow and manufacture significance that is not there.
+
+## D24. Gazetteers come from outside our own vocabulary
+**Date:** 10 Nov · **Affects:** validity of Levels 2 and 4
+
+Built from NLTK's US-Census names (western, 7.5k) and the Indian-Male/Female
+name CSVs (indian, 8.7k), never from `data/vocab.json`. Building it from our
+own vocab would give Level 2 perfect prior knowledge of every corpus name —
+an oracle, not a baseline — and make Level 4 look bad for no real reason.
+
+## D25. Compressed ASR tokens need their span expanded
+**Date:** 10 Nov · **Affects:** §5 "did the beep land", PAN and PHONE recall
+
+`M W P H M eight one three three G` is spoken over **2.13 s** and returns as
+the single token `MWPHM8133G` timestamped at **0.52 s** — 24% of the real
+duration, because the DTW alignment gives a collapsed token one narrow
+attention peak. Beeping that range leaves three quarters of the PAN audible.
+
+This is why PAN was *detected* 81% of the time but *fully redacted* only 38%.
+`char_to_time` now claims the audio out to the neighbouring undetected words —
+whatever the ASR collapsed must live in that gap — capped at 2 s so a long
+pause cannot drag the beep across unrelated speech.
+
+| | before | after |
+|---|---|---|
+| PAN recall | 38% | **81%** |
+| PHONE recall | 54% | **68%** |
+| over-redaction | 3.7% | 7.5% |
+
+**Detection success is not redaction success.** That distinction is the whole
+reason §5 asks for coverage separately, and it would have been invisible
+without it.
+
+---
+
+## Finding F6 — a Western name list does not transfer to Indian names
+
+§1 asserts this from the literature. Measured on our corpus:
+
+| name group | western list | indian list |
+|---|---|---|
+| common Indian given names | **11%** | 80% |
+| word-like given names | 58% | 75% |
+| surnames | **10%** | 57% |
+
+End-to-end recall on the test split follows directly: GIVEN_NAME 26% → 72%,
+SURNAME 7% → 55% simply by swapping the list. The claim is no longer borrowed.
+
+## Finding F7 — ADDRESS and LANDMARK are undetected, and it is not a timing problem
+
+ADDRESS 7%, LANDMARK 7%. Unlike PAN, the ASR word timings cover 97–100% of
+those gold spans, so the timing is fine — we simply have no detector for
+them. Regex has no address pattern and a name gazetteer contains no streets.
+This is what the NER half of Level 4 has to earn its place on.

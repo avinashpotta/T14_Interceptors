@@ -47,7 +47,8 @@ class Transcription:
     model: str
     beam_size: int
 
-    def char_to_time(self, char_start: int, char_end: int) -> tuple[float, float] | None:
+    def char_to_time(self, char_start: int, char_end: int,
+                     expand: bool = True, max_expand: float = 2.0) -> tuple[float, float] | None:
         """Map a character span in `self.text` back to an audio time range.
 
         This is the join that makes the pipeline work: detectors operate on
@@ -58,7 +59,29 @@ class Transcription:
         hit = [w for w in self.words if w.char_end > char_start and w.char_start < char_end]
         if not hit:
             return None
-        return min(w.start for w in hit), max(w.end for w in hit)
+        start, end = min(w.start for w in hit), max(w.end for w in hit)
+        if not expand:
+            return start, end
+
+        # A COMPRESSED TOKEN UNDER-REPRESENTS ITS OWN AUDIO.
+        # "M W P H M eight one three three G" is spoken over 2.13 s and comes
+        # back as the single token "MWPHM8133G" timestamped at 0.52 s - 24% of
+        # the real duration - because the DTW alignment gives it one narrow
+        # attention peak. Beeping that range leaves three quarters of the PAN
+        # audible. Measured across the corpus this is why PAN is detected 81%
+        # of the time but fully redacted only 38%.
+        #
+        # So we claim the audio out to the neighbouring words that were NOT
+        # detected: whatever the ASR collapsed has to live in that gap. Capped,
+        # so a long pause does not drag the beep across unrelated speech.
+        idx = [i for i, w in enumerate(self.words)
+               if w.char_end > char_start and w.char_start < char_end]
+        lo, hi = min(idx), max(idx)
+        prev_end = self.words[lo - 1].end if lo > 0 else 0.0
+        next_start = self.words[hi + 1].start if hi + 1 < len(self.words) else end
+        start = max(prev_end, start - max_expand) if lo > 0 else max(0.0, start - max_expand)
+        end = min(next_start, end + max_expand) if hi + 1 < len(self.words) else end + max_expand
+        return start, end
 
     # --- serialisation -----------------------------------------------------
     # Transcription is the expensive step (~4 s per dialogue, and the corpus is

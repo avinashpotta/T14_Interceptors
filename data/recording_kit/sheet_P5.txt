@@ -29,8 +29,6 @@ SAVING AND SENDING
     (matching the "RECORDING n" heading below)
   * Send all 10 files to Alex, unedited. Do not trim or clean them up.
 
-Thank you - this takes under half an hour and it is the only part of the
-project that cannot be generated automatically.
 
 
 ============================================================
