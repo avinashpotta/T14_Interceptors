@@ -473,3 +473,75 @@ LOCATION and little on Indian PERSON names.
 Confirmed on ADDRESS and GIVEN_NAME — the Indian gazetteer beats the Western
 NER on Indian given names. SURNAME went the other way (84% vs 73%), which the
 prediction did not anticipate.
+
+---
+
+## Day 3 (late) — the error-attribution experiment
+
+## D28. Attribution is scored in character space, with gold spans projected
+**Date:** 10 Nov · **Affects:** §5 headline experiment
+
+Both conditions run the identical detector with the identical criterion; the
+only difference is whether it is handed the reference transcript or Whisper's.
+Gold spans are projected into ASR coordinates by token alignment
+(`src/piiaudio/align.py`), so "did we find this item" means the same thing in
+both. A span that cannot be projected was destroyed outright and counts as an
+ASR-caused miss by construction.
+
+Every item lands in exactly one of four cells. The first version of this
+script reported overlapping categories and produced "detector never had it:
+101%", which is how the fourth cell — **items the ASR made findable** — was
+discovered.
+
+## D29. `require_capital` stays on, because dev says so
+**Date:** 10 Nov · **Affects:** method, more than score
+
+Attribution surfaced names Whisper transcribed *perfectly* that we missed
+anyway (`Das` → `das.`, `Antony` → `.antony`): the capitalisation filter
+rejects them, since Whisper's casing is inconsistent and a leading period
+makes a token start lowercase. We were charging our own bug to the ASR.
+
+Relaxing the filter: **dev −0.003 F2, test +0.007 F2 (not significant)**. Dev
+is where tuning happens, so it stays on. Had we looked at test first we would
+have changed it for a gain that is not real. The effect is tiny either way;
+the discipline is the point.
+
+---
+
+## Finding F11 — failures split almost exactly in half
+
+Of the 67 test items the full system fails to redact:
+
+| cause | share | n |
+|---|---|---|
+| speech recognition destroyed it | **52%** | 35 |
+| detector could not find it anyway | **48%** | 32 |
+
+Neither half of the pipeline dominates. Effort spent only on better detection
+would address at most half the remaining error, and the same for a better ASR.
+
+## Finding F12 — for structured identifiers, the ASR *helps*
+
+The fourth cell of the attribution table: items found in Whisper's transcript
+but **not** in the true one.
+
+| type | lost to ASR | rescued by ASR |
+|---|---|---|
+| PAN | 0% | **62%** |
+| AADHAAR | 15% | **50%** |
+| PHONE | 29% | **46%** |
+| SURNAME | 18% | 0% |
+| EMAIL | 22% | 0% |
+| GIVEN_NAME | 9% | 0% |
+
+Spoken identifiers are *harder* to pattern-match than Whisper's normalised
+output: `M W P H M eight one three three G` defeats a PAN pattern that
+`MWPHM8133G` satisfies. A perfect transcript would not help here — it would
+hurt.
+
+**Caveat, stated plainly:** our Level 1 patterns are deliberately ASR-aware
+(D16), so they under-fire on spoken text by design. The direction of the
+effect is real and mechanistically explained, but its magnitude partly
+reflects our pattern coverage, and a spoken-form pattern set would narrow it.
+The open-class types (names, addresses, emails) carry no such confound — the
+gazetteer and NER are text-agnostic — so the 9–22% ASR cost there is clean.
