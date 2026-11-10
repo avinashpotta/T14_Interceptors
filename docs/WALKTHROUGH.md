@@ -3,7 +3,7 @@
 Written to be read cold, months later, before an interview. `DECISIONS.md` is
 the terse log of choices; this is the explanation underneath them.
 
-Grows as the project does. Day 1 content is complete.
+Grows as the project does. Days 1-3 complete.
 
 ---
 
@@ -329,6 +329,181 @@ lost it on the ASR transcript — the error-attribution experiment in miniature.
 
 ---
 
+## Part 9 — Building a corpus you can trust (Day 2)
+
+### Data leakage, and why template-level splitting
+
+Every dialogue generated from one template shares its *phrasing*; only the
+slot fills differ. Split the 152 dialogues randomly and `t04_00` lands in dev
+while `t04_01` lands in test — near-identical sentences. Anything keyed on
+phrasing (a tuned threshold, a rule, a model) is then scored on material it
+has effectively already seen, and the test number is inflated and meaningless.
+
+Whole templates are assigned to a split: 15 templates / 60 dialogues dev,
+23 / 92 test, **zero overlap**, stratified by scenario.
+
+The objection you will get: *"you train nothing, so why does leakage matter?"*
+Because we still **tune** — the detection threshold, the redaction margin, the
+capitalisation filter are all chosen on dev. Tuning is fitting. Same risk,
+same fix.
+
+### Speaking style as an experimental variable
+
+Day 1's finding (Whisper normalising spoken digits) promoted "how was the
+number read aloud" from an incidental detail to the independent variable.
+Every numeric identifier is generated with a known canonical value and spoken
+in one of four realistic styles, balanced at 24 each:
+
+```
+canonical 6983444174
+  digit_by_digit  six nine eight three four four four one seven four
+  with_doubles    six nine eight three double four four one seven four
+  paired          sixty nine, eighty three, forty four, forty one, seventy four
+  grouped         six nine eight, three four four, four one seven, four
+```
+
+`GoldSpan` carries `canonical` alongside the spoken text, so "did Whisper
+recover the right digits?" is separable from "how were they spoken?".
+
+### Two bugs that would have silently corrupted everything
+
+**`say` speaks punctuation.** Not a pause — `.` produces 0.96 s of audio, `?`
+produces 1.10 s. There were 288 punctuation-only segments, nearly all
+immediately after a PII span. That is ~4 minutes of spurious audio injected
+exactly where timing accuracy matters most.
+
+**`say` exits 0 while writing silence.** Five PII segments came back as
+0.017-0.032 s — the trim padding alone. A silent gold span is PII **no
+detector can ever find**: an unfixable miss that depresses recall unequally
+across the four levels, which is how a comparison table ends up lying.
+
+The general lesson: **a zero exit code means the program did not crash, not
+that it did the job.** When a tool's real output is a file, validate the
+artefact, not the status.
+
+---
+
+## Part 10 — Measuring it honestly (Day 3)
+
+### The metric trap, found before any detector ran
+
+The first scoring harness used span-counted precision. Tested against a
+detector that beeps **the entire recording**, it reported:
+
+```
+P=1.00  R=1.00  F2=1.00
+```
+
+Perfect — while destroying the whole call. One giant span overlaps every gold
+span, so it records zero false positives.
+
+The fix is that **recall and precision need different units**:
+
+* **Recall is span-level** — "was each sensitive item protected?" A person is
+  either protected or not, so items are the unit.
+* **Precision is duration-level** — "how much of what we destroyed needed
+  destroying?" Seconds are the unit, because one enormous beep is far worse
+  than one small one.
+
+Under duration-based precision the same beep-everything detector scores F2
+0.62 with over-redaction flagged at 100%.
+
+### F2, and why precision is not free
+
+F2 = 5PR / (4P + R). Recall counts four times as heavily because missing an
+identifier is a breach and beeping a spare word is an annoyance. That does
+**not** make precision irrelevant:
+
+| approach | recall | precision | F2 |
+|---|---|---|---|
+| aggressive gazetteer | 0.95 | 0.25 | **0.61** |
+| conservative | 0.70 | 0.90 | **0.73** |
+
+The aggressive version *loses* despite 25 more points of recall. And `over_redaction`
+captures a cost F2 misses entirely: a call where a third of the words are
+tones is not redacted, it is ruined.
+
+### Bootstrap over dialogues, not spans
+
+Spans inside one dialogue share a speaker, a template and a transcription, so
+they are not independent. Resampling spans would give intervals several times
+too narrow and manufacture significance that is not there. The dialogue is
+the independent unit.
+
+### Overlapping intervals are not a significance test
+
+Reading two separately-computed CIs and checking for overlap is **strictly
+more conservative** than testing whether the difference is zero, and it
+routinely reports "no difference" for real ones. Both systems score the same
+dialogues, so per-dialogue noise is shared and cancels when the pair is
+resampled together.
+
+It changed a conclusion here. `rules + NER` [0.67-0.76] vs `NER only`
+[0.62-0.72] looks indistinguishable from the intervals. Paired:
+**+0.049 [+0.026, +0.077]** — clearly real.
+
+### The gazetteer needs a stoplist, and the measurement proves it
+
+Using only 51 ambiguous names (a real list has ~100k), on our own transcripts:
+**24% precision**. The false fires are the lesson:
+
+```
+"May I know who I'm speaking with?"   <- may   (the most common agent phrase)
+"I'll need your PAN card details"     <- card
+"Your bill has been corrected"        <- bill
+```
+
+Hence stoplist + context cues + capitalisation — which is exactly the
+predicate logic §2 specifies: *redact if it is in a name list and not a common
+English word, OR if it follows a name-introducing phrase*. The second clause
+is what catches a name no list contains.
+
+### The ORG trap
+
+spaCy emits PERSON, GPE, LOC, FAC, ORG. `ORG` is deliberately **excluded**:
+our dialogues are full of "Nexa Telecom", "CityFirst Bank" — the company being
+*called*, which is not the customer's PII. Tagging it would beep a brand name
+in nearly every dialogue for no privacy gain.
+
+### Detection success is not redaction success
+
+The single most useful diagnostic. PAN was *detected* 81% of the time and
+*fully redacted* only 38%:
+
+```
+spoken  "M W P H M eight one three three G"   2.13 s
+ASR     "MWPHM8133G"                          0.52 s   <- 24% of the duration
+```
+
+A collapsed token gets one narrow attention peak from the DTW alignment, so
+its timestamp covers a quarter of the audio it represents. The detector was
+right; the clock was wrong. Expanding each detection to the neighbouring
+undetected words took PAN 38% -> 81% and PHONE 54% -> 68%, for 7.5%
+over-redaction instead of 3.7%.
+
+**Only a coverage metric kept separate from a detection metric can tell you
+which of the two failed.**
+
+### The attribution experiment
+
+Run the identical detector on the reference transcript and on Whisper's, and
+diff. Every item falls in exactly one of four cells:
+
+| | found on ASR | not found on ASR |
+|---|---|---|
+| **found on reference** | both (62%) | **lost to ASR** (13%) |
+| **not found on reference** | **rescued by ASR** (13%) | neither (12%) |
+
+Of the 67 failures: **52% destroyed by the ASR, 48% the detector could not
+find anyway.** Neither half of the pipeline dominates.
+
+The fourth cell was discovered by fixing broken accounting that reported
+"detector never had it: 101%". For PAN, AADHAAR and PHONE the ASR **rescues**
+items — spoken identifiers are harder to pattern-match than normalised ones,
+so a perfect transcript would make things worse.
+
+---
+
 ## Part 8 — Questions an interviewer would actually ask
 
 **"How do you know where in the audio to beep?"**
@@ -372,3 +547,43 @@ The corpus is mostly TTS, and because segments are rendered separately there
 is a slight pause at every PII boundary that real speech would not have. That
 is a cue the ASR gets for free, so our numbers are optimistic. We report it,
 and the human-recorded subset measures the size of the gap.
+
+**"How do you know your comparison between approaches is fair?"**
+Three things. The gazetteers come from outside our own vocabulary — building
+them from the generation vocab would have given the baseline perfect
+knowledge of every corpus name, an oracle rather than a baseline. The regex
+baseline is written against what the ASR actually emits, which is worth 49
+points of recall, so a naive version would have flattered every later level by
+that much. And splits are template-level, so no phrasing appears in both.
+
+**"How do you know a difference between two systems is real?"**
+Paired bootstrap over dialogues. Not overlapping confidence intervals — that
+is strictly more conservative and reports "no difference" for real ones. Not
+resampling spans — spans within a dialogue share a speaker and a
+transcription, so that would understate the interval badly.
+
+**"Would a bigger name list have worked instead of a model?"**
+We measured it. A raw list scored 24% precision on our transcripts because a
+large international gazetteer contains *may*, *will*, *card*, *bill*. With a
+stoplist and context rules it reaches F2 0.637; the NER alone reaches 0.672;
+neither is significantly better than the other. But each adds significantly on
+top of the other — +0.049 and +0.083 — so they are complementary, not
+redundant. On given names the rules get 78%, the NER 69%, and together 85%:
+they recover different names.
+
+**"What was the hardest bug?"**
+A metric bug, not a code bug. Span-counted precision scored a detector that
+beeps the entire recording at a perfect 1.00. It was caught by testing the
+scorer against deliberately absurd detectors before any real one existed.
+
+**"Where does your system fail?"**
+Landmark-relative addresses — "opposite the Forum Mall petrol pump". Regex 0%,
+gazetteers 4-7%, NER 4%, everything combined 7%. It defeats patterns, name
+lists and an OntoNotes NER alike. That is §1's claim about Indian addresses,
+confirmed from the failure side.
+
+**"If you had another week, what would you do?"**
+Attribution says it would be split evenly — 52% of remaining failures are
+transcription, 48% detection — so there is no single lever. Concretely:
+phonetic matching for the recoverable near-misses (`Rithwik` -> `Ritwik`), and
+something for landmark phrases, which currently nothing handles.
