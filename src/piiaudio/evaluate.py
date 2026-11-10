@@ -178,3 +178,42 @@ def bootstrap(per_dialogue: list[tuple[list[Span], list[Span], float]],
         v = sorted(draws[k])
         out[k] = (v[int(0.025 * n)], v[int(0.975 * n)])
     return out
+
+
+def paired_delta(a: list[tuple[list[Span], list[Span], float]],
+                 b: list[tuple[list[Span], list[Span], float]],
+                 metric: str = "f2", n: int = 2000, seed: int = 14,
+                 strict_cover: float = STRICT_COVER) -> dict:
+    """Bootstrap the DIFFERENCE between two systems on the same dialogues.
+
+    Comparing two separately-computed confidence intervals and checking whether
+    they overlap is not a test of whether the difference is zero - it is
+    strictly more conservative, and routinely reports "no difference" for
+    differences that are in fact consistent. Because both systems are scored
+    on the identical dialogues, the per-dialogue noise is shared and cancels
+    when we resample the PAIR together. That is the test we actually want.
+
+    Returns the observed difference, its 95% interval, and the share of
+    resamples in which b beat a.
+    """
+    assert len(a) == len(b), "paired comparison needs the same dialogues"
+    rng = random.Random(seed)
+
+    def score(rows):
+        t = Tally()
+        for g, p, d in rows:
+            score_dialogue(g, p, d, t, strict_cover)
+        return t.metrics()[metric]
+
+    observed = score(b) - score(a)
+    deltas = []
+    N = len(a)
+    for _ in range(n):
+        idx = [rng.randrange(N) for _ in range(N)]
+        deltas.append(score([b[i] for i in idx]) - score([a[i] for i in idx]))
+    deltas.sort()
+    return {
+        "observed": observed,
+        "ci": (deltas[int(0.025 * n)], deltas[int(0.975 * n)]),
+        "p_better": sum(1 for d in deltas if d > 0) / n,
+    }

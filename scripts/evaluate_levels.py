@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from piiaudio.asr import Transcription
 from piiaudio.detect.base import merge
 from piiaudio.detect.names import NameListDetector
+from piiaudio.detect.ner import NerDetector
 from piiaudio.detect.regex_rules import RegexDetector
 from piiaudio.evaluate import Span, Tally, score_dialogue, bootstrap
 from piiaudio.redact import DEFAULT_MARGIN_MS
@@ -29,6 +30,10 @@ def levels() -> dict:
         "L2 + both lists":          [rx, NameListDetector("both")],
         "L4 rules (no NER)":        [rx, NameListDetector("both", use_context=True,
                                                           require_capital=True)],
+        "L3 NER only":              [rx, NerDetector()],
+        "L4 rules + NER":           [rx, NameListDetector("both", use_context=True,
+                                                          require_capital=True),
+                                     NerDetector()],
     }
 
 

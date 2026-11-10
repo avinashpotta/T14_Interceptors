@@ -404,3 +404,72 @@ ADDRESS 7%, LANDMARK 7%. Unlike PAN, the ASR word timings cover 97–100% of
 those gold spans, so the timing is fine — we simply have no detector for
 them. Regex has no address pattern and a name gazetteer contains no streets.
 This is what the NER half of Level 4 has to earn its place on.
+
+## D26. Level comparisons use a paired bootstrap, not overlapping intervals
+**Date:** 10 Nov · **Affects:** every claim about which level is better
+
+Reading two separately-computed confidence intervals and checking whether
+they overlap is not a test of whether the difference is zero. It is strictly
+more conservative and routinely reports "no difference" for differences that
+are real. Both systems are scored on the identical dialogues, so per-dialogue
+noise is shared and cancels when the pair is resampled together.
+
+It changed a conclusion here. From overlapping intervals, `rules + NER`
+[0.67-0.76] versus `NER only` [0.62-0.72] looks indistinguishable. Paired, the
+difference is **+0.049 [+0.026, +0.077]** — clearly real.
+
+## D27. ORG is excluded from the NER label mapping
+**Date:** 10 Nov · **Affects:** over-redaction
+
+`PERSON` maps to our PERSON branch; `GPE`/`LOC`/`FAC` to LOCATION. `ORG` is
+deliberately dropped: our dialogues are full of "Nexa Telecom", "CityFirst
+Bank" — the company being *called*, which is not the customer's personal
+information. Tagging it would beep a brand name in nearly every dialogue for
+no privacy gain. `CARDINAL` is dropped too; it fires on "five gigabytes" and
+"twelve month" far more than on a flat number.
+
+---
+
+## Finding F8 — the rule layer and the neural model are complementary, not redundant
+
+The ablation, paired on 92 test dialogues:
+
+| comparison | ΔF2 | 95% CI | significant |
+|---|---|---|---|
+| NER only vs rules only | +0.035 | [−0.003, +0.072] | **no** |
+| rules + NER vs NER only | +0.049 | [+0.026, +0.077] | **yes** |
+| rules + NER vs rules only | +0.083 | [+0.057, +0.111] | **yes** |
+| rules + NER vs regex only | +0.401 | [+0.358, +0.445] | yes |
+
+**Neither component is clearly better than the other alone, but each adds
+significantly on top of the other.** Per-type shows why: on GIVEN_NAME the
+rule layer gets 78%, the NER 69%, and together 85% — they recover different
+names. A carefully-built rule layer is not made obsolete by an off-the-shelf
+neural model, and vice versa.
+
+## Finding F9 — landmark addresses are detected by nothing
+
+LANDMARK recall: regex 0%, western list 4%, indian list 7%, rules 7%,
+NER 4%, rules+NER **7%**. Across every level, "opposite the Forum Mall petrol
+pump" and "behind the Ganesh temple" are essentially invisible — 28 of 268
+test spans at near-zero.
+
+§1 argues that Indian addresses "are often given by landmark rather than in a
+fixed format". This is that claim, confirmed from the failure side: the
+landmark-relative form defeats patterns, gazetteers and an OntoNotes NER
+alike. ADDRESS proper reaches 61% once the NER is in; LANDMARK does not move.
+
+## Finding F10 — the NER helps where F6 predicts, and not where it does not
+
+Predicted before running: spaCy is OntoNotes-trained, so it should help on
+LOCATION and little on Indian PERSON names.
+
+| type | rules | NER | both |
+|---|---|---|---|
+| ADDRESS | 7% | **54%** | 61% |
+| GIVEN_NAME | 78% | **69%** | 85% |
+| SURNAME | 73% | 84% | 89% |
+
+Confirmed on ADDRESS and GIVEN_NAME — the Indian gazetteer beats the Western
+NER on Indian given names. SURNAME went the other way (84% vs 73%), which the
+prediction did not anticipate.
