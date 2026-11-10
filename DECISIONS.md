@@ -263,3 +263,65 @@ on the four types it can address, with **0 false positives** across 36
 dialogues containing none. It cannot address PERSON or LOCATION at all, so
 across all 440 spans Level 1 recovers **30%**. That 220-span gap is what
 Levels 2–4 exist to close.
+
+---
+
+## Day 2 (late) — human recording kit
+
+## D17. Readers read scripts already in the TTS corpus
+**Date:** 9 Nov · **Affects:** the TTS-flattery measurement
+
+Every human recording has a synthetic twin with identical text and identical
+PII, so the only variable is the voice source. New dialogues would confound
+voice with text and any difference would be unattributable.
+
+This is what turns D1's declared limitation — "TTS seams flatter the ASR, our
+numbers are optimistic" — from an assertion in the limitations section into a
+measured quantity, on a paired design that is far more powerful at n=42 than
+an unpaired one.
+
+## D18. The detector is not involved in producing human ground truth
+**Date:** 9 Nov · **Affects:** validity of every human-audio result
+
+PII in the human recordings is located by matching the **known script**
+against the transcript, never by running our detector. Script supplies the
+labels, Whisper supplies the timings, a human confirms the boundaries.
+
+**Why it matters:** if we beeped the *detector's* output and asked someone
+"can you still hear the name?", a yes would be ambiguous between a detector
+miss — the result we are trying to measure — and a bad label. We would end up
+editing ground truth until our own system looked perfect. Two passes, in
+order: pass 1 builds truth, pass 2 is graded against it.
+
+## D19. No margin on proposed ground truth
+**Date:** 9 Nov · **Affects:** sensitivity of the verification step
+
+The first version padded each proposed boundary by 120 ms. That makes the
+check audio insensitive to exactly the error it exists to catch — pad either
+side and a boundary 100 ms wrong still sounds clean, so the listener confirms
+a bad label. It also made a given name and the surname after it overlap.
+
+Ground truth is the true extent of the speech. The 150 ms redaction margin is
+a separate, reported parameter and lives in `redact.py`.
+
+## D20. Span confidence is scored against the canonical value too
+**Date:** 9 Nov · **Affects:** how much manual checking the kit costs
+
+A perfectly transcribed phone number reads `9584917185` where the reader said
+"nine five eight four nine one seven one eight five" — zero string overlap
+despite being exactly right. Scoring similarity only against the spoken form
+flagged 9 of 10 recordings for manual review. Comparing against the canonical
+value as well drops that to 1, and the survivor is a genuine failure
+(`Joy` → `Ja`, a word-like name mangled by the ASR).
+
+## D21. Reader sheets hyphenate letter-by-letter sequences
+**Date:** 9 Nov · **Affects:** PAN data quality
+
+A PAN spelled out can contain `D O T`, which a reader may well say as "dot".
+Sheets render those as `N-D-O-T-P-zero-one-nine-eight-X`. This changes only
+what the reader sees — the spoken content is identical, so the pair with the
+TTS twin holds.
+
+Sheets carry no PII markup at all, for the same reason: marking the sensitive
+words would invite careful over-enunciation of precisely the words whose
+natural pronunciation we are measuring.
