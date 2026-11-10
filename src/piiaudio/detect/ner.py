@@ -31,6 +31,7 @@ from __future__ import annotations
 from functools import lru_cache
 
 from .base import Detection
+from ..gazetteer import DOMAIN_STOPWORDS, stoplist
 
 PERSON_LABELS = {"PERSON"}
 LOCATION_LABELS = {"GPE", "LOC", "FAC"}
@@ -59,8 +60,17 @@ class NerDetector:
         if self._nlp is None:
             self._nlp = _load(self.model)
         out: list[Detection] = []
+        stop = stoplist()
         for ent in self._nlp(text).ents:
             if ent.label_ in EXCLUDED:
+                continue
+            # The domain stoplist applies to model output too, not just to the
+            # gazetteer. spaCy tags "Aadhaar" and "KYC" as entities because
+            # they are capitalised unfamiliar tokens; beeping the word
+            # "Aadhaar" protects nobody and destroys the sentence that tells
+            # you an Aadhaar number is coming.
+            toks = [t.strip(".,?!'").lower() for t in ent.text.split()]
+            if toks and all(t in DOMAIN_STOPWORDS or t in stop for t in toks):
                 continue
             if ent.label_ in PERSON_LABELS and self.persons:
                 pii = "GIVEN_NAME"
