@@ -66,9 +66,53 @@ def add_echo(samples: np.ndarray, wet: float = 1.0) -> np.ndarray:
     return out.astype(np.float32)
 
 
+def band_limit(samples: np.ndarray, low: float = 300.0, high: float = 3400.0) -> np.ndarray:
+    """Restrict to the telephone band via FFT masking, with soft edges."""
+    spec = np.fft.rfft(samples)
+    f = np.fft.rfftfreq(samples.size, 1.0 / SAMPLE_RATE)
+    mask = np.ones_like(f)
+    mask[f < low] = 0.0
+    mask[f > high] = 0.0
+    # 100 Hz raised-cosine skirts; a brick wall rings badly in the time domain
+    for edge, rising in ((low, True), (high, False)):
+        band = (f >= edge - 100) & (f <= edge + 100) if rising else \
+               (f >= edge - 100) & (f <= edge + 100)
+        if band.any():
+            x = (f[band] - (edge - 100)) / 200.0
+            ramp = 0.5 * (1 - np.cos(np.pi * x))
+            mask[band] = ramp if rising else 1.0 - ramp
+    return np.fft.irfft(spec * mask, n=samples.size).astype(np.float32)
+
+
+def mu_law(samples: np.ndarray, mu: float = 255.0) -> np.ndarray:
+    """G.711 companding round-trip - the quantisation a phone line applies."""
+    x = np.clip(samples, -1.0, 1.0)
+    comp = np.sign(x) * np.log1p(mu * np.abs(x)) / np.log1p(mu)
+    q = np.round((comp + 1.0) * 127.5) / 127.5 - 1.0          # 8-bit
+    return (np.sign(q) * ((1 + mu) ** np.abs(q) - 1) / mu).astype(np.float32)
+
+
+def telephone(samples: np.ndarray, snr_db: float | None = None) -> np.ndarray:
+    """What a real support call actually does to speech."""
+    out = band_limit(samples)
+    out = mu_law(out)
+    if snr_db is not None:
+        out = add_noise(out, snr_db, seed=7)
+    peak = float(np.max(np.abs(out)))
+    if peak:
+        out = out / peak * float(np.max(np.abs(samples)))
+    return out.astype(np.float32)
+
+
 CONDITIONS = {
     "clean":    lambda s: s,
     "noise20":  lambda s: add_noise(s, 20.0),   # mild room hum
     "noise10":  lambda s: add_noise(s, 10.0),   # clearly audible background
     "echo":     lambda s: add_echo(s),
+    # The degradation that actually matters for this project's domain. Pink
+    # noise and reverb left Whisper essentially unaffected (it was trained on
+    # 680k hours of noisy web audio); a telephone line removes the frequency
+    # bands outright and quantises what is left to 8 bits.
+    "phone":    lambda s: telephone(s),
+    "phone_noisy": lambda s: telephone(s, snr_db=12.0),
 }
