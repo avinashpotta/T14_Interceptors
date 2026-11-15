@@ -3,7 +3,7 @@
 Written to be read cold, months later, before an interview. `DECISIONS.md` is
 the terse log of choices; this is the explanation underneath them.
 
-Grows as the project does. Days 1-3 complete.
+Grows as the project does. Complete through Day 5.
 
 ---
 
@@ -504,6 +504,149 @@ so a perfect transcript would make things worse.
 
 ---
 
+## Part 11 — Degradation, and a negative result (Day 4)
+
+### Pink noise, not white
+
+White noise has flat power per hertz, so most of its energy sits above the
+speech band and an ASR shrugs it off — it would make the test look easy. Pink
+noise falls at 1/f, roughly how room hum, traffic and chatter are actually
+distributed, so it competes with speech. Level is set by **SNR against the
+speech itself**, not a fixed amplitude, so a quiet dialogue and a loud one are
+degraded comparably.
+
+### It made no difference, and that is the result
+
+| condition | ΔF2 vs clean | significant |
+|---|---|---|
+| pink noise, 20 dB | +0.008 | no |
+| pink noise, 10 dB | −0.015 | no |
+| room echo | +0.001 | no |
+
+Whisper was trained on 680,000 hours of noisy web audio. Our first attempt
+simply tested the wrong thing, and "we added noise and nothing happened" is a
+finding about robustness rather than a failed experiment.
+
+### The degradation that does matter
+
+A support call is not degraded by pink noise; it is degraded by **the phone
+line**. Band-limiting to 300-3400 Hz plus 8-bit μ-law companding removes
+frequency bands outright rather than burying them.
+
+| condition | ΔF2 | significant |
+|---|---|---|
+| telephone band | −0.031 | borderline |
+| **telephone + noise** | **−0.053** | **yes** |
+
+Email degrades worst (75% → 56%) because it survives as a *multi-token
+structure* — `neha .goli at gmail .com` — and the pattern needs nearly all of
+it intact. A name needs one token to survive; an email needs five.
+
+---
+
+## Part 12 — Human speech, and where synthesis actually lied (Day 5)
+
+### The paired design
+
+Readers recorded scripts **already in the TTS corpus**, so each human
+recording has a synthetic twin with identical text and identical PII. Only the
+voice source varies, so any difference is attributable. New dialogues would
+have confounded voice with text.
+
+### Detection accuracy: no measurable penalty
+
+Human minus TTS detection rate: **−3.1%, 95% CI [−10.7%, +3.9%]** — not
+significant at 40 recordings. Speaker-to-speaker variation (P2 −13%, P3 +9%)
+*exceeds* the TTS/human difference.
+
+D1 declared that segment-rendered TTS would flatter the ASR. On detection
+accuracy we cannot establish that it did.
+
+### But it badly understated the latency budget
+
+| type | TTS median | human median | human max |
+|---|---|---|---|
+| AADHAAR | 3.91s | 5.80s | 8.06s |
+| PAN | 2.31s | 4.98s | **11.76s** |
+| GIVEN_NAME | 0.49s | 0.49s | 1.16s |
+
+Names take the same time. Identifiers take 50-115% longer, because people slow
+down, group digits and pause when reading out an account number. A synthesiser
+does not.
+
+```
+delay for 99% of spans :  TTS 4.7s   human 8.0s
+```
+
+**The corpus understates the required delay by ~70%.** The bias was real and
+large, and it appeared in a dimension nobody was watching — not in accuracy.
+
+### A metric that measured my own code
+
+The first version of this analysis also reported a "span survived in the
+transcript" rate. It read **100% for both conditions**, which was not
+believable — and checking showed `project_span` returns `None` for 0 of 129
+spans, because positional mapping of a `replace` block returns a location even
+when the word is entirely wrong. It measured alignment behaviour, not ASR
+survival. Removed rather than published.
+
+**The habit worth keeping: a number that is suspiciously clean is a bug report
+until proven otherwise.**
+
+---
+
+## Part 13 — The streaming constraint
+
+To redact a span the ASR must see **all** of it, which cannot happen until
+capture passes the span's end. At that moment playback sits `delay` behind. So
+a span survives only if **its spoken duration is under the delay budget** —
+regardless of hardware.
+
+Confirmed directly: at a 3 s delay a 5.24 s phone number leaked, while every
+name in the same dialogue was redacted.
+
+Two constraints, different natures:
+
+| | nature | value |
+|---|---|---|
+| latency floor | structural, hardware-independent | ~8 s for human speech |
+| throughput | engineering, solvable | 1.17× realtime on an 8 GB M2 |
+
+Television profanity delay is 5-10 seconds for exactly this reason, which is
+some evidence the constraint is real rather than an artefact.
+
+**De-duplication across overlapping windows is free if you use a mask.**
+Rather than reconciling word sequences across passes, keep a boolean mask over
+absolute sample positions and OR each detection in. Idempotent,
+order-independent, and a span missed on one pass can still be caught on the
+next.
+
+---
+
+## Part 14 — Comparing fairly against someone else's system
+
+Presidio is configured **charitably on purpose**, on the same principle that
+stopped us writing a strawman regex baseline:
+
+* keep every entity type that could land on real PII, **including accidental
+  matches** — a 12-digit Aadhaar returns as `US_BANK_NUMBER`, and that counts
+  as a hit, because redaction scoring is type-agnostic: the person is protected
+  whatever label caused it
+* drop only the four types with no counterpart in our gold, which helps its
+  precision, not ours
+* run it on the same spaCy model our own NER uses, so the comparison is not
+  confounded by model size
+
+Result: F2 0.500 vs our 0.719, paired **+0.220 [+0.166, +0.271]**. It beats
+our regex level by +0.180, so it is a real mid-tier baseline.
+
+It is **competitive on names** (84% surname vs our 89% — shared spaCy
+backbone) and **collapses on identifiers** (EMAIL 14%, AADHAAR 30%, PAN 12%),
+because its recognisers expect typed text. That is the same mismatch our own
+patterns were built around, measured on somebody else's system.
+
+---
+
 ## Part 8 — Questions an interviewer would actually ask
 
 **"How do you know where in the audio to beep?"**
@@ -587,3 +730,32 @@ Attribution says it would be split evenly — 52% of remaining failures are
 transcription, 48% detection — so there is no single lever. Concretely:
 phonetic matching for the recoverable near-misses (`Rithwik` -> `Ritwik`), and
 something for landmark phrases, which currently nothing handles.
+
+**"Your noise experiment showed nothing. Was it wasted?"**
+No — it showed Whisper is robust to additive noise and reverb at realistic
+levels, which is worth knowing. It also told us we had tested the wrong thing,
+which is why we then tested telephony band-limiting: that *is* significant
+(−0.053 F2), and it is what a real support call does to speech.
+
+**"Can this run in real time?"**
+Two separate questions. Throughput is an engineering problem — 1.17× realtime
+on an 8 GB laptop, fixable with a smaller model or a GPU. The latency floor is
+not: you cannot redact what has not been said yet, so the delay must exceed
+the longest PII utterance, which we measured at ~8 seconds for human speech.
+That is fine for redacting a recording before it is stored, and unusable for a
+two-way conversation. Broadcast profanity delay is 5-10 seconds for the same
+reason.
+
+**"How did you avoid flattering your own system?"**
+Deliberately strengthening everything we compare against. The regex baseline
+is written for ASR output rather than typed text, worth 49 points of recall.
+The gazetteers come from outside our generation vocabulary. Presidio keeps
+hits that land for the wrong reason. Each of those choices makes our margin
+smaller.
+
+**"What surprised you most?"**
+That for structured identifiers the ASR *helps* — a perfect transcript would
+score worse, because spoken digits are harder to pattern-match than
+normalised ones. And that synthetic speech, which we expected to flatter our
+accuracy, did not measurably do so — it understated the streaming latency
+budget by 70% instead.

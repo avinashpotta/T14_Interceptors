@@ -247,6 +247,8 @@ form: `neha dot goli at gmail dot com` → `neha .goli at gmail .com`.
 
 ### 5.2 Level comparison
 
+![Detection performance by approach](figures/fig1_levels.png)
+
 | level | recall | precision | **F2** | over-redaction |
 |---|---|---|---|---|
 | L1 regex only | 0.276 | 0.866 | 0.320 [0.26–0.37] | 3.4% |
@@ -311,6 +313,8 @@ its structured-identifier recall when handed speech.
 
 ### 5.3 Western name lists do not transfer
 
+![Western vs Indian gazetteer](figures/fig2_gazetteer.png)
+
 | name group | western list | indian list |
 |---|---|---|
 | common Indian given names | **11%** | 80% |
@@ -328,6 +332,8 @@ and SURNAME from 7% to 55%. The claim in §1 is measured rather than cited.
 | PHONE | 68% | 50% |
 | overall | 70% | 51% |
 
+![Detection vs redaction coverage](figures/fig5_coverage.png)
+
 Cause: a collapsed token under-represents its own audio.
 
 ```
@@ -341,6 +347,8 @@ detection to the neighbouring undetected words took **PAN 38% → 81%** and
 **PHONE 54% → 68%**, at 7.5% over-redaction instead of 3.7%.
 
 ### 5.5 Where the errors come from
+
+![Error attribution](figures/fig3_attribution.png)
 
 The identical detector run on the reference transcript and on Whisper's. Every
 item falls in exactly one cell:
@@ -449,6 +457,8 @@ Names take the same time. Identifiers take 50–115% longer, because people
 slow down, group digits and pause when reading out an account number — which
 is precisely what a real caller does and precisely what a speech synthesiser
 does not.
+
+![Latency budget, TTS vs human](figures/fig4_latency.png)
 
 The consequence lands on §5.9's latency floor:
 
