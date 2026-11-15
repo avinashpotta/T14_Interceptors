@@ -771,3 +771,38 @@ bank number; the word "PAN" comes back as an organisation.
 
 §3 asserted that existing tools are not built for this input. This measures it,
 exactly as F6 did for §1's claim about Western name lists.
+
+---
+
+## Finding F19 — the streaming sweep confirms the latency floor directly
+
+10 dialogues replayed as live streams at four delay budgets:
+
+| delay | leak rate | audio beeped | ×realtime |
+|---|---|---|---|
+| 2 s | 16.7% | 26.7% | 1.20 |
+| 4 s | 11.1% | 34.6% | 1.19 |
+| 6 s | 11.1% | 35.9% | 1.45 |
+| 9 s | 8.3% | 36.0% | 1.40 |
+
+The aggregate curve flattens fast and hides the mechanism. Broken down by how
+long the PII took to say:
+
+| spoken duration | delay 2 s | delay 4 s | delay 6 s | delay 9 s |
+|---|---|---|---|---|
+| 0-1 s | 5% | 5% | 5% | 5% |
+| 1-2 s | 0% | 0% | 0% | 0% |
+| 2-3 s | 30% | 20% | 30% | 20% |
+| **4 s +** | **100%** | **50%** | **0%** | **0%** |
+
+Spans over four seconds leak *entirely* at a two-second budget and *not at
+all* by six. Sub-two-second spans are flat throughout. That is exactly the
+diagonal F14 predicts from first principles, measured rather than argued.
+
+Throughput stayed at 1.19-1.45x realtime across every setting, so the
+configuration cannot keep pace with a live stream regardless of delay — a
+separate, solvable problem.
+
+Cost side: longer delays raise the share of audio destroyed (26.7% -> 36.0%),
+because more passes over the same audio yield more detections, correct and
+spurious alike.

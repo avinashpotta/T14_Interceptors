@@ -227,6 +227,48 @@ def fig_coverage():
            "the audio it came from.")
 
 
+# ---------------------------------------------------------------- fig 6
+def fig_streaming():
+    """Magnitude on a grid -> heatmap, sequential (one hue, light->dark).
+
+    A grouped bar would work but buries the point; the grid makes the diagonal
+    visible at a glance, which IS the finding.
+    """
+    from matplotlib.colors import LinearSegmentedColormap
+    buckets = ["0-1 s", "1-2 s", "2-3 s", "4 s +"]
+    delays  = ["2 s", "4 s", "6 s", "9 s"]
+    leak = np.array([[  5,   5,   5,   5],
+                     [  0,   0,   0,   0],
+                     [ 30,  20,  30,  20],
+                     [100,  50,   0,   0]], dtype=float)
+    cmap = LinearSegmentedColormap.from_list("seq", ["#f4f8fd", "#2a78d6", "#143c6b"])
+    fig, ax = plt.subplots(figsize=(5.6, 3.1))
+    im = ax.imshow(leak, cmap=cmap, vmin=0, vmax=100, aspect="auto")
+    for i in range(leak.shape[0]):
+        for j in range(leak.shape[1]):
+            v = leak[i, j]
+            ax.text(j, i, f"{int(v)}%", ha="center", va="center", fontsize=9.5,
+                    color="#ffffff" if v > 45 else INK,
+                    fontweight="bold" if v > 45 else "normal")
+    ax.set_xticks(range(4), delays, fontsize=9, color=INK)
+    ax.set_yticks(range(4), buckets, fontsize=9, color=INK)
+    ax.set_xlabel("delay budget"); ax.set_ylabel("spoken duration of the PII")
+    ax.grid(False)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    ax.set_xticks(np.arange(-.5, 4, 1), minor=True)
+    ax.set_yticks(np.arange(-.5, 4, 1), minor=True)
+    ax.grid(which="minor", color=SURFACE, linewidth=2)
+    ax.tick_params(which="minor", length=0)
+    cb = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.03)
+    cb.set_label("leak rate", fontsize=8.5, color=INK_2)
+    cb.outline.set_visible(False); cb.ax.tick_params(labelsize=8, color=GRID)
+    finish(fig, "fig6_streaming", "A span leaks unless the delay exceeds it",
+           "Streaming redaction, 10 dialogues. Spans over 4 s leak entirely at a "
+           "2 s budget and not at all by 6 s; short spans are unaffected.")
+
+
 if __name__ == "__main__":
-    fig_levels(); fig_gazetteer(); fig_attribution(); fig_latency(); fig_coverage()
+    fig_levels(); fig_gazetteer(); fig_attribution(); fig_latency()
+    fig_coverage(); fig_streaming()
     print(f"\nfigures in {OUT}")

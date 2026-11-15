@@ -408,7 +408,7 @@ survives as a *multi-token structure* (`neha .goli at gmail .com`) and the
 pattern needs nearly all of it intact, so corruption anywhere breaks the
 match. Names need only one token to survive.
 
-### 5.9 What nothing detects
+### 5.7 What nothing detects
 
 LANDMARK recall: regex 0%, western list 4%, indian list 7%, rules 7%, NER 4%,
 **rules + NER 7%**. Phrases such as *"opposite the Forum Mall petrol pump"* and
@@ -460,7 +460,7 @@ does not.
 
 ![Latency budget, TTS vs human](figures/fig4_latency.png)
 
-The consequence lands on §5.9's latency floor:
+The consequence lands on §5.9's streaming budget:
 
 ```
 delay to cover 99% of spans :  TTS 4.7 s   human  8.0 s
@@ -481,6 +481,52 @@ location even when the word is entirely wrong. It measured alignment
 behaviour rather than ASR survival and has been removed.
 
 ---
+
+### 5.9 Streaming redaction
+
+Playback runs a fixed delay behind capture, and a sample must be beeped before
+it leaves the buffer. The delay is the entire budget available to recognise
+speech, find PII and overwrite it.
+
+![Leak rate by span duration and delay budget](figures/fig6_streaming.png)
+
+| delay | window | leak rate | audio beeped | ×realtime |
+|---|---|---|---|---|
+| 2 s | 5 s | 16.7% | 26.7% | 1.20 |
+| 4 s | 7 s | 11.1% | 34.6% | 1.19 |
+| 6 s | 9 s | 11.1% | 35.9% | 1.45 |
+| 9 s | 12 s | **8.3%** | 36.0% | 1.40 |
+
+The aggregate curve flattens quickly, but it hides the mechanism. Broken down
+by how long the PII took to say:
+
+| spoken duration | delay 2 s | delay 4 s | delay 6 s | delay 9 s |
+|---|---|---|---|---|
+| 0–1 s | 5% | 5% | 5% | 5% |
+| 1–2 s | 0% | 0% | 0% | 0% |
+| 2–3 s | 30% | 20% | 30% | 20% |
+| **4 s +** | **100%** | **50%** | **0%** | **0%** |
+
+This is the structural claim confirmed. To redact a span the recogniser must
+see **all** of it, which cannot happen until capture passes the span's end —
+at which moment playback already sits `delay` behind. A span therefore
+survives only if its spoken duration is under the budget. Spans over four
+seconds leak *entirely* at a two-second delay and *not at all* by six;
+sub-two-second spans are unaffected throughout.
+
+**A faster machine does not move this.** The floor is set by how long a person
+takes to say a twelve-digit number aloud — §5.8 measures that at 8.0 s for 99%
+of human-spoken identifiers. Television profanity delay is 5–10 seconds for
+precisely this reason.
+
+Throughput is a separate and solvable problem: 1.19–1.45× realtime on an 8 GB
+M2, so this configuration cannot currently keep pace with a live stream at
+all. A smaller model, fewer passes, or a GPU would fix that; neither would
+touch the latency floor.
+
+Note also the cost side: longer delays raise the share of audio destroyed
+(26.7% → 36.0%), because more passes over the same audio produce more
+detections, correct and spurious alike.
 
 ### 5.10 Edge cases
 
