@@ -7,7 +7,7 @@ leaves the machine.
 **What this project actually contributes is the evaluation.** A working
 pipeline is the easy half; knowing *where* such a pipeline loses accuracy is
 the hard half, and §5.5 of the report answers it: of the PII we fail to
-redact, 52% was destroyed by speech recognition and 48% was never found by the
+redact, 50% was destroyed by speech recognition and 50% was never found by the
 detector. Neither half dominates.
 
 ## Headline results
@@ -17,15 +17,15 @@ dialogues.
 
 | approach | recall | precision | **F2** |
 |---|---|---|---|
-| regex only | 0.276 | 0.866 | 0.320 |
-| + Western name list | 0.358 | 0.824 | 0.404 |
-| Presidio, off the shelf | 0.470 | 0.666 | 0.500 |
-| + Indian name list | 0.560 | 0.797 | 0.595 |
-| rule layer, no NER | 0.608 | 0.789 | 0.637 |
-| neural NER only | 0.653 | 0.750 | 0.670 |
-| **rule layer + NER** | **0.713** | 0.746 | **0.719** |
+| regex only | 0.280 | 0.866 | 0.324 |
+| + Western name list | 0.362 | 0.824 | 0.408 |
+| Presidio, off the shelf | 0.478 | 0.671 | 0.507 |
+| + Indian name list | 0.563 | 0.797 | 0.599 |
+| rule layer, no NER | 0.612 | 0.790 | 0.641 |
+| neural NER only | 0.660 | 0.751 | 0.677 |
+| **rule layer + NER** | **0.720** | 0.747 | **0.725** |
 
-Recall 0.71 means roughly **one PII item in four still plays in the clear**.
+Recall 0.72 means roughly **one PII item in four still plays in the clear**.
 This is a measurement instrument, not a deployable privacy tool, and the
 report says so.
 

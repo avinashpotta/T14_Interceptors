@@ -13,10 +13,10 @@ We built a locally-run pipeline that detects and redacts personally
 identifiable information in spoken audio, and — more importantly — an
 evaluation that says where such a pipeline actually loses accuracy. On a
 152-dialogue corpus of Indian customer-support speech with exact ground-truth
-timings, a four-level comparison takes F2 from 0.32 (regex only) to 0.72
+timings, a four-level comparison takes F2 from 0.32 (regex only) to 0.73
 (rules + neural NER). An error-attribution experiment shows that of the items
-the full system fails to redact, **52% were destroyed by speech recognition
-and 48% were never found by the detector** — neither half of the pipeline
+the full system fails to redact, **50% were destroyed by speech recognition
+and 50% were never found by the detector** — neither half of the pipeline
 dominates.
 
 Three findings contradict assumptions we began with. Whisper never leaves
@@ -251,14 +251,14 @@ form: `neha dot goli at gmail dot com` → `neha .goli at gmail .com`.
 
 | level | recall | precision | **F2** | over-redaction |
 |---|---|---|---|---|
-| L1 regex only | 0.276 | 0.866 | 0.320 [0.26–0.37] | 3.4% |
-| L2 + western list | 0.358 | 0.824 | 0.404 [0.34–0.46] | 5.1% |
-| L2 + indian list | 0.560 | 0.797 | 0.595 [0.54–0.65] | 7.0% |
-| L2 + both lists | 0.582 | 0.779 | 0.613 [0.56–0.67] | 8.0% |
-| **L3 Presidio** | 0.470 | 0.666 | **0.500 [0.44–0.55]** | 8.4% |
-| L4 rules (no NER) | 0.608 | 0.789 | 0.637 [0.58–0.70] | 7.5% |
-| NER only *(ablation)* | 0.653 | 0.750 | 0.670 [0.62–0.72] | 10.2% |
-| **L4 rules + NER** | **0.713** | 0.746 | **0.719 [0.67–0.76]** | 10.9% |
+| L1 regex only | 0.280 | 0.866 | 0.324 [0.27–0.38] | 3.5% |
+| L2 + western list | 0.362 | 0.824 | 0.408 [0.34–0.46] | 5.2% |
+| L2 + indian list | 0.563 | 0.797 | 0.599 [0.54–0.65] | 7.0% |
+| L2 + both lists | 0.586 | 0.779 | 0.616 [0.56–0.67] | 8.0% |
+| **L3 Presidio** | 0.478 | 0.671 | **0.507 [0.45–0.56]** | 8.5% |
+| L4 rules (no NER) | 0.612 | 0.790 | 0.641 [0.58–0.70] | 7.6% |
+| NER only *(ablation)* | 0.660 | 0.751 | 0.677 [0.62–0.72] | 10.3% |
+| **L4 rules + NER** | **0.720** | 0.747 | **0.725 [0.67–0.77]** | 11.0% |
 
 Paired comparisons on the same dialogues:
 
@@ -355,15 +355,15 @@ item falls in exactly one cell:
 
 | | found on ASR | not found on ASR |
 |---|---|---|
-| **found on reference** | both 62% | **lost to ASR 13%** |
-| **not found on reference** | **rescued by ASR 13%** | neither 12% |
+| **found on reference** | both 61% | **lost to ASR 12%** |
+| **not found on reference** | **rescued by ASR 15%** | neither 12% |
 
-Of the 67 items the system fails to redact: **52% destroyed by speech
-recognition, 48% never found by the detector.** Neither half dominates, so
+Of the 65 items the system fails to redact: **50% destroyed by speech
+recognition, 50% never found by the detector.** Neither half dominates, so
 effort directed at only one addresses at most half the remaining error.
 
 The fourth cell is the surprise. For structured identifiers the ASR **rescues**
-items — PAN 62%, AADHAAR 50%, PHONE 46% — because spoken forms are harder to
+items — PAN 81%, AADHAAR 50%, PHONE 46% — because spoken forms are harder to
 pattern-match than normalised ones. *A perfect transcript would score worse.*
 (Caveat: our patterns are ASR-aware by design, so the magnitude partly
 reflects pattern coverage. Open-class types carry no such confound; the 9–22%
@@ -373,12 +373,12 @@ ASR cost on names, emails and addresses is clean.)
 
 | condition | F2 | ΔF2 vs clean | significant |
 |---|---|---|---|
-| clean | 0.719 | — | — |
-| pink noise, 20 dB SNR | 0.728 | +0.008 [−0.014, +0.034] | no |
-| pink noise, 10 dB SNR | 0.704 | −0.015 [−0.044, +0.017] | no |
-| room echo | 0.721 | +0.001 [−0.023, +0.029] | no |
-| telephone band | 0.688 | −0.031 [−0.069, +0.004] | borderline |
-| **telephone + noise** | **0.666** | **−0.053 [−0.095, −0.013]** | **yes** |
+| clean | 0.725 | — | — |
+| pink noise, 20 dB SNR | 0.731 | +0.005 [−0.019, +0.032] | no |
+| pink noise, 10 dB SNR | 0.710 | −0.015 [−0.044, +0.017] | no |
+| room echo | 0.718 | −0.008 [−0.035, +0.021] | no |
+| telephone band | 0.697 | −0.028 [−0.063, +0.005] | borderline |
+| **telephone + noise** | **0.676** | **−0.050 [−0.090, −0.010]** | **yes** |
 
 Additive noise and reverberation produce **no measurable degradation** at
 these levels. This is worth stating plainly rather than burying: Whisper was
@@ -396,7 +396,7 @@ Per-type under telephone + noise, against clean:
 
 | type | clean | telephone + noise | change |
 |---|---|---|---|
-| EMAIL | 75% | **56%** | −19 |
+| EMAIL | 72% | **56%** | −17 |
 | AADHAAR | 85% | 75% | −10 |
 | PAN | 81% | 69% | −12 |
 | GIVEN_NAME | 84% | 79% | −5 |
@@ -430,13 +430,13 @@ only the voice source varying.
 
 | | TTS | human | Δ |
 |---|---|---|---|
-| overall detection rate | 81% | 78% | **−3.1%** |
+| overall detection rate | 83% | 78% | **−4.7%** |
 
-95% CI on the paired difference: **[−10.7%, +3.9%]** — not significant at
-n = 40 recordings / 129 spans. Human speech is worse in 77% of bootstrap
+95% CI on the paired difference: **[−12.1%, +2.3%]** — not significant at
+n = 40 recordings / 129 spans. Human speech is worse in 88% of bootstrap
 resamples, so a small penalty is plausible, but we cannot establish one. What
 we *can* say is that the interval bounds it: the cost of synthetic speech is
-**at most about 11 points**, not the collapse the limitation implied.
+**at most about 12 points**, not the collapse the limitation implied.
 
 Per reader the spread is wide (P2 −13%, P3 +9%), which is why the interval is
 wide; speaker variation exceeds the TTS/human difference.
@@ -463,13 +463,13 @@ does not.
 The consequence lands on §5.9's streaming budget:
 
 ```
-delay to cover 99% of spans :  TTS 4.7 s   human  8.0 s
+delay to cover 99% of spans :  TTS 5.4 s   human  8.0 s
 delay to cover every span   :  TTS 7.4 s   human 11.8 s
 ```
 
 **The synthetic corpus underestimates the required delay budget by roughly
-70%.** Had we reported a streaming latency requirement from TTS alone we would
-have specified 5 seconds for a system that needs 8. This is the single
+50%.** Had we reported a streaming latency requirement from TTS alone we would
+have specified 5.4 seconds for a system that needs 8. This is the single
 concrete instance we found of synthetic audio producing an optimistic result,
 and it is not the one the limitation predicted.
 

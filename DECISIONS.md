@@ -806,3 +806,55 @@ separate, solvable problem.
 Cost side: longer delays raise the share of audio destroyed (26.7% -> 36.0%),
 because more passes over the same audio yield more detections, correct and
 spurious alike.
+
+
+---
+
+## D35. The render floor scales with text length
+**Date:** 15 Nov · **Affects:** corpus integrity, and every number downstream
+
+D25 added an absolute 80 ms floor to catch renders where `say` exited 0 having
+written silence. It caught total failures and missed **partial** ones. Three
+spans were truncated fragments that cleared the floor:
+
+| | rendered | chars | ms/char | type norm |
+|---|---|---|---|---|
+| t14_02 EMAIL | 0.34 s | 30 | **11.4** | 64 |
+| t01_00 PHONE | 0.66 s | 47 | **14.1** | 61 |
+| t08_00 SURNAME | 0.23 s | 5 | **45.5** | 103 |
+
+A truncated gold span is **easier for any detector to cover**, so it inflates
+recall; and because it also shortens the measured spoken duration, it
+corrupted the latency analysis. The floor is now `max(80 ms, 30 ms x chars)`.
+After re-rendering, 0 of 440 spans sit below 45% of their type's median
+ms/char.
+
+**How it was found.** Not by the corpus validator, which only checked that a
+span was non-silent and over 80 ms. It surfaced while triaging the human
+recordings: each human span has a TTS twin of identical text, so the
+human/TTS duration ratio flags anomalies — and the worst "offenders" (7.7x,
+5.9x) turned out to be cases where the **TTS** side was wrong, not the human
+side. The paired corpus design caught a bug in the thing it was being compared
+against.
+
+---
+
+## Corrected figures after D35
+
+All test-split numbers were recomputed. Changes are small but several were
+published:
+
+| quantity | before | after |
+|---|---|---|
+| L4 rules + NER F2 | 0.719 | **0.725** |
+| Presidio F2 | 0.500 | **0.507** |
+| attribution split (ASR / detector) | 52 / 48 | **50 / 50** |
+| human vs TTS detection | −3.1% [−10.7, +3.9] | **−4.7% [−12.1, +2.3]** |
+| TTS p99 delay | 4.7 s | **5.4 s** |
+| TTS underestimate of delay budget | ~70% | **~50%** |
+| telephone + noise ΔF2 | −0.053 | **−0.050** |
+
+The direction of every finding is unchanged. The one that moved materially is
+the latency underestimate: the truncated spans had been dragging the TTS p99
+down, **exaggerating** the gap we were reporting. Worth noting that the error
+ran in the direction that flattered our own headline.

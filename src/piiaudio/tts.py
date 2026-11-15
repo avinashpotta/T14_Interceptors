@@ -78,6 +78,13 @@ class GoldSpan:
 # Those become gold spans no detector can ever find, which silently depresses
 # every recall number we report, so we catch them at render time instead.
 MIN_SEGMENT_SEC = 0.08
+# A PARTIAL render passes an absolute floor and is still wrong. `say`
+# occasionally emits a fragment: a 30-character email came back as 0.34 s
+# (11 ms/char against a 64 ms/char norm) and a 47-character spoken phone
+# number as 0.66 s. Both cleared the 80 ms floor. A truncated gold span is
+# then easier for any detector to "cover", which inflates recall.
+# So the floor scales with the text it is supposed to contain.
+MIN_MS_PER_CHAR = 0.030
 _RENDER_ATTEMPTS = 3
 
 
@@ -87,6 +94,7 @@ def _say(text: str, voice: str, out_path: Path) -> np.ndarray:
     Retries on an implausibly short result rather than trusting the exit code:
     `say` reports success even when it has written silence.
     """
+    floor = max(MIN_SEGMENT_SEC, MIN_MS_PER_CHAR * len(text))
     last = 0.0
     for attempt in range(_RENDER_ATTEMPTS):
         subprocess.run(
@@ -96,11 +104,12 @@ def _say(text: str, voice: str, out_path: Path) -> np.ndarray:
         )
         samples = trim_silence(read_wav(out_path))
         last = samples.size / SAMPLE_RATE
-        if last >= MIN_SEGMENT_SEC:
+        if last >= floor:
             return samples
     raise RuntimeError(
-        f"`say` produced {last:.3f}s for {text!r} (voice {voice}) after "
-        f"{_RENDER_ATTEMPTS} attempts; expected at least {MIN_SEGMENT_SEC}s"
+        f"`say` produced {last:.3f}s for {len(text)}-char text {text!r} "
+        f"(voice {voice}) after {_RENDER_ATTEMPTS} attempts; expected at "
+        f"least {floor:.3f}s"
     )
 
 

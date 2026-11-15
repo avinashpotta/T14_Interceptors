@@ -68,14 +68,14 @@ def fig_levels():
     """Magnitude, low->high, one measure -> horizontal bars, single hue,
     with the final system emphasised and the rest recessive."""
     rows = [
-        ("Regex only",                 0.320, 0.26, 0.37, False),
-        ("+ Western name list",        0.404, 0.33, 0.46, False),
-        ("Presidio (off the shelf)",   0.500, 0.44, 0.55, False),
-        ("+ Indian name list",         0.595, 0.54, 0.65, False),
-        ("+ both lists",               0.613, 0.56, 0.67, False),
-        ("Rule layer (no NER)",        0.637, 0.58, 0.70, False),
-        ("Neural NER only",            0.670, 0.62, 0.72, False),
-        ("Rule layer + NER",           0.719, 0.67, 0.76, True),
+        ("Regex only",                 0.324, 0.27, 0.38, False),
+        ("+ Western name list",        0.408, 0.34, 0.46, False),
+        ("Presidio (off the shelf)",   0.507, 0.45, 0.56, False),
+        ("+ Indian name list",         0.599, 0.54, 0.65, False),
+        ("+ both lists",               0.616, 0.56, 0.67, False),
+        ("Rule layer (no NER)",        0.641, 0.58, 0.70, False),
+        ("Neural NER only",            0.677, 0.62, 0.72, False),
+        ("Rule layer + NER",           0.725, 0.67, 0.77, True),
     ]
     fig, ax = plt.subplots(figsize=(7.0, 3.9))
     y = np.arange(len(rows))[::-1]
@@ -128,10 +128,10 @@ def fig_gazetteer():
 def fig_attribution():
     """Part-to-whole across four exclusive outcomes -> stacked horizontal bar."""
     types = ["PAN","AADHAAR","PHONE","LANDMARK","ADDRESS","EMAIL","SURNAME","GIVEN_NAME"]
-    both     = [19, 35, 21, 21, 79, 78, 82, 84]
-    lost     = [ 0, 15, 29,  0,  7, 22, 18,  9]
-    rescued  = [62, 50, 46, 11,  0,  0,  0,  0]
-    neither  = [19,  0,  4, 68, 14,  0,  0,  7]
+    both     = [ 0, 35, 25, 21, 79, 81, 84, 82]
+    lost     = [ 0, 15, 25,  0,  7, 19, 16, 10]
+    rescued  = [81, 50, 46, 11,  4,  0,  0,  0]
+    neither  = [19,  0,  4, 68, 11,  0,  0,  8]
     fig, ax = plt.subplots(figsize=(7.0, 3.5))
     y = np.arange(len(types))
     left = np.zeros(len(types))
@@ -176,11 +176,11 @@ def fig_latency():
         if human[i] - tts[i] > 0.4:
             ax.text(human[i] + 0.16, y[i], f"+{human[i]-tts[i]:.1f}s",
                     va="center", fontsize=8, color=INK, fontweight="bold")
-    ax.axvline(4.7, color=MUTED, lw=1, ls=(0,(4,3)), zorder=0)
+    ax.axvline(5.4, color=MUTED, lw=1, ls=(0,(4,3)), zorder=0)
     ax.axvline(8.0, color=S2, lw=1.2, ls=(0,(4,3)), zorder=0)
     # headroom above the top row so the threshold captions do not sit on a mark
     ax.set_ylim(-0.7, len(types) - 1 + 1.25)
-    ax.text(4.7, len(types) - 1 + 1.18, " TTS p99  4.7s", fontsize=7.5,
+    ax.text(5.4, len(types) - 1 + 1.18, " TTS p99  5.4s", fontsize=7.5,
             color=INK_2, va="top", ha="left")
     ax.text(8.0, len(types) - 1 + 1.18, " human p99  8.0s", fontsize=7.5,
             color=S2, va="top", ha="left", fontweight="bold")
