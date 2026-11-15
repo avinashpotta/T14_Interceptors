@@ -137,9 +137,16 @@ def main() -> None:
     files = {}
     for p in sorted(Path(args.indir).iterdir()):
         if p.suffix.lower() in AUDIO_EXT:
-            m = re.search(r"\d+", p.stem)
-            if m:
-                files[int(m.group(0))] = p
+            # LAST number in the name, not the first. Readers return files named
+            # "1.mp3" but also "P5_Recording_10.mp3" - taking the first number
+            # there yields 5 (from the reader id) and silently scrambles the
+            # whole mapping from file to dialogue.
+            nums = re.findall(r"\d+", p.stem)
+            if nums:
+                idx = int(nums[-1])
+                if idx in files:
+                    print(f"  WARNING: {p.name} and {files[idx].name} both map to {idx}")
+                files[idx] = p
 
     missing = [i for i in range(1, len(mine) + 1) if i not in files]
     if missing:

@@ -1,0 +1,61 @@
+{
+ "id": "t33_03",
+ "reader": "P1",
+ "source": "10.mp3",
+ "reference_transcript": "For the filing I'll need the PAN exactly as printed. It's Q Z H S F seven seven eight nine E, in the name of Amitesh Nair. And the Aadhaar for linking? nine four four, five one eight, five three four, nine one eight. The return will be filed by Friday.",
+ "asr_transcript": "For the filing, I'll need the pan exactly as printed, it's QZHSF7789E in the name of Amitage Nair and the Adar for linking 944 -518 -534 -918, the return will be filed by Friday.",
+ "spans": [
+  {
+   "pii": "PAN",
+   "text": "Q Z H S F seven seven eight nine E",
+   "start": 5.72,
+   "end": 12.68,
+   "char_start": 58,
+   "char_end": 92,
+   "canonical": "QZHSF7789E",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "QZHSF7789E"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Amitesh",
+   "start": 14.14,
+   "end": 14.9,
+   "char_start": 109,
+   "char_end": 116,
+   "canonical": "Amitesh",
+   "style": null,
+   "located": true,
+   "confidence": 0.714,
+   "asr_text": "Amitage"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Nair",
+   "start": 14.9,
+   "end": 15.22,
+   "char_start": 117,
+   "char_end": 121,
+   "canonical": "Nair",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Nair"
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "nine four four, five one eight, five three four, nine one eight",
+   "start": 17.5,
+   "end": 25.46,
+   "char_start": 152,
+   "char_end": 215,
+   "canonical": "944518534918",
+   "style": "grouped",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "944 -518 -534 -918,"
+  }
+ ]
+}

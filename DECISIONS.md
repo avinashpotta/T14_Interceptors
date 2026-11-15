@@ -588,3 +588,69 @@ a failed experiment.
 Email degrades worst because it survives as a multi-token structure
 (`neha .goli at gmail .com`) and the pattern needs nearly all of it intact.
 A name needs one token to survive; an email needs five.
+
+---
+
+## Day 5 — streaming
+
+## D31. De-duplication across overlapping ASR windows uses a sample mask
+**Date:** 15 Nov · **Affects:** streaming correctness
+
+Overlapping windows re-transcribe the same audio, so the same name is detected
+repeatedly at slightly different offsets. Rather than reconciling word
+sequences across windows — fiddly and a classic source of streaming bugs — we
+keep a boolean mask over absolute sample positions and OR each detection into
+it. Re-detecting a span re-sets bits already set.
+
+Idempotent, order-independent, and it means a span missed on one pass can
+still be caught on a later one, right up until the moment it is emitted.
+
+## D32. The ASR window must exceed the delay
+**Date:** 15 Nov · **Affects:** streaming design
+
+If the window is longer than the delay, each sample is examined by several
+passes before playback reaches it, so a late detection is still useful rather
+than wasted.
+
+---
+
+## Finding F14 — the streaming latency floor is set by human speech, not by hardware
+
+To redact a span the ASR must see all of it, which cannot happen until capture
+passes the span's end. At that moment playback sits `delay` behind. So a span
+survives only if **its spoken duration is shorter than the delay budget** —
+independently of model speed.
+
+Measured over all 440 spans:
+
+| type | median | p90 | max |
+|---|---|---|---|
+| AADHAAR | 3.76s | 5.17s | 5.60s |
+| PHONE | 3.00s | 4.42s | 5.24s |
+| ADDRESS | 2.62s | 3.74s | 5.28s |
+| GIVEN_NAME | 0.50s | 0.67s | 1.12s |
+
+```
+delay to cover 90% of spans : 3.8 s
+delay to cover 99% of spans : 5.4 s
+delay to cover every span   : 7.4 s
+```
+
+Confirmed directly: at a 3 s delay a 5.24 s phone number **leaked**, while
+every name in the same dialogue was redacted.
+
+A faster machine does not help. The floor is set by how long a person takes to
+say a twelve-digit Aadhaar number aloud. Television profanity delay is
+5-10 seconds for precisely this reason, which is some evidence the constraint
+is real rather than an artefact of our setup.
+
+**Separately**, throughput is a hardware problem: 1.17x realtime measured on an
+8 GB M2, so this configuration cannot currently keep pace with a live stream
+at all. That one is solvable — smaller model, fewer passes, beam 1, or a GPU.
+
+**Implication for §2.** The proposal's "local search heuristics to balance
+latency and transcription accuracy" was the weakest claim in the document.
+It is now a measured structural constraint with a derived floor, and a
+concrete mitigation: redact *speculatively* on a cue phrase ("and your Aadhaar
+number please?") without waiting to transcribe the digits, trading precision
+for latency — a trade F2 is already weighted to favour.

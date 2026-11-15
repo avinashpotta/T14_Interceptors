@@ -1,0 +1,74 @@
+{
+ "id": "t15_01",
+ "reader": "P2",
+ "source": "5.m4a",
+ "reference_transcript": "Bluestar Bank claims department. Could I start with the policy holder's name? Dimple Bose. And the Aadhaar number for the claim form? It's double three two double zero two seven two one eight zero eight. Where should the surveyor visit? flat six oh four, Sai Krupa, next to the government school.",
+ "asr_transcript": "blue star bank claims department could I start with the policy holder's name dimple boss and the other number for the claim form it's double three two double zero two seven two one eight zero eight where should I survey your visit flat six oh four psych rupa next to the government school",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Dimple",
+   "start": 5.16,
+   "end": 6.32,
+   "char_start": 78,
+   "char_end": 84,
+   "canonical": "Dimple",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "dimple"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Bose",
+   "start": 6.32,
+   "end": 6.62,
+   "char_start": 85,
+   "char_end": 89,
+   "canonical": "Bose",
+   "style": null,
+   "located": true,
+   "confidence": 0.75,
+   "asr_text": "boss"
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "double three two double zero two seven two one eight zero eight",
+   "start": 10.46,
+   "end": 15.02,
+   "char_start": 139,
+   "char_end": 202,
+   "canonical": "332002721808",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "double three two double zero two seven two one eight zero eight"
+  },
+  {
+   "pii": "ADDRESS",
+   "text": "flat six oh four, Sai Krupa",
+   "start": 17.16,
+   "end": 21.08,
+   "char_start": 237,
+   "char_end": 264,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.837,
+   "asr_text": "flat six oh four psych rupa"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "next to the government school",
+   "start": 21.08,
+   "end": 22.34,
+   "char_start": 266,
+   "char_end": 295,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "next to the government school"
+  }
+ ]
+}

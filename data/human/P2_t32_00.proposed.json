@@ -1,0 +1,48 @@
+{
+ "id": "t32_00",
+ "reader": "P2",
+ "source": "8.m4a",
+ "reference_transcript": "I can complete the verification over the call if you have the documents handy. Yes I do. Aadhaar first? It's five nine six zero six two seven nine six four nine six. Thank you. Could you also read out the PAN? Sure, T X Q Z U four four five zero Z. And an email to send the acknowledgement? happy dot reddy at gmail dot com.",
+ "asr_transcript": "I can complete the verification over the call if you have the documents handy. Yes, I do. Other first. It's 5 9 6 0 6 2 7 9 6 4 9 6. Thank you. Could you also read out the pan? Sure. TXQZU4450Z. And an email to send the acknowledgement? happy .readd at thereadgmail .com",
+ "spans": [
+  {
+   "pii": "AADHAAR",
+   "text": "five nine six zero six two seven nine six four nine six",
+   "start": 8.04,
+   "end": 12.08,
+   "char_start": 109,
+   "char_end": 164,
+   "canonical": "596062796496",
+   "style": "digit_by_digit",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "5 9 6 0 6 2 7 9 6 4 9 6."
+  },
+  {
+   "pii": "PAN",
+   "text": "T X Q Z U four four five zero Z",
+   "start": 20.38,
+   "end": 20.98,
+   "char_start": 216,
+   "char_end": 247,
+   "canonical": "TXQZU4450Z",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "TXQZU4450Z."
+  },
+  {
+   "pii": "EMAIL",
+   "text": "happy dot reddy at gmail dot com",
+   "start": 23.8,
+   "end": 28.22,
+   "char_start": 291,
+   "char_end": 323,
+   "canonical": "happy.reddy@gmail.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.756,
+   "asr_text": "happy .readd at thereadgmail .com"
+  }
+ ]
+}

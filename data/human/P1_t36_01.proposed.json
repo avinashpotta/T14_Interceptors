@@ -1,0 +1,35 @@
+{
+ "id": "t36_01",
+ "reader": "P1",
+ "source": "9.mp3",
+ "reference_transcript": "To reset the password I'll send a link to the registered email. That's golden dot iyer at yahoo dot com, I think. That matches. And a backup email in case this one is inaccessible? You could use golden dot iyer at yahoo dot com as well, actually just the first one is fine. Understood, the link is on its way.",
+ "asr_transcript": "To reset the password I'll send a link to your registered email that's golden .ire .yahoo .com I think. That matches and a backup email in case this one is inaccessible. You could use golden .ire .yahoo .com as well. Actually just the first one is fine. Understood the link is on its way.",
+ "spans": [
+  {
+   "pii": "EMAIL",
+   "text": "golden dot iyer at yahoo dot com",
+   "start": 5.62,
+   "end": 8.44,
+   "char_start": 71,
+   "char_end": 103,
+   "canonical": "golden.iyer@yahoo.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.914,
+   "asr_text": "golden .ire .yahoo .com"
+  },
+  {
+   "pii": "EMAIL",
+   "text": "golden dot iyer at yahoo dot com",
+   "start": 15.54,
+   "end": 18.26,
+   "char_start": 195,
+   "char_end": 227,
+   "canonical": "golden.iyer@yahoo.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.914,
+   "asr_text": "golden .ire .yahoo .com"
+  }
+ ]
+}

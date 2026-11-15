@@ -1,0 +1,61 @@
+{
+ "id": "t01_00",
+ "reader": "P2",
+ "source": "6.m4a",
+ "reference_transcript": "Thank you for calling Bluestar Bank support, this is Priya. Could I take your full name please? Yes, it's Pearl Shetty. Thank you. And the mobile number registered on the account? It is seven six six nine seven nine one one nine nine. Perfect, I can see the account now. Is there an email I should send the confirmation to? You can use pearl dot shetty at outlook dot com.",
+ "asr_transcript": "Thank you for calling Bluestar Bank Support. This is Priya. Could I take your full name please? Yes, it's Pearl Shetty. Thank you. And the mobile number registered on the account? It is 7669791199. Perfect. I can see the account now. Is there an email I should send the confirmation to? You can use pearl .shetty at the rate outlook .com",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Pearl",
+   "start": 7.24,
+   "end": 7.44,
+   "char_start": 106,
+   "char_end": 111,
+   "canonical": "Pearl",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Pearl"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Shetty",
+   "start": 7.44,
+   "end": 7.78,
+   "char_start": 112,
+   "char_end": 118,
+   "canonical": "Shetty",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Shetty."
+  },
+  {
+   "pii": "PHONE",
+   "text": "seven six six nine seven nine one one nine nine",
+   "start": 12.32,
+   "end": 16.24,
+   "char_start": 186,
+   "char_end": 233,
+   "canonical": "7669791199",
+   "style": "digit_by_digit",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "7669791199."
+  },
+  {
+   "pii": "EMAIL",
+   "text": "pearl dot shetty at outlook dot com",
+   "start": 23.3,
+   "end": 26.12,
+   "char_start": 336,
+   "char_end": 371,
+   "canonical": "pearl.shetty@outlook.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.824,
+   "asr_text": "pearl .shetty at the rate outlook .com"
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "id": "t21_00",
+ "reader": "P1",
+ "source": "4.mp3",
+ "reference_transcript": "Which email is the order placed under? golden dot potta at yahoo dot com. Found it. And should I send the replacement to the same address? Yes, Shanti Residency on Jubilee Hills Road number ten, Chennai, opposite the Big Bazaar.",
+ "asr_transcript": "Which email is the order placed under golden .porta at yahoo .com? Found it and should I send the replacement to the same address? Yes Shanti Residency on Jubilee Hills Road number 10 Chennai opposite the Big Bazaar",
+ "spans": [
+  {
+   "pii": "EMAIL",
+   "text": "golden dot potta at yahoo dot com",
+   "start": 2.52,
+   "end": 7.92,
+   "char_start": 39,
+   "char_end": 72,
+   "canonical": "golden.potta@yahoo.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.9,
+   "asr_text": "golden .porta at yahoo .com?"
+  },
+  {
+   "pii": "ADDRESS",
+   "text": "Shanti Residency on Jubilee Hills Road number ten, Chennai",
+   "start": 12.88,
+   "end": 17.12,
+   "char_start": 144,
+   "char_end": 202,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.948,
+   "asr_text": "Shanti Residency on Jubilee Hills Road number 10 Chennai"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "opposite the Big Bazaar",
+   "start": 17.12,
+   "end": 18.56,
+   "char_start": 204,
+   "char_end": 227,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "opposite the Big Bazaar"
+  }
+ ]
+}

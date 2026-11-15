@@ -1,0 +1,48 @@
+{
+ "id": "t11_01",
+ "reader": "P1",
+ "source": "3.mp3",
+ "reference_transcript": "Thank you for holding. Could I have the registered mobile number to pull up your file? It's nine five eight four nine one seven one eight five, under the name Joy Krishnan. I see it. What seems to be the problem? The net banking login keeps failing after I enter the OTP.",
+ "asr_transcript": "Thank you for holding. Could I have the registered mobile number to pull up your file? It's 9584917185 under the name Joy Krishnan. I see it. What seems to be the problem? The net banking login keeps failing after I enter the OTP.",
+ "spans": [
+  {
+   "pii": "PHONE",
+   "text": "nine five eight four nine one seven one eight five",
+   "start": 10.9,
+   "end": 11.34,
+   "char_start": 92,
+   "char_end": 142,
+   "canonical": "9584917185",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "9584917185"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Joy",
+   "start": 12.1,
+   "end": 12.34,
+   "char_start": 159,
+   "char_end": 162,
+   "canonical": "Joy",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Joy"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Krishnan",
+   "start": 12.34,
+   "end": 12.74,
+   "char_start": 163,
+   "char_end": 171,
+   "canonical": "Krishnan",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Krishnan."
+  }
+ ]
+}

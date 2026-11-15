@@ -1,0 +1,35 @@
+{
+ "id": "t14_02",
+ "reader": "P2",
+ "source": "3.m4a",
+ "reference_transcript": "Sorry about the wait. Would you prefer I email you the details instead? Email is fine, it's joy dot das at outlook dot com. And a contact number as backup? eighty four, seventy three, seventy five, thirty seven, zero zero.",
+ "asr_transcript": "Sorry about the wait. Would you prefer I email you the details instead? Email is fine. It's joy .thasathrateoutlook .com And a contact number as backup? 84 73 75 37 00",
+ "spans": [
+  {
+   "pii": "EMAIL",
+   "text": "joy dot das at outlook dot com",
+   "start": 6.9,
+   "end": 9.54,
+   "char_start": 92,
+   "char_end": 122,
+   "canonical": "joy.das@outlook.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.75,
+   "asr_text": "joy .thasathrateoutlook .com"
+  },
+  {
+   "pii": "PHONE",
+   "text": "eighty four, seventy three, seventy five, thirty seven, zero zero",
+   "start": 12.78,
+   "end": 16.04,
+   "char_start": 156,
+   "char_end": 221,
+   "canonical": "8473753700",
+   "style": "paired",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "84 73 75 37 00"
+  }
+ ]
+}

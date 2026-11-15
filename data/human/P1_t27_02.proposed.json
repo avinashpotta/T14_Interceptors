@@ -1,0 +1,61 @@
+{
+ "id": "t27_02",
+ "reader": "P1",
+ "source": "6.mp3",
+ "reference_transcript": "Haan sir, bataiye, how can I help you today? Mera naam Swathi Kulkarni hai, and my number is seventy four, thirty five, sixty seven, thirty nine, twenty one. Ji, ek minute. Aapka account mil gaya. Theek hai. Email bhi update kar dijiye, it's swathi dot kulkarni at rediffmail dot com.",
+ "asr_transcript": "Yes sir, tell me how can I help you today? My name is Swati Kulkarni and my number is 74, 35, 67, 39, 21. Yes, wait a minute. You have got your account. Okay. Update your email as well. It's swati .kulkarni at rediffmail .com",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Swathi",
+   "start": 3.9,
+   "end": 4.0,
+   "char_start": 55,
+   "char_end": 61,
+   "canonical": "Swathi",
+   "style": null,
+   "located": true,
+   "confidence": 0.25,
+   "asr_text": "is"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Kulkarni",
+   "start": 4.36,
+   "end": 4.96,
+   "char_start": 62,
+   "char_end": 70,
+   "canonical": "Kulkarni",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Kulkarni"
+  },
+  {
+   "pii": "PHONE",
+   "text": "seventy four, thirty five, sixty seven, thirty nine, twenty one",
+   "start": 6.06,
+   "end": 13.06,
+   "char_start": 93,
+   "char_end": 156,
+   "canonical": "7435673921",
+   "style": "paired",
+   "located": true,
+   "confidence": 0.741,
+   "asr_text": "74, 35, 67, 39, 21. Yes, wait"
+  },
+  {
+   "pii": "EMAIL",
+   "text": "swathi dot kulkarni at rediffmail dot com",
+   "start": 17.7,
+   "end": 20.94,
+   "char_start": 242,
+   "char_end": 283,
+   "canonical": "swathi.kulkarni@rediffmail.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.945,
+   "asr_text": "swati .kulkarni at rediffmail .com"
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "id": "t20_01",
+ "reader": "P1",
+ "source": "7.mp3",
+ "reference_transcript": "I see an order under your account. Could you confirm the name on it? Golden Bhat. And the shipping address? Sai Krupa on FC Road, Mysore. I'll process the return and refund to the original method.",
+ "asr_transcript": "I see an order under your account. Could you confirm the name on it? Golden Butt. And the shipping address? Sai Krupa on FC Road, Mysore. I'll process the return and refund to the original method.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Golden",
+   "start": 4.26,
+   "end": 4.48,
+   "char_start": 69,
+   "char_end": 75,
+   "canonical": "Golden",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Golden"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Bhat",
+   "start": 4.48,
+   "end": 4.84,
+   "char_start": 76,
+   "char_end": 80,
+   "canonical": "Bhat",
+   "style": null,
+   "located": true,
+   "confidence": 0.5,
+   "asr_text": "Butt."
+  },
+  {
+   "pii": "ADDRESS",
+   "text": "Sai Krupa on FC Road, Mysore",
+   "start": 8.36,
+   "end": 10.9,
+   "char_start": 108,
+   "char_end": 136,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Sai Krupa on FC Road, Mysore."
+  }
+ ]
+}

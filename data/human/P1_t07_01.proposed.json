@@ -1,0 +1,48 @@
+{
+ "id": "t07_01",
+ "reader": "P1",
+ "source": "8.mp3",
+ "reference_transcript": "Hi, I'm calling from QuickCart about your delivery scheduled for tomorrow. Yes, I was expecting a call. Could you confirm the delivery address? It's flat four oh two, Gokul Nivas, behind the police station. And a number the delivery partner can reach you on? seven zero eight double zero five one eight two five.",
+ "asr_transcript": "Hi, I'm calling from quick cart about a delivery schedule for tomorrow. Yes, I was expecting a call Could you confirm the delivery address? It's flat 402 Gokul Nivas behind the police station and a number the delivery partner can reach you on 70800 51825",
+ "spans": [
+  {
+   "pii": "ADDRESS",
+   "text": "flat four oh two, Gokul Nivas",
+   "start": 8.94,
+   "end": 12.16,
+   "char_start": 149,
+   "char_end": 178,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.7,
+   "asr_text": "flat 402 Gokul Nivas"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "behind the police station",
+   "start": 12.16,
+   "end": 13.56,
+   "char_start": 180,
+   "char_end": 205,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "behind the police station"
+  },
+  {
+   "pii": "PHONE",
+   "text": "seven zero eight double zero five one eight two five",
+   "start": 19.18,
+   "end": 22.54,
+   "char_start": 259,
+   "char_end": 311,
+   "canonical": "7080051825",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "70800 51825"
+  }
+ ]
+}

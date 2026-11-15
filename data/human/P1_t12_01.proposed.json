@@ -1,0 +1,48 @@
+{
+ "id": "t12_01",
+ "reader": "P1",
+ "source": "5.mp3",
+ "reference_transcript": "I can raise a dispute for you. First, your full name? Prince Goli. And where should I send the dispute reference number? Email it to prince dot goli at rediffmail dot com please. Done. You should receive it within the hour.",
+ "asr_transcript": "I can raise a dispute for you a first year full name Prince Goalie and where should I send the dispute reference number? Email it to prints .goalie at rediffmail .com please. Done. You should receive it within the hour.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Prince",
+   "start": 3.18,
+   "end": 4.18,
+   "char_start": 54,
+   "char_end": 60,
+   "canonical": "Prince",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Prince"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Goli",
+   "start": 4.18,
+   "end": 4.58,
+   "char_start": 61,
+   "char_end": 65,
+   "canonical": "Goli",
+   "style": null,
+   "located": true,
+   "confidence": 0.8,
+   "asr_text": "Goalie"
+  },
+  {
+   "pii": "EMAIL",
+   "text": "prince dot goli at rediffmail dot com",
+   "start": 10.0,
+   "end": 14.82,
+   "char_start": 133,
+   "char_end": 170,
+   "canonical": "prince.goli@rediffmail.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.84,
+   "asr_text": "prints .goalie at rediffmail .com"
+  }
+ ]
+}

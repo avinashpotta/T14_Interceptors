@@ -1,0 +1,35 @@
+{
+ "id": "t37_01",
+ "reader": "P2",
+ "source": "4.m4a",
+ "reference_transcript": "The account is locked after too many attempts. Could I have the email on it? jolly dot mehta at outlook dot com. And the mobile number to send the OTP? six eight one four six nine seven two zero seven. Please read back the code once you receive it.",
+ "asr_transcript": "The account is locked after too many attempts. Could I have the email on it? jolly .mahitaathrateoutlook .com And the mobile number to send the OTP? 6814697207 Please read back the code once you receive it.",
+ "spans": [
+  {
+   "pii": "EMAIL",
+   "text": "jolly dot mehta at outlook dot com",
+   "start": 5.96,
+   "end": 8.54,
+   "char_start": 77,
+   "char_end": 111,
+   "canonical": "jolly.mehta@outlook.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.792,
+   "asr_text": "jolly .mahitaathrateoutlook .com"
+  },
+  {
+   "pii": "PHONE",
+   "text": "six eight one four six nine seven two zero seven",
+   "start": 14.3,
+   "end": 14.84,
+   "char_start": 152,
+   "char_end": 200,
+   "canonical": "6814697207",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "6814697207"
+  }
+ ]
+}

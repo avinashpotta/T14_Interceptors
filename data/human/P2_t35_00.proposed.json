@@ -1,0 +1,48 @@
+{
+ "id": "t35_00",
+ "reader": "P2",
+ "source": "7.m4a",
+ "reference_transcript": "The subsidy application needs your Aadhaar for the direct transfer. It is three eight five seven four nine eight zero one three four one. And confirming the beneficiary name? Bobby Thakur. The amount will be credited within ten working days.",
+ "asr_transcript": "The subsidy application needs your Aadhar for the direct transfer. It is 385749801341 and confirming the beneficiary name, Bobby Thakur. The amount will be credited within 10 working days.",
+ "spans": [
+  {
+   "pii": "AADHAAR",
+   "text": "three eight five seven four nine eight zero one three four one",
+   "start": 5.54,
+   "end": 9.24,
+   "char_start": 74,
+   "char_end": 136,
+   "canonical": "385749801341",
+   "style": "digit_by_digit",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "385749801341"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Bobby",
+   "start": 12.44,
+   "end": 12.74,
+   "char_start": 175,
+   "char_end": 180,
+   "canonical": "Bobby",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Bobby"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Thakur",
+   "start": 12.74,
+   "end": 13.34,
+   "char_start": 181,
+   "char_end": 187,
+   "canonical": "Thakur",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Thakur."
+  }
+ ]
+}
