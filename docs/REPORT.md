@@ -3,7 +3,7 @@
 **Team Interceptors (Team 14)** · Applications of Deep Learning with Knowledge
 Representation & Reasoning · Demo track
 
-> Draft. Sections marked *(pending)* await results still running.
+> Draft. Streaming sweep and figures outstanding.
 
 ---
 
@@ -351,7 +351,7 @@ survives as a *multi-token structure* (`neha .goli at gmail .com`) and the
 pattern needs nearly all of it intact, so corruption anywhere breaks the
 match. Names need only one token to survive.
 
-### 5.7 What nothing detects
+### 5.9 What nothing detects
 
 LANDMARK recall: regex 0%, western list 4%, indian list 7%, rules 7%, NER 4%,
 **rules + NER 7%**. Phrases such as *"opposite the Forum Mall petrol pump"* and
@@ -362,7 +362,64 @@ This is §1's claim about landmark-relative Indian addresses, confirmed from
 the failure side. ADDRESS proper reaches 61% once the NER is present;
 LANDMARK does not move at all.
 
-### 5.8 Human-recorded speech *(pending)*
+### 5.8 Human-recorded speech
+
+Four readers recorded 40 of the corpus dialogues — 16.5 minutes of real
+speech. Because each reads a script already in the TTS corpus, this is a
+paired comparison: identical text, identical PII, identical detector, with
+only the voice source varying.
+
+**Detection accuracy is statistically indistinguishable.**
+
+| | TTS | human | Δ |
+|---|---|---|---|
+| overall detection rate | 81% | 78% | **−3.1%** |
+
+95% CI on the paired difference: **[−10.7%, +3.9%]** — not significant at
+n = 40 recordings / 129 spans. Human speech is worse in 77% of bootstrap
+resamples, so a small penalty is plausible, but we cannot establish one. What
+we *can* say is that the interval bounds it: the cost of synthetic speech is
+**at most about 11 points**, not the collapse the limitation implied.
+
+Per reader the spread is wide (P2 −13%, P3 +9%), which is why the interval is
+wide; speaker variation exceeds the TTS/human difference.
+
+**But the corpus did flatter us — somewhere else entirely.**
+
+Human readers take far longer over structured identifiers:
+
+| type | TTS median | human median | TTS max | human max |
+|---|---|---|---|---|
+| AADHAAR | 3.91s | **5.80s** | 4.51s | 8.06s |
+| PAN | 2.31s | **4.98s** | 2.65s | **11.76s** |
+| PHONE | 3.03s | **4.60s** | 4.79s | 7.90s |
+| GIVEN_NAME | 0.49s | 0.49s | 0.71s | 1.16s |
+| SURNAME | 0.59s | 0.41s | 1.08s | 0.76s |
+
+Names take the same time. Identifiers take 50–115% longer, because people
+slow down, group digits and pause when reading out an account number — which
+is precisely what a real caller does and precisely what a speech synthesiser
+does not.
+
+The consequence lands on §5.9's latency floor:
+
+```
+delay to cover 99% of spans :  TTS 4.7 s   human  8.0 s
+delay to cover every span   :  TTS 7.4 s   human 11.8 s
+```
+
+**The synthetic corpus underestimates the required delay budget by roughly
+70%.** Had we reported a streaming latency requirement from TTS alone we would
+have specified 5 seconds for a system that needs 8. This is the single
+concrete instance we found of synthetic audio producing an optimistic result,
+and it is not the one the limitation predicted.
+
+*Method note:* scored in character space with gold spans projected by token
+alignment, so no verified timings are required. An earlier version of this
+analysis also reported a "span survived in the transcript" rate; it read 100%
+for both conditions because positional mapping of a `replace` block returns a
+location even when the word is entirely wrong. It measured alignment
+behaviour rather than ASR survival and has been removed.
 
 ---
 

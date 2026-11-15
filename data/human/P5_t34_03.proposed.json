@@ -1,0 +1,35 @@
+{
+ "id": "t34_03",
+ "reader": "P5",
+ "source": "P5_Recording_6.mp3",
+ "reference_transcript": "Has your PAN been linked with Aadhaar already? I'm not sure. The PAN is B W U I W six four zero four W. Let me check. Could you read the Aadhaar as well? two two six, seven seven seven, nine three six, five six nine. They are linked. Nothing further is needed.",
+ "asr_transcript": "Has your Paan been linked with Aadhar already? I am not sure. The Paan is B -W -U -I -W -6 -4 -0 -4 -W. Let me check. Could you read the Aadhar as well? 2 -2 -6 -7 -7 -7 -9 -3 -6 -5 -6 -9. They are linked. Nothing further is needed.",
+ "spans": [
+  {
+   "pii": "PAN",
+   "text": "B W U I W six four zero four W",
+   "start": 7.14,
+   "end": 13.18,
+   "char_start": 72,
+   "char_end": 102,
+   "canonical": "BWUIW6404W",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "B -W -U -I -W -6 -4 -0 -4 -W."
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "two two six, seven seven seven, nine three six, five six nine",
+   "start": 17.84,
+   "end": 25.06,
+   "char_start": 154,
+   "char_end": 215,
+   "canonical": "226777936569",
+   "style": "grouped",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "2 -2 -6 -7 -7 -7 -9 -3 -6 -5 -6 -9."
+  }
+ ]
+}

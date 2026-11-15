@@ -1,0 +1,61 @@
+{
+ "id": "t04_02",
+ "reader": "P5",
+ "source": "P5_Recording_9.mp3",
+ "reference_transcript": "Hello, this is Sneha from Bluestar Bank calling regarding your pending KYC update. Oh yes, I've been meaning to finish that. Could you confirm your full name as it appears on the document? It's Honey Gupta. And your Aadhaar number please? It's sixty seven, fifty four, fifty two, twenty, thirty eight, twelve. Noted. I'll also need your PAN. S H J M S seven nine five two L.",
+ "asr_transcript": "Hello, this is Sneha from Blue Star Bank calling regarding your pending KYC update. Oh yes, I've been meaning to finish that. Could you confirm your full name as it appears on the document? It's Honey Gupta. And your other number please? It's 67 54 52 20 38 12. Noted. I will also need your PAN as HJ MS 79 5 2 L.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Honey",
+   "start": 16.72,
+   "end": 17.22,
+   "char_start": 194,
+   "char_end": 199,
+   "canonical": "Honey",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Honey"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Gupta",
+   "start": 17.22,
+   "end": 17.64,
+   "char_start": 200,
+   "char_end": 205,
+   "canonical": "Gupta",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Gupta."
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "sixty seven, fifty four, fifty two, twenty, thirty eight, twelve",
+   "start": 20.48,
+   "end": 26.76,
+   "char_start": 244,
+   "char_end": 308,
+   "canonical": "675452203812",
+   "style": "paired",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "67 54 52 20 38 12."
+  },
+  {
+   "pii": "PAN",
+   "text": "S H J M S seven nine five two L",
+   "start": 30.16,
+   "end": 36.66,
+   "char_start": 342,
+   "char_end": 373,
+   "canonical": "SHJMS7952L",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 0.952,
+   "asr_text": "as HJ MS 79 5 2 L."
+  }
+ ]
+}

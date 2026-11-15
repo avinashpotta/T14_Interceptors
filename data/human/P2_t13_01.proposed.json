@@ -1,0 +1,35 @@
+{
+ "id": "t13_01",
+ "reader": "P2",
+ "source": "9.m4a",
+ "reference_transcript": "I'm afraid the specialist team is closed now. Can I arrange a callback? Yes please. The number is six zero four two eight five three zero four one. And who should they ask for? Honey. They'll call between ten and twelve tomorrow.",
+ "asr_transcript": "I am afraid the specialist team is closed now. Can I arrange a call back? Yes please. The number is 6042853041. And who should they ask for? Honey. They'll call between 10 and 12 tomorrow.",
+ "spans": [
+  {
+   "pii": "PHONE",
+   "text": "six zero four two eight five three zero four one",
+   "start": 7.54,
+   "end": 10.7,
+   "char_start": 98,
+   "char_end": 146,
+   "canonical": "6042853041",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "6042853041."
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Honey",
+   "start": 13.42,
+   "end": 13.7,
+   "char_start": 177,
+   "char_end": 182,
+   "canonical": "Honey",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Honey."
+  }
+ ]
+}

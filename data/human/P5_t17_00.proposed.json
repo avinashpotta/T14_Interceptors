@@ -1,0 +1,35 @@
+{
+ "id": "t17_00",
+ "reader": "P5",
+ "source": "P5_Recording_8.mp3",
+ "reference_transcript": "CityFirst Bank here. You'd requested a SIM replacement, is that right? Yes, I lost my phone yesterday. I'll need the Aadhaar number used at the time of activation. It's five two seven four two three two seven six five one seven. And the number to be replaced? six double one nine one eight four five three zero. The new SIM will be delivered to your registered address.",
+ "asr_transcript": "city first bank here you are requested a SIM replacement is that right yes I lost my phone yesterday I'll need the other number used at the time of activation it's five two seven four two three two seven six five one seven and the number to be replaced six double one nine one eight four five three zero that new sim will be delivered to your registered address",
+ "spans": [
+  {
+   "pii": "AADHAAR",
+   "text": "five two seven four two three two seven six five one seven",
+   "start": 14.56,
+   "end": 22.52,
+   "char_start": 169,
+   "char_end": 227,
+   "canonical": "527423276517",
+   "style": "digit_by_digit",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "five two seven four two three two seven six five one seven"
+  },
+  {
+   "pii": "PHONE",
+   "text": "six double one nine one eight four five three zero",
+   "start": 24.83,
+   "end": 31.21,
+   "char_start": 260,
+   "char_end": 310,
+   "canonical": "6119184530",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "six double one nine one eight four five three zero"
+  }
+ ]
+}

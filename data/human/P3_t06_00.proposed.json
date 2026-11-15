@@ -1,0 +1,61 @@
+{
+ "id": "t06_00",
+ "reader": "P3",
+ "source": "3.m4a",
+ "reference_transcript": "I'll need your PAN card details to update the tax records. The PAN is X B P E O three four three eight S, and the name on it is Nikhil Nambiar. Got it. And is the Aadhaar linked to this PAN the same one ending in the usual digits? Yes, six one seven six zero seven eight five six five four eight.",
+ "asr_transcript": "I'll need your pan card details to update the tracks records. The pan is XBPEO3438S and the name on it is Nikhil Nambiar. Got it. And is the other link to this pan the same one ending in the usual digits? Yes. 617607856548.",
+ "spans": [
+  {
+   "pii": "PAN",
+   "text": "X B P E O three four three eight S",
+   "start": 5.4,
+   "end": 10.38,
+   "char_start": 70,
+   "char_end": 104,
+   "canonical": "XBPEO3438S",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "XBPEO3438S"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Nikhil",
+   "start": 12.12,
+   "end": 12.76,
+   "char_start": 128,
+   "char_end": 134,
+   "canonical": "Nikhil",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Nikhil"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Nambiar",
+   "start": 12.76,
+   "end": 13.28,
+   "char_start": 135,
+   "char_end": 142,
+   "canonical": "Nambiar",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Nambiar."
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "six one seven six zero seven eight five six five four eight",
+   "start": 26.12,
+   "end": 27.52,
+   "char_start": 236,
+   "char_end": 295,
+   "canonical": "617607856548",
+   "style": "digit_by_digit",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "617607856548."
+  }
+ ]
+}

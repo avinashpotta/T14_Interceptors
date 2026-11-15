@@ -1,0 +1,61 @@
+{
+ "id": "t09_01",
+ "reader": "P5",
+ "source": "P5_Recording_10.mp3",
+ "reference_transcript": "Good morning, Sunrise Insurance logistics. Am I speaking to Honey? Speaking. We have a package for Sree Nilayam, Jubilee Hills Road number ten. Is someone available there today? Yes, but the gate is hard to find. It's just after the flyover. Noted. Best number to call on arrival? double eight double eight one zero three seven six nine.",
+ "asr_transcript": "good morning sunrise insurance logistics am I speaking to honey speaking we have a package for Sri Nilayam Jubilee Hills road number 10 is someone available there today yes but the gate is hard to find it's just after the flyover noted best number to call on arrival 2888103769",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Honey",
+   "start": 4.96,
+   "end": 5.22,
+   "char_start": 60,
+   "char_end": 65,
+   "canonical": "Honey",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "honey"
+  },
+  {
+   "pii": "ADDRESS",
+   "text": "Sree Nilayam, Jubilee Hills Road number ten",
+   "start": 8.98,
+   "end": 12.3,
+   "char_start": 99,
+   "char_end": 142,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.886,
+   "asr_text": "Sri Nilayam Jubilee Hills road number 10"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "just after the flyover",
+   "start": 18.96,
+   "end": 20.26,
+   "char_start": 218,
+   "char_end": 240,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "just after the flyover"
+  },
+  {
+   "pii": "PHONE",
+   "text": "double eight double eight one zero three seven six nine",
+   "start": 24.66,
+   "end": 30.36,
+   "char_start": 281,
+   "char_end": 336,
+   "canonical": "8888103769",
+   "style": "with_doubles",
+   "located": true,
+   "confidence": 0.9,
+   "asr_text": "2888103769"
+  }
+ ]
+}

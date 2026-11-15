@@ -1,0 +1,48 @@
+{
+ "id": "t24_02",
+ "reader": "P5",
+ "source": "P5_Recording_3.mp3",
+ "reference_transcript": "We have a meter reading discrepancy at the property. Who am I speaking to? Amitesh Nair, I'm the owner. Could you share a contact number for the meter reader? seventy seven, thirty six, thirty one, seventy five, zero five. Someone will visit this week.",
+ "asr_transcript": "We have a matter reading transparency at the property. Who am I speaking to? Amitesh Nair. I am the owner. Could you share a contact number for matter reading? 77 36 31 75 0 5. Someone will visit this week.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Amitesh",
+   "start": 6.36,
+   "end": 6.84,
+   "char_start": 75,
+   "char_end": 82,
+   "canonical": "Amitesh",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Amitesh"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Nair",
+   "start": 6.84,
+   "end": 7.12,
+   "char_start": 83,
+   "char_end": 87,
+   "canonical": "Nair",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Nair."
+  },
+  {
+   "pii": "PHONE",
+   "text": "seventy seven, thirty six, thirty one, seventy five, zero five",
+   "start": 10.32,
+   "end": 18.22,
+   "char_start": 159,
+   "char_end": 221,
+   "canonical": "7736317505",
+   "style": "paired",
+   "located": true,
+   "confidence": 0.741,
+   "asr_text": "reading? 77 36 31 75 0 5."
+  }
+ ]
+}

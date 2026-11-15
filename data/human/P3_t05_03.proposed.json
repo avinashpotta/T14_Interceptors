@@ -1,0 +1,35 @@
+{
+ "id": "t05_03",
+ "reader": "P3",
+ "source": "4.m4a",
+ "reference_transcript": "Bluestar Bank compliance team here. We need to re-verify your identity documents. Alright, what do you need? Your Aadhaar number to begin with. It is three three three, zero three four, zero four eight, three three five. Thank you Pearl, that's verified.",
+ "asr_transcript": "Bluestar Bank Compliance team here. We need to re -verify your identity documents. Alright, what do you need? Your other number to begin with. It is 333 -034 -048 -335. Thank you, Pearl. That's verified.",
+ "spans": [
+  {
+   "pii": "AADHAAR",
+   "text": "three three three, zero three four, zero four eight, three three five",
+   "start": 11.44,
+   "end": 18.22,
+   "char_start": 150,
+   "char_end": 219,
+   "canonical": "333034048335",
+   "style": "grouped",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "333 -034 -048 -335."
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Pearl",
+   "start": 19.62,
+   "end": 19.84,
+   "char_start": 231,
+   "char_end": 236,
+   "canonical": "Pearl",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Pearl."
+  }
+ ]
+}

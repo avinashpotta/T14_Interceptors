@@ -1,0 +1,61 @@
+{
+ "id": "t18_00",
+ "reader": "P3",
+ "source": "7.m4a",
+ "reference_transcript": "Your broadband installation is scheduled. Confirming the address: could you read it out? flat two one three, Palm Grove Enclave, Residency Road, just after the flyover. And the account is under which name? Joy Reddy. The technician will call you on arrival.",
+ "asr_transcript": "Your broadband installation is scheduled. Confirming the address, could you read it out? Flat 213, Palm Grove Enclave, Residency Road, just after the flyover. And the account is under which name, Joy Reddy. The technician will call you on arrival.",
+ "spans": [
+  {
+   "pii": "ADDRESS",
+   "text": "flat two one three, Palm Grove Enclave, Residency Road",
+   "start": 7.18,
+   "end": 12.38,
+   "char_start": 89,
+   "char_end": 143,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.825,
+   "asr_text": "Flat 213, Palm Grove Enclave, Residency Road,"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "just after the flyover",
+   "start": 12.96,
+   "end": 14.22,
+   "char_start": 145,
+   "char_end": 167,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "just after the flyover."
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Joy",
+   "start": 17.6,
+   "end": 17.98,
+   "char_start": 206,
+   "char_end": 209,
+   "canonical": "Joy",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Joy"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Reddy",
+   "start": 17.98,
+   "end": 18.42,
+   "char_start": 210,
+   "char_end": 215,
+   "canonical": "Reddy",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Reddy."
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "id": "t26_02",
+ "reader": "P5",
+ "source": "P5_Recording_4.mp3",
+ "reference_transcript": "Can I get an address so the technician knows where to come? Palm Grove Enclave, Kalyan Nagar main road. It's a bit tricky, opposite the old bus stand. Noted, and your name for the job card? Deepa.",
+ "asr_transcript": "can I get an address so the technician knows where to come palm group enclave Kalyan Nagar main road it's a bit tricky opposite the old bus stand noted and your name for the job card Deepa",
+ "spans": [
+  {
+   "pii": "ADDRESS",
+   "text": "Palm Grove Enclave, Kalyan Nagar main road",
+   "start": 4.34,
+   "end": 8.12,
+   "char_start": 60,
+   "char_end": 102,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.943,
+   "asr_text": "palm group enclave Kalyan Nagar main road"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "opposite the old bus stand",
+   "start": 9.66,
+   "end": 12.24,
+   "char_start": 123,
+   "char_end": 149,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "opposite the old bus stand"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Deepa",
+   "start": 15.2,
+   "end": 16.36,
+   "char_start": 190,
+   "char_end": 195,
+   "canonical": "Deepa",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Deepa"
+  }
+ ]
+}

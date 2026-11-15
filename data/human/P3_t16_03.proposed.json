@@ -1,0 +1,48 @@
+{
+ "id": "t16_03",
+ "reader": "P3",
+ "source": "5.m4a",
+ "reference_transcript": "To process the claim I need to confirm a few things. Your registered address? flat six oh four, Green Valley Apartments in Mumbai. Is there a landmark? Our surveyors sometimes struggle. Yes, behind the Ganesh temple. Thank you Joy, I've noted that.",
+ "asr_transcript": "To process the claim I need to confirm a few things. Your registered address flat 604 Green Valley Apartments in Mumbai. Is there a landmark? Our surveyors sometimes struggle. Yes behind the Ganesh temple. Thank you Joy I have noted that.",
+ "spans": [
+  {
+   "pii": "ADDRESS",
+   "text": "flat six oh four, Green Valley Apartments",
+   "start": 5.6,
+   "end": 9.34,
+   "char_start": 78,
+   "char_end": 119,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 0.806,
+   "asr_text": "flat 604 Green Valley Apartments"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "behind the Ganesh temple",
+   "start": 16.28,
+   "end": 17.84,
+   "char_start": 191,
+   "char_end": 215,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "behind the Ganesh temple."
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Joy",
+   "start": 19.16,
+   "end": 19.42,
+   "char_start": 227,
+   "char_end": 230,
+   "canonical": "Joy",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Joy"
+  }
+ ]
+}

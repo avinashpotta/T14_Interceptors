@@ -1,0 +1,48 @@
+{
+ "id": "t32_02",
+ "reader": "P3",
+ "source": "2.m4a",
+ "reference_transcript": "I can complete the verification over the call if you have the documents handy. Yes I do. Aadhaar first? It's forty four, seventy one, eighty five, eighty nine, forty six, fifteen. Thank you. Could you also read out the PAN? Sure, N D O T P zero one nine eight X. And an email to send the acknowledgement? lovely dot nambiar at yahoo dot com.",
+ "asr_transcript": "I can complete the verification over the call if you have the documents handy. Yes I do. Others first. It's 44, 71, 85, 89, 46, 15. Thank you. Could you also read out the pan? Sure. N -T -O -T -P -0 -1 -9 -8 -X And an email to send the acknowledgement. lovely .nambiar at yahoo .com",
+ "spans": [
+  {
+   "pii": "AADHAAR",
+   "text": "forty four, seventy one, eighty five, eighty nine, forty six, fifteen",
+   "start": 9.08,
+   "end": 15.68,
+   "char_start": 109,
+   "char_end": 178,
+   "canonical": "447185894615",
+   "style": "paired",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "44, 71, 85, 89, 46, 15."
+  },
+  {
+   "pii": "PAN",
+   "text": "N D O T P zero one nine eight X",
+   "start": 21.26,
+   "end": 29.28,
+   "char_start": 230,
+   "char_end": 261,
+   "canonical": "NDOTP0198X",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 0.9,
+   "asr_text": "N -T -O -T -P -0 -1 -9 -8 -X"
+  },
+  {
+   "pii": "EMAIL",
+   "text": "lovely dot nambiar at yahoo dot com",
+   "start": 33.0,
+   "end": 37.0,
+   "char_start": 305,
+   "char_end": 340,
+   "canonical": "lovely.nambiar@yahoo.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.955,
+   "asr_text": "lovely .nambiar at yahoo .com"
+  }
+ ]
+}

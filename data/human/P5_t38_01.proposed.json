@@ -1,0 +1,48 @@
+{
+ "id": "t38_01",
+ "reader": "P5",
+ "source": "P5_Recording_7.mp3",
+ "reference_transcript": "I can add you to the priority support list. Which email should I use? Use sneha dot shetty at outlook dot com please, and the name is Sneha Shetty. Added. You'll get a confirmation shortly.",
+ "asr_transcript": "I can add you to the priority support list. Which email should I use? Use Sneha .shetty at outlook .com. Please. And the name is Sneha Shetty. Added. You will get a confirmation shortly.",
+ "spans": [
+  {
+   "pii": "EMAIL",
+   "text": "sneha dot shetty at outlook dot com",
+   "start": 6.66,
+   "end": 10.78,
+   "char_start": 74,
+   "char_end": 109,
+   "canonical": "sneha.shetty@outlook.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.955,
+   "asr_text": "Sneha .shetty at outlook .com."
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Sneha",
+   "start": 12.94,
+   "end": 13.62,
+   "char_start": 134,
+   "char_end": 139,
+   "canonical": "Sneha",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Sneha"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Shetty",
+   "start": 13.62,
+   "end": 14.0,
+   "char_start": 140,
+   "char_end": 146,
+   "canonical": "Shetty",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Shetty."
+  }
+ ]
+}

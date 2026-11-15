@@ -1,0 +1,48 @@
+{
+ "id": "t02_03",
+ "reader": "P3",
+ "source": "10.m4a",
+ "reference_transcript": "Good afternoon, QuickCart customer care. May I know who I'm speaking with? This is Golden Nambiar calling about my account. Sure. For verification, can you confirm your registered mobile number? Sure, six two two, two zero three, five nine eight, zero. That matches. How can I help you today? I wanted to check why my last payment did not go through.",
+ "asr_transcript": "Good afternoon. Quick card customer care. May I know who I am speaking with? This is Golden Numbiar calling about my account. Sure. For verification, can you confirm your registered mobile number? Sure. 6222035980. That matches. How can I help you today? I wanted to check why my last payment did not go through.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Golden",
+   "start": 6.46,
+   "end": 6.8,
+   "char_start": 83,
+   "char_end": 89,
+   "canonical": "Golden",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Golden"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Nambiar",
+   "start": 6.8,
+   "end": 7.32,
+   "char_start": 90,
+   "char_end": 97,
+   "canonical": "Nambiar",
+   "style": null,
+   "located": true,
+   "confidence": 0.857,
+   "asr_text": "Numbiar"
+  },
+  {
+   "pii": "PHONE",
+   "text": "six two two, two zero three, five nine eight, zero",
+   "start": 18.96,
+   "end": 19.56,
+   "char_start": 201,
+   "char_end": 251,
+   "canonical": "6222035980",
+   "style": "grouped",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "6222035980."
+  }
+ ]
+}

@@ -654,3 +654,57 @@ It is now a measured structural constraint with a derived floor, and a
 concrete mitigation: redact *speculatively* on a cue phrase ("and your Aadhaar
 number please?") without waiting to transcribe the digits, trading precision
 for latency — a trade F2 is already weighted to favour.
+
+---
+
+## Day 5 — human recordings
+
+## D33. Reader file numbering takes the LAST number in the filename
+**Date:** 15 Nov · **Affects:** validity of all human results
+
+One reader returned files named `P5_Recording_1.mp3` … `P5_Recording_10.mp3`.
+Taking the *first* number yields 5 — the reader id — for all ten, silently
+mapping every recording to dialogue 5 and scoring it against the wrong script.
+
+No error, no crash: that reader would simply have shown catastrophic accuracy
+and we would have concluded real speech is far worse than it is.
+
+---
+
+## Finding F15 — synthetic speech did not flatter detection accuracy
+
+Paired over 40 recordings / 129 spans: human minus TTS detection rate is
+**−3.1%, 95% CI [−10.7%, +3.9%]** — not significant. Speaker-to-speaker
+variation (P2 −13%, P3 +9%) exceeds the TTS/human difference.
+
+D1 declared that segment-rendered TTS would flatter the ASR because every PII
+boundary carries an unnatural pause. On detection accuracy, we cannot
+establish that it did. The interval bounds any penalty at about 11 points.
+
+## Finding F16 — but it badly underestimates the streaming latency budget
+
+Human readers take 50-115% longer over structured identifiers, and the same
+time over names:
+
+| type | TTS median | human median | human max |
+|---|---|---|---|
+| AADHAAR | 3.91s | 5.80s | 8.06s |
+| PAN | 2.31s | 4.98s | **11.76s** |
+| PHONE | 3.03s | 4.60s | 7.90s |
+| GIVEN_NAME | 0.49s | 0.49s | 1.16s |
+
+People slow down, group digits and pause when reading out an account number.
+A speech synthesiser does not.
+
+```
+delay for 99% of spans :  TTS 4.7s   human  8.0s
+delay for every span   :  TTS 7.4s   human 11.8s
+```
+
+**The synthetic corpus underestimates the required delay budget by ~70%.**
+Reporting a streaming latency requirement from TTS alone would have specified
+5 seconds for a system that needs 8.
+
+This is the one concrete case we found of synthetic audio producing an
+optimistic result — and it is not the one D1 predicted. The flattery appeared
+in the latency budget, not in detection accuracy.

@@ -1,0 +1,48 @@
+{
+ "id": "t10_01",
+ "reader": "P5",
+ "source": "P5_Recording_5.mp3",
+ "reference_transcript": "Metro Broadband fraud desk, this is Rahul. We've flagged a transaction on your card. I was worried about that. My name is Pearl Sharma. For security, could you confirm the PAN linked to this account? It's S F K J S seven three nine two B. Thank you. I'm blocking the card now and a replacement will be sent.",
+ "asr_transcript": "Metro Broadband Fraud Desk This is Rahul. We have flagged transaction on your card. I was worried about that. My name is Pearl Sharma. For security, could you confirm the PAN linker to this account? It's SFKJS7392B Thank you. I am blocking the card now and replacement will be sent.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Pearl",
+   "start": 9.8,
+   "end": 10.04,
+   "char_start": 122,
+   "char_end": 127,
+   "canonical": "Pearl",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Pearl"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Sharma",
+   "start": 10.04,
+   "end": 10.46,
+   "char_start": 128,
+   "char_end": 134,
+   "canonical": "Sharma",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Sharma."
+  },
+  {
+   "pii": "PAN",
+   "text": "S F K J S seven three nine two B",
+   "start": 20.9,
+   "end": 21.46,
+   "char_start": 205,
+   "char_end": 237,
+   "canonical": "SFKJS7392B",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "SFKJS7392B"
+  }
+ ]
+}

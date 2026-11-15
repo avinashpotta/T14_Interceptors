@@ -1,0 +1,61 @@
+{
+ "id": "t06_02",
+ "reader": "P3",
+ "source": "8.m4a",
+ "reference_transcript": "I'll need your PAN card details to update the tax records. The PAN is D P X U P zero three seven zero B, and the name on it is Avinash Bhat. Got it. And is the Aadhaar linked to this PAN the same one ending in the usual digits? Yes, forty six, twenty nine, thirty two, sixty, thirty four, twenty.",
+ "asr_transcript": "I'll need your pan card details to update the tax records. The pan is DPXUP0370B and the name on it is Avinash Bhatt, got it. And is the other link to this pan the same one ending in the usual digits? Yes 46 29 32 60 34 20",
+ "spans": [
+  {
+   "pii": "PAN",
+   "text": "D P X U P zero three seven zero B",
+   "start": 6.02,
+   "end": 10.84,
+   "char_start": 70,
+   "char_end": 103,
+   "canonical": "DPXUP0370B",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "DPXUP0370B"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Avinash",
+   "start": 12.62,
+   "end": 13.5,
+   "char_start": 127,
+   "char_end": 134,
+   "canonical": "Avinash",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Avinash"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Bhat",
+   "start": 13.5,
+   "end": 13.84,
+   "char_start": 135,
+   "char_end": 139,
+   "canonical": "Bhat",
+   "style": null,
+   "located": true,
+   "confidence": 0.889,
+   "asr_text": "Bhatt,"
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "forty six, twenty nine, thirty two, sixty, thirty four, twenty",
+   "start": 21.66,
+   "end": 27.4,
+   "char_start": 233,
+   "char_end": 295,
+   "canonical": "462932603420",
+   "style": "paired",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "46 29 32 60 34 20"
+  }
+ ]
+}

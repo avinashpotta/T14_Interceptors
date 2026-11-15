@@ -1,0 +1,61 @@
+{
+ "id": "t04_03",
+ "reader": "P3",
+ "source": "9.m4a",
+ "reference_transcript": "Hello, this is Divya from QuickCart calling regarding your pending KYC update. Oh yes, I've been meaning to finish that. Could you confirm your full name as it appears on the document? It's Dimple Gupta. And your Aadhaar number please? It's four four three, three one eight, three six four, nine seven one. Noted. I'll also need your PAN. M Y D O Y nine one eight three B.",
+ "asr_transcript": "Hello, this is Divya from QuickCart, calling regarding your painting KYC update. Oh yes, I have been meaning to finish that. Could you confirm your full name as it appears on the document? It's Dimble Gupta. And your Aadhar number please? It's 443 -318 -364 -971. Noted. I will also need your pen. Mydoy9183b.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Dimple",
+   "start": 13.94,
+   "end": 14.44,
+   "char_start": 190,
+   "char_end": 196,
+   "canonical": "Dimple",
+   "style": null,
+   "located": true,
+   "confidence": 0.833,
+   "asr_text": "Dimble"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Gupta",
+   "start": 14.44,
+   "end": 14.82,
+   "char_start": 197,
+   "char_end": 202,
+   "canonical": "Gupta",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Gupta."
+  },
+  {
+   "pii": "AADHAAR",
+   "text": "four four three, three one eight, three six four, nine seven one",
+   "start": 18.2,
+   "end": 24.04,
+   "char_start": 241,
+   "char_end": 305,
+   "canonical": "443318364971",
+   "style": "grouped",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "443 -318 -364 -971."
+  },
+  {
+   "pii": "PAN",
+   "text": "M Y D O Y nine one eight three B",
+   "start": 26.76,
+   "end": 32.4,
+   "char_start": 339,
+   "char_end": 371,
+   "canonical": "MYDOY9183B",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 0.87,
+   "asr_text": "pen. Mydoy9183b."
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "id": "t23_00",
+ "reader": "P3",
+ "source": "6.m4a",
+ "reference_transcript": "QuickCart billing. Could I have the consumer name on the connection? Bobby Goli. And the service address? Prestige Towers, Kalyan Nagar main road, near the HDFC ATM, Chennai. Your bill has been corrected, apologies for the error.",
+ "asr_transcript": "Quick court billing. Could I have the consumer name on the connection? Bobby Goli and the service address? Prestige Towers Kalyan Nagar main road near the HDFC ATM Chennai. Your bill has been corrected. Apologies for the error.",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Bobby",
+   "start": 5.36,
+   "end": 5.6,
+   "char_start": 69,
+   "char_end": 74,
+   "canonical": "Bobby",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Bobby"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Goli",
+   "start": 5.6,
+   "end": 6.0,
+   "char_start": 75,
+   "char_end": 79,
+   "canonical": "Goli",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Goli"
+  },
+  {
+   "pii": "ADDRESS",
+   "text": "Prestige Towers, Kalyan Nagar main road",
+   "start": 8.62,
+   "end": 11.26,
+   "char_start": 106,
+   "char_end": 145,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Prestige Towers Kalyan Nagar main road"
+  },
+  {
+   "pii": "LANDMARK",
+   "text": "near the HDFC ATM",
+   "start": 11.26,
+   "end": 13.34,
+   "char_start": 147,
+   "char_end": 164,
+   "canonical": null,
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "near the HDFC ATM"
+  }
+ ]
+}

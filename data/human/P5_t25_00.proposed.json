@@ -1,0 +1,61 @@
+{
+ "id": "t25_00",
+ "reader": "P5",
+ "source": "P5_Recording_1.mp3",
+ "reference_transcript": "I can book that appointment. Name please? Prince Desai. Contact number? eight eight four eight three five zero seven three eight. And email for the reminder? prince dot desai at gmail dot com. You're confirmed for Thursday at four.",
+ "asr_transcript": "I can book that appointment name please Prince Desai contact number 8 8 4 8 3 5 0 7 3 8 and email for the reminder prince .desai at gmail .com you are come you are confirmed for Thursday at 4",
+ "spans": [
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Prince",
+   "start": 4.22,
+   "end": 5.08,
+   "char_start": 42,
+   "char_end": 48,
+   "canonical": "Prince",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Prince"
+  },
+  {
+   "pii": "SURNAME",
+   "text": "Desai",
+   "start": 5.08,
+   "end": 5.58,
+   "char_start": 49,
+   "char_end": 54,
+   "canonical": "Desai",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "Desai"
+  },
+  {
+   "pii": "PHONE",
+   "text": "eight eight four eight three five zero seven three eight",
+   "start": 6.78,
+   "end": 11.8,
+   "char_start": 72,
+   "char_end": 128,
+   "canonical": "8848350738",
+   "style": "digit_by_digit",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "8 8 4 8 3 5 0 7 3 8"
+  },
+  {
+   "pii": "EMAIL",
+   "text": "prince dot desai at gmail dot com",
+   "start": 13.68,
+   "end": 17.12,
+   "char_start": 158,
+   "char_end": 191,
+   "canonical": "prince.desai@gmail.com",
+   "style": "spoken",
+   "located": true,
+   "confidence": 0.95,
+   "asr_text": "prince .desai at gmail .com"
+  }
+ ]
+}

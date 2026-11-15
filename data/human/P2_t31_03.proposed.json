@@ -1,0 +1,48 @@
+{
+ "id": "t31_03",
+ "reader": "P2",
+ "source": "10.m4a",
+ "reference_transcript": "Your account will be frozen unless the KYC is completed this week. I understand. My Aadhaar is six three five, nine one seven, zero zero four, nine one two. Thank you. And the PAN associated with it? E M A C U five nine nine seven P. Both are now on file, Happy.",
+ "asr_transcript": "the account will be frozen unless the KYC is completed this week I understand my other is 635917004912 thank you and the pan associated with it EMACU 5997P both are now on file happy",
+ "spans": [
+  {
+   "pii": "AADHAAR",
+   "text": "six three five, nine one seven, zero zero four, nine one two",
+   "start": 6.86,
+   "end": 11.6,
+   "char_start": 95,
+   "char_end": 155,
+   "canonical": "635917004912",
+   "style": "grouped",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "635917004912"
+  },
+  {
+   "pii": "PAN",
+   "text": "E M A C U five nine nine seven P",
+   "start": 14.76,
+   "end": 18.32,
+   "char_start": 200,
+   "char_end": 232,
+   "canonical": "EMACU5997P",
+   "style": "letters_digits",
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "EMACU 5997P"
+  },
+  {
+   "pii": "GIVEN_NAME",
+   "text": "Happy",
+   "start": 20.4,
+   "end": 21.0,
+   "char_start": 256,
+   "char_end": 261,
+   "canonical": "Happy",
+   "style": null,
+   "located": true,
+   "confidence": 1.0,
+   "asr_text": "happy"
+  }
+ ]
+}
