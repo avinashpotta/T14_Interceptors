@@ -858,3 +858,23 @@ The direction of every finding is unchanged. The one that moved materially is
 the latency underestimate: the truncated spans had been dragging the TTS p99
 down, **exaggerating** the gap we were reporting. Worth noting that the error
 ran in the direction that flattered our own headline.
+
+---
+
+## D36. Live capture validates the artefact, not the exit code
+**Date:** 15 Nov · **Affects:** live demo reliability
+
+The third instance of the same failure in this project. `ffmpeg` with
+avfoundation **exits 0 having written a bare 78-byte WAV header** when macOS
+denies microphone access — no error, no warning, no audio. Exactly as `say`
+exited 0 while writing silence (D25/D35).
+
+`demo_live.py` now checks the captured samples and exits with instructions if
+the file is empty, and warns on near-silence.
+
+**The recurring lesson, now three for three: a zero exit code means the
+program did not crash, not that it did the job. When a tool's real output is
+a file, validate the file.**
+
+Note for the demo: the first capture triggers the macOS permission dialog.
+Run it once beforehand.
