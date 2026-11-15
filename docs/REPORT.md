@@ -193,8 +193,18 @@ testing whether the difference is zero.
 |---|---|
 | 1 | regex only |
 | 2 | regex + name gazetteer (western / indian / both) |
-| 3 | neural NER (spaCy `en_core_web_md`) |
-| 4 | regex + gazetteer + context rules + NER |
+| 3 | Microsoft Presidio, off the shelf |
+| 4 | regex + gazetteer + context rules + neural NER |
+
+Presidio is configured as charitably as is reasonable, on the same principle
+that governs our own baseline. It keeps every entity type that could land on
+real PII **including ones that match for the wrong reason** — a 12-digit
+Aadhaar returns as `US_BANK_NUMBER`, and we count that as a hit, because our
+scoring is type-agnostic for redaction: the person is protected whatever label
+caused it. Four types with no counterpart in our gold (`DATE_TIME`, `URL`,
+`NRP`, `AGE`) are dropped, which helps Presidio's precision rather than ours.
+It runs on `en_core_web_md`, the same spaCy model our own NER uses, so the
+comparison is not confounded by model size.
 
 Gazetteers come from outside our generation vocabulary — NLTK US-Census names
 (7.5k) and Indian-Male/Female name lists (8.7k). Building them from our own
@@ -243,9 +253,10 @@ form: `neha dot goli at gmail dot com` → `neha .goli at gmail .com`.
 | L2 + western list | 0.358 | 0.824 | 0.404 [0.34–0.46] | 5.1% |
 | L2 + indian list | 0.560 | 0.797 | 0.595 [0.54–0.65] | 7.0% |
 | L2 + both lists | 0.582 | 0.779 | 0.613 [0.56–0.67] | 8.0% |
-| L4 rules (no NER) | 0.608 | 0.789 | 0.637 [0.58–0.69] | 7.5% |
-| L3 NER only | 0.657 | 0.742 | 0.672 [0.62–0.72] | 10.6% |
-| **L4 rules + NER** | **0.716** | 0.739 | **0.721 [0.67–0.76]** | 11.3% |
+| **L3 Presidio** | 0.470 | 0.666 | **0.500 [0.44–0.55]** | 8.4% |
+| L4 rules (no NER) | 0.608 | 0.789 | 0.637 [0.58–0.70] | 7.5% |
+| NER only *(ablation)* | 0.653 | 0.750 | 0.670 [0.62–0.72] | 10.2% |
+| **L4 rules + NER** | **0.713** | 0.746 | **0.719 [0.67–0.76]** | 10.9% |
 
 Paired comparisons on the same dialogues:
 
@@ -256,9 +267,47 @@ Paired comparisons on the same dialogues:
 | rules + NER vs NER only | +0.049 | [+0.026, +0.077] | yes |
 | rules + NER vs rules only | +0.083 | [+0.057, +0.111] | yes |
 
+| rules + NER vs Presidio | +0.220 | [+0.166, +0.271] | yes |
+| Presidio vs regex only | +0.180 | [+0.102, +0.256] | yes |
+
 **Neither the rule layer nor the neural model is clearly better alone, but each
 adds significantly on top of the other.** On given names the rules reach 78%,
 the NER 69%, and together 85% — they recover different names.
+
+#### Presidio, and why it loses
+
+Presidio sits between our Level 1 and Level 2 — a legitimate mid-tier
+baseline, not a strawman. The per-type breakdown shows the loss is not
+distributed evenly:
+
+| type | Presidio | ours | gap |
+|---|---|---|---|
+| SURNAME | 84% | 89% | −5 |
+| GIVEN_NAME | 69% | 84% | −15 |
+| PHONE | 61% | 68% | −7 |
+| ADDRESS | 39% | 61% | −22 |
+| **EMAIL** | **14%** | 75% | **−61** |
+| **AADHAAR** | **30%** | 85% | **−55** |
+| **PAN** | **12%** | 81% | **−69** |
+
+It is **competitive on names** — both systems use the same spaCy model — and
+**collapses on structured identifiers**, which is precisely the mismatch §5.1
+describes. Presidio's recognisers expect typed text; ASR output fragments
+digit runs (`960 -595 -745 -4`) and half-normalises emails
+(`neha .goli at gmail .com`). On our own regex level that same distinction was
+worth 49 points of recall.
+
+Two further observations. This Presidio build exposes **no India-specific
+recognizers** — there is no `IN_PAN` or `IN_AADHAAR` among its 24 supported
+entities, so Aadhaar is caught only incidentally as `US_BANK_NUMBER` (12
+digits) and PAN is missed almost entirely, with the *word* "PAN" returned as
+an organisation. And its precision is lower than ours (0.666 vs 0.746) despite
+lower recall, because its generic recognizers fire on multiple labels for the
+same span.
+
+This is §3's motivation turned into a measurement, exactly as §5.3 did for §1:
+the leading open-source PII tool is built for typed text, and loses most of
+its structured-identifier recall when handed speech.
 
 ### 5.3 Western name lists do not transfer
 

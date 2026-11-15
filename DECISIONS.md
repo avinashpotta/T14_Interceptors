@@ -727,3 +727,47 @@ a trade rather than a win.
 All seven §5 edge cases ran without crashing: silence, room tone, a dialogue
 with no PII (0 detections on 74 words), crosstalk, a 12.6-minute file
 (0.21x realtime, 1.5 GB peak), 0.1 s of audio, and loud white noise.
+
+---
+
+## D34. Presidio is configured charitably, including hits for the wrong reason
+**Date:** 15 Nov · **Affects:** fairness of §4.3
+
+The rule that governs our own baseline (D16) applies to a competitor too. We
+keep every Presidio entity type that could land on real PII, including
+accidental matches — a 12-digit Aadhaar returns as `US_BANK_NUMBER` and we
+score it as a hit, because redaction scoring is type-agnostic: the person is
+protected whatever label caused it. Four types with no counterpart in our gold
+(DATE_TIME, URL, NRP, AGE) are dropped, which helps its precision not ours. It
+runs on `en_core_web_md`, the same spaCy model our NER uses, so the comparison
+is not confounded by model size.
+
+---
+
+## Finding F18 — Presidio is competitive on names and collapses on identifiers
+
+| type | Presidio | ours |
+|---|---|---|
+| SURNAME | 84% | 89% |
+| GIVEN_NAME | 69% | 84% |
+| PHONE | 61% | 68% |
+| ADDRESS | 39% | 61% |
+| EMAIL | **14%** | 75% |
+| AADHAAR | **30%** | 85% |
+| PAN | **12%** | 81% |
+
+Overall F2 0.500 vs 0.719; paired **+0.220 [+0.166, +0.271]**. Presidio also
+beats our regex level by +0.180 [+0.102, +0.256], so it is a real mid-tier
+baseline rather than a strawman.
+
+It is competitive wherever both systems lean on the same spaCy model, and
+collapses wherever the input is a structured identifier that speech
+recognition has reshaped. That is §5.1's mismatch, measured on somebody else's
+system: its recognizers expect typed text.
+
+This build also exposes **no India-specific recognizers** — no `IN_PAN` or
+`IN_AADHAAR` among 24 entities. Aadhaar is caught only incidentally as a US
+bank number; the word "PAN" comes back as an organisation.
+
+§3 asserted that existing tools are not built for this input. This measures it,
+exactly as F6 did for §1's claim about Western name lists.
