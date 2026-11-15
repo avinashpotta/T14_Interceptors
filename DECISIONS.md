@@ -708,3 +708,22 @@ Reporting a streaming latency requirement from TTS alone would have specified
 This is the one concrete case we found of synthetic audio producing an
 optimistic result — and it is not the one D1 predicted. The flattery appeared
 in the latency budget, not in detection accuracy.
+
+---
+
+## Finding F17 — tight patterns buy immunity to hallucinated PII
+
+Whisper hallucinates on pure silence (it emitted `'You'` on a 10 s digital
+silence). No detector fired; zero spurious beeps.
+
+The closest prior system documents this as a known bug: its numeral rule
+redacts any digit run of length >= 3, so hallucinated digits beep audio
+containing no PII at all. Our patterns need ten digits for a phone, twelve for
+Aadhaar and a strict PAN shape, so a short hallucination cannot match.
+
+The same tightness that costs us recall buys immunity here. Worth stating as
+a trade rather than a win.
+
+All seven §5 edge cases ran without crashing: silence, room tone, a dialogue
+with no PII (0 detections on 74 words), crosstalk, a 12.6-minute file
+(0.21x realtime, 1.5 GB peak), 0.1 s of audio, and loud white noise.

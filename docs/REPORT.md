@@ -423,6 +423,36 @@ behaviour rather than ASR survival and has been removed.
 
 ---
 
+### 5.10 Edge cases
+
+Demo-track grading is on how the tool behaves on messy input, so these were
+tested rather than asserted. All seven ran without crashing.
+
+| case | words | detections | audio beeped | wall |
+|---|---|---|---|---|
+| pure silence, 10 s | 1 | **0** | 0.0% | 4.3 s |
+| room tone, no speech | 0 | **0** | 0.0% | 1.3 s |
+| dialogue containing no PII | 74 | **0** | **0.0%** | 4.2 s |
+| crosstalk, two speakers | 55 | 2 | 6.8% | 16.2 s |
+| long file, 12.6 min | 1822 | 120 | 27.2% | 160 s |
+| 0.1 s of audio | 0 | 0 | 0.0% | 1.5 s |
+| loud white noise, 5 s | 0 | 0 | 0.0% | 1.5 s |
+
+**Silence does not produce spurious redaction.** Whisper does hallucinate on
+pure silence — it emitted the single word `'You'` — but no detector fired.
+This is worth recording because the closest prior system we are aware of
+documents exactly this failure: its numeral rule redacts any digit run of
+length ≥ 3, so hallucinated digits produce beeps on audio containing no PII
+at all. Our patterns require ten digits for a phone number, twelve for
+Aadhaar and a strict PAN shape, so a short hallucination cannot match. The
+same tightness that costs us recall buys immunity here.
+
+**No false positives on a clean negative**: the no-PII dialogue produced 74
+words and zero detections.
+
+**Throughput**: 0.21× realtime on the long file — faster than short files
+because model loading amortises. Peak memory 1.5 GB.
+
 ## 6. Limitations
 
 **The corpus is synthetic, and the synthesis flatters us.** Segments are
