@@ -118,8 +118,9 @@ confidence intervals overlap is not a test of whether the difference is zero.
   rejected and why. Read this before changing anything.
 - **`docs/WALKTHROUGH.md`** — mechanism-level explanation plus an interview
   Q&A section.
-- **`docs/REPORT.md`** — the submitted report, with figures in
-  `docs/figures/`.
+- **`docs/REPORT.md`** — the report source. Rendered to
+  `docs/AIPP_Team14_Interceptors_Report.pdf` (14 pages) via
+  `python scripts/make_pdf.py`; figures in `docs/figures/`.
 
 ## Status
 

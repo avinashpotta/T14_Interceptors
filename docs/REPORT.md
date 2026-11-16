@@ -1,9 +1,19 @@
 # PII Detection and Redaction in Audio Streams
 
-**Team Interceptors (Team 14)** · Applications of Deep Learning with Knowledge
-Representation & Reasoning · Demo track
+**Team Interceptors — Team 14**<br>
+Applications of Deep Learning, with a Knowledge Representation & Reasoning
+component · Demo track
 
-> Draft. Streaming sweep and figures outstanding.
+| # | Member | ID |
+|---|---|---|
+| 1 | Potta Avinash | 2024A8PS0473H |
+| 2 | Gourishankar S. Nambiar | 2024A4PS0658H |
+| 3 | Aravind P | 2024A3PS0398H |
+| 4 | Amitesh Garg | 2024A3PS0413H |
+| 5 | Rithwik Rudra | 2024AAPS0260H |
+| 6 | Alex Antony | 2023B4A70734H |
+| 7 | Srivasthav Goli | 2024AAPS0180H |
+| 8 | Suryanath A | 2024A8PS0471H |
 
 ---
 
@@ -268,7 +278,6 @@ Paired comparisons on the same dialogues:
 | NER only vs rules only | +0.035 | [−0.003, +0.072] | **no** |
 | rules + NER vs NER only | +0.049 | [+0.026, +0.077] | yes |
 | rules + NER vs rules only | +0.083 | [+0.057, +0.111] | yes |
-
 | rules + NER vs Presidio | +0.220 | [+0.166, +0.271] | yes |
 | Presidio vs regex only | +0.180 | [+0.102, +0.256] | yes |
 

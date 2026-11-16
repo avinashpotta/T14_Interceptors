@@ -1,2 +1,7 @@
 faster-whisper==1.2.1
 numpy>=2.0
+spacy               # Level 3/4 NER (needs: python -m spacy download en_core_web_md)
+presidio-analyzer   # Level 3 comparison
+matplotlib          # report figures
+markdown-it-py      # report -> HTML
+weasyprint          # report -> PDF
