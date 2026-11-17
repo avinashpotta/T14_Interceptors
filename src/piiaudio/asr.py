@@ -19,10 +19,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from functools import lru_cache
+from typing import TYPE_CHECKING
 
 import numpy as np
 
-from faster_whisper import WhisperModel
+if TYPE_CHECKING:  # heavy import deferred so the unit tests run without Whisper
+    from faster_whisper import WhisperModel
 
 from .audio import read_wav
 
@@ -115,7 +117,9 @@ class Transcription:
 
 
 @lru_cache(maxsize=2)
-def _load(model_size: str, compute_type: str) -> WhisperModel:
+def _load(model_size: str, compute_type: str) -> "WhisperModel":
+    from faster_whisper import WhisperModel
+
     return WhisperModel(model_size, device="cpu", compute_type=compute_type)
 
 
