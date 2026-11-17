@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      # The regression tests only need numpy: faster-whisper, spaCy and
+      # Presidio are imported lazily, so CI never downloads a Whisper model.
+      - name: Install test dependencies
+        run: python -m pip install "numpy>=2.0"
+
+      - name: Run regression tests
+        run: python tests/test_core.py
