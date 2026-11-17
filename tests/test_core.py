@@ -154,6 +154,18 @@ def _():
         assert not d.detect(t), f"false fire on {t!r}"
 
 
+@check("email matcher covers compound suffixes without truncating them")
+def _():
+    # Regression: the TLD list used to be com|in|org|net|co|edu, so
+    # "x@gmail.co.in" matched only up to ".co" and left ".in" in the clear.
+    d = RegexDetector()
+    for text in ["neha@gmail.co.in", "neha@iitb.ac.in", "a@b.gov.in", "a@b.io",
+                 "neha@mail.iitb.ac.in", "neha dot goli at iitb dot ac dot in"]:
+        hits = [h.text for h in d.detect(text)]
+        assert hits and max(hits, key=len) == text, f"{text!r} -> {hits}"
+    assert not d.detect("meet me at 5 dot 30 in the evening")
+
+
 @check("gazetteer stoplist blocks the common-word collisions")
 def _():
     n = NameListDetector("both")

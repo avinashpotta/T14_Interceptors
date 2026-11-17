@@ -1,5 +1,7 @@
 # PII Detection and Redaction in Audio Streams
 
+![tests](https://github.com/avinashpotta/privacy-audio-pii-redaction/actions/workflows/tests.yml/badge.svg)
+
 Team Interceptors (Team 14). Detects personally identifiable information in
 spoken audio and overwrites it with a tone. Runs entirely locally — no audio
 leaves the machine.
@@ -41,7 +43,7 @@ python3 -m venv .venv
 ```
 
 First run downloads Whisper `small` (~500 MB). `--level 1` / `2` / `4` selects
-the detection stack.
+the detection stack; `--mask-log` keeps the detected text out of the console.
 
 To rebuild everything from scratch:
 
@@ -109,18 +111,27 @@ confidence intervals overlap is not a test of whether the difference is zero.
 | `src/piiaudio/streaming.py` | delay-buffer streaming redaction |
 | `scripts/` | corpus build, evaluation, experiments, figures |
 | `docs/REPORT.md` | the report |
-| `docs/WALKTHROUGH.md` | how it works and why — written for reading cold |
-| `DECISIONS.md` | every non-obvious choice, with its rejected alternative |
 
 ## Documentation
 
-- **`DECISIONS.md`** — 34 decisions and 18 findings. Each records what was
-  rejected and why. Read this before changing anything.
-- **`docs/WALKTHROUGH.md`** — mechanism-level explanation plus an interview
-  Q&A section.
 - **`docs/REPORT.md`** — the report source. Rendered to
   `docs/AIPP_Team14_Interceptors_Report.pdf` (14 pages) via
   `python scripts/make_pdf.py`; figures in `docs/figures/`.
+- Non-obvious design choices are explained in the module docstrings
+  (start with `redact.py`, `streaming.py` and `detect/regex_rules.py`).
+
+## Limitations
+
+- **Recall is 0.72.** Roughly one PII item in four still plays in the clear.
+- **English only.** The ASR is pinned to `language="en"`; Hindi or
+  Hindi-English code-switching is not handled.
+- **Eight PII types** (names, address, landmark, Aadhaar, PAN, phone, email).
+  Card/bank numbers, UPI IDs, passports, dates of birth and OTPs are not covered.
+- **Synthetic-heavy evaluation.** The corpus is rendered with macOS TTS; the
+  human-speech validation set is small.
+- **Fail-open on alignment.** A detection that cannot be mapped to any word
+  timing is skipped rather than beeped.
+- **Not for deployment.** This is a measurement instrument, not a privacy guarantee.
 
 ## Status
 

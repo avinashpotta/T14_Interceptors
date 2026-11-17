@@ -3,6 +3,7 @@
 
     python scripts/demo.py input.wav output.wav
     python scripts/demo.py input.wav output.wav --level 1    # regex only
+    python scripts/demo.py input.wav output.wav --mask-log   # keep PII out of the console
 
 Runs the full Level 4 stack by default (regex + name gazetteers + context
 rules + neural NER). Prints what was redacted and why, so every beep has a
@@ -47,6 +48,8 @@ def main() -> None:
     ap.add_argument("--level", type=int, default=4, choices=[1, 2, 4])
     ap.add_argument("--margin-ms", type=int, default=150)
     ap.add_argument("--beam", type=int, default=5)
+    ap.add_argument("--mask-log", action="store_true",
+                    help="do not print the detected PII text to the console")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -70,7 +73,7 @@ def main() -> None:
     if applied:
         print(f"  {'CATEGORY':<12}{'START':>7}{'END':>8}   WHY            TEXT")
         for s in applied:
-            print(f"  {s.pii:<12}{s.start:>7.2f}{s.end:>8.2f}   {s.source:<14} {s.text[:34]!r}")
+            print(f"  {s.pii:<12}{s.start:>7.2f}{s.end:>8.2f}   {s.source:<14} {'<hidden>' if args.mask_log else repr(s.text[:34])}")
     else:
         print("  (no PII detected)")
     print(f"\n  total {time.time()-t0:.1f}s for {dur:.1f}s of audio "

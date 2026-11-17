@@ -47,14 +47,16 @@ _SEP = r"[\s,\-]{0,3}"
 _DOT = r"(?:\s*\.\s*|\s+dot\s+)"
 _AT = r"(?:\s*@\s*|\s+at\s+)"
 _WORD = r"[A-Za-z0-9_+\-]+"
-_TLD = r"(?:com|in|org|net|co|edu)"
+# Compound Indian suffixes (co.in, ac.in, gov.in ...) must come first so the
+# alternation never stops at ".co" and leaves ".in" unredacted.
+_TLD = rf"(?:(?:co|ac|gov|nic|res|edu|org|net){_DOT}in|com|in|org|net|co|edu|io|ai|dev|info)"
 
 _DIGIT_WORD = r"(?:zero|oh|one|two|three|four|five|six|seven|eight|nine|double|triple)"
 
 PATTERNS: tuple[tuple[str, str, str], ...] = (
     # Order matters only for readability; merge() resolves overlaps.
     ("EMAIL", "email_any",
-     rf"\b{_WORD}(?:{_DOT}{_WORD})*{_AT}{_WORD}{_DOT}{_TLD}\b"),
+     rf"\b{_WORD}(?:{_DOT}{_WORD})*{_AT}(?:{_WORD}{_DOT})+{_TLD}\b"),
 
     ("PAN", "pan_std", r"\b[A-Z]{5}[0-9]{4}[A-Z]\b"),
     # PAN read aloud letter by letter survives as spaced characters.
