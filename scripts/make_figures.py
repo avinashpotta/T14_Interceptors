@@ -70,7 +70,7 @@ def fig_levels():
     rows = [
         ("Regex only",                 0.324, 0.27, 0.38, False),
         ("+ Western name list",        0.408, 0.34, 0.46, False),
-        ("Presidio (off the shelf)",   0.507, 0.45, 0.56, False),
+        ("Presidio (off the shelf)",   0.528, 0.47, 0.58, False),
         ("+ Indian name list",         0.599, 0.54, 0.65, False),
         ("+ both lists",               0.616, 0.56, 0.67, False),
         ("Rule layer (no NER)",        0.641, 0.58, 0.70, False),

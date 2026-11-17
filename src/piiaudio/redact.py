@@ -68,5 +68,15 @@ def redacted_fraction(samples: np.ndarray, spans: list[RedactedSpan]) -> float:
     """Share of the audio destroyed. The headline cost of over-beeping."""
     if samples.size == 0:
         return 0.0
-    covered = sum(max(0.0, s.end - s.start) for s in spans)
+    # Merge before summing. Detections frequently overlap - an adjacent given
+    # name and surname, or a regex and the NER firing on the same span - and
+    # summing durations double-counts the overlap. The uncorrected version
+    # reports 120% for two spans covering a clip between them.
+    merged: list[list[float]] = []
+    for a, b in sorted((s.start, s.end) for s in spans):
+        if merged and a <= merged[-1][1]:
+            merged[-1][1] = max(b, merged[-1][1])
+        else:
+            merged.append([a, b])
+    covered = sum(b - a for a, b in merged)
     return covered / (samples.size / SAMPLE_RATE)

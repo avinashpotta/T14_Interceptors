@@ -265,7 +265,7 @@ form: `neha dot goli at gmail dot com` → `neha .goli at gmail .com`.
 | L2 + western list | 0.362 | 0.824 | 0.408 [0.34–0.46] | 5.2% |
 | L2 + indian list | 0.563 | 0.797 | 0.599 [0.54–0.65] | 7.0% |
 | L2 + both lists | 0.586 | 0.779 | 0.616 [0.56–0.67] | 8.0% |
-| **L3 Presidio** | 0.478 | 0.671 | **0.507 [0.45–0.56]** | 8.5% |
+| **L3 Presidio** | 0.500 | 0.679 | **0.528 [0.47–0.58]** | 8.9% |
 | L4 rules (no NER) | 0.612 | 0.790 | 0.641 [0.58–0.70] | 7.6% |
 | NER only *(ablation)* | 0.660 | 0.751 | 0.677 [0.62–0.72] | 10.3% |
 | **L4 rules + NER** | **0.720** | 0.747 | **0.725 [0.67–0.77]** | 11.0% |
@@ -278,8 +278,8 @@ Paired comparisons on the same dialogues:
 | NER only vs rules only | +0.035 | [−0.003, +0.072] | **no** |
 | rules + NER vs NER only | +0.049 | [+0.026, +0.077] | yes |
 | rules + NER vs rules only | +0.083 | [+0.057, +0.111] | yes |
-| rules + NER vs Presidio | +0.220 | [+0.166, +0.271] | yes |
-| Presidio vs regex only | +0.180 | [+0.102, +0.256] | yes |
+| rules + NER vs Presidio | +0.198 | [+0.145, +0.248] | yes |
+| Presidio vs regex only | +0.204 | [+0.129, +0.274] | yes |
 
 **Neither the rule layer nor the neural model is clearly better alone, but each
 adds significantly on top of the other.** On given names the rules reach 78%,
@@ -295,11 +295,11 @@ distributed evenly:
 |---|---|---|---|
 | SURNAME | 84% | 89% | −5 |
 | GIVEN_NAME | 69% | 84% | −15 |
-| PHONE | 61% | 68% | −7 |
+| PHONE | 64% | 71% | −7 |
 | ADDRESS | 39% | 61% | −22 |
-| **EMAIL** | **14%** | 75% | **−61** |
-| **AADHAAR** | **30%** | 85% | **−55** |
-| **PAN** | **12%** | 81% | **−69** |
+| PAN | 44% | 81% | −37 |
+| **AADHAAR** | **35%** | 85% | **−50** |
+| **EMAIL** | **17%** | 78% | **−61** |
 
 It is **competitive on names** — both systems use the same spaCy model — and
 **collapses on structured identifiers**, which is precisely the mismatch §5.1
@@ -308,13 +308,19 @@ digit runs (`960 -595 -745 -4`) and half-normalises emails
 (`neha .goli at gmail .com`). On our own regex level that same distinction was
 worth 49 points of recall.
 
-Two further observations. This Presidio build exposes **no India-specific
-recognizers** — there is no `IN_PAN` or `IN_AADHAAR` among its 24 supported
-entities, so Aadhaar is caught only incidentally as `US_BANK_NUMBER` (12
-digits) and PAN is missed almost entirely, with the *word* "PAN" returned as
-an organisation. And its precision is lower than ours (0.666 vs 0.746) despite
-lower recall, because its generic recognizers fire on multiple labels for the
-same span.
+**A correction worth recording.** Our first Presidio run scored PAN at 12%
+and Aadhaar at 30%, and we initially reported that this build exposes no
+India-specific recognizers. That was wrong. `InPanRecognizer`,
+`InAadhaarRecognizer` and four others ship with Presidio, but
+`load_predefined_recognizers(languages=["en"])` does not register them — they
+must be added explicitly. Enabling them raises PAN from 12% to 44% and
+Presidio's overall F2 from 0.507 to 0.528. The figures above are the corrected
+ones. Reporting the uncorrected run would have been the same weak-baseline
+error §4.5 exists to prevent, applied to a competitor instead of to ourselves.
+
+Presidio's precision also remains lower than ours (0.679 vs 0.747) despite
+lower recall, because its generic recognizers fire several labels on the same
+span.
 
 This is §3's motivation turned into a measurement, exactly as §5.3 did for §1:
 the leading open-source PII tool is built for typed text, and loses most of
@@ -603,6 +609,22 @@ Concrete next steps, ordered by what the attribution analysis implies:
    confound in §5.5.
 4. **Streaming redaction** with a delay buffer, so a live call can be redacted
    before playback.
+
+---
+
+## 9. Use of AI Tools
+
+**Tool.** Claude was used throughout development.
+
+**Use.** The assistant was used in the implementation of the code and assisted
+with debugging. Project scope, the collection of human recordings and checking
+of that audio were directed by the team.
+
+**Verification.** Outputs were checked rather than assumed: a 19-test regression
+suite, validation of all 440 ground-truth spans against their transcripts and
+audio, and adversarial testing of the scoring code before it was used. Several
+errors were caught this way and corrected. We are responsible for the
+correctness of all results reported here.
 
 ---
 

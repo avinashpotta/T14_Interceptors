@@ -44,6 +44,17 @@ MAPPING = {
     "IBAN_CODE": "AADHAAR",
     "ID": "PAN",
     "MEDICAL_LICENSE": "PAN",
+    # India-specific recognizers. These ship with Presidio but are NOT loaded by
+    # load_predefined_recognizers(languages=["en"]) - they have to be registered
+    # explicitly. Our first run omitted them, which made Presidio look far worse
+    # on exactly the identifiers this project is about. Leaving them off would
+    # have been the same weak-baseline error D16 and D24 exist to prevent.
+    "IN_PAN": "PAN",
+    "IN_AADHAAR": "AADHAAR",
+    "IN_PASSPORT": "PAN",
+    "IN_VOTER": "PAN",
+    "IN_GSTIN": "PAN",
+    "IN_VEHICLE_REGISTRATION": "PAN",
 }
 DROPPED = {"DATE_TIME", "URL", "NRP", "AGE", "ORGANIZATION", "IP_ADDRESS",
            "MAC_ADDRESS", "CRYPTO", "UUID"}
@@ -51,13 +62,27 @@ DROPPED = {"DATE_TIME", "URL", "NRP", "AGE", "ORGANIZATION", "IP_ADDRESS",
 
 @lru_cache(maxsize=1)
 def _engine(model: str):
-    from presidio_analyzer import AnalyzerEngine
+    from presidio_analyzer import AnalyzerEngine, RecognizerRegistry
     from presidio_analyzer.nlp_engine import NlpEngineProvider
+    import presidio_analyzer.predefined_recognizers as pr
+
     prov = NlpEngineProvider(nlp_configuration={
         "nlp_engine_name": "spacy",
         "models": [{"lang_code": "en", "model_name": model}],
     })
-    return AnalyzerEngine(nlp_engine=prov.create_engine(), supported_languages=["en"])
+    registry = RecognizerRegistry()
+    registry.load_predefined_recognizers(languages=["en"])
+    for name in ("InPanRecognizer", "InAadhaarRecognizer", "InPassportRecognizer",
+                 "InVoterRecognizer", "InGstinRecognizer",
+                 "InVehicleRegistrationRecognizer"):
+        cls = getattr(pr, name, None)
+        if cls is not None:
+            try:
+                registry.add_recognizer(cls())
+            except Exception:      # a recognizer that will not instantiate is skipped
+                pass
+    return AnalyzerEngine(nlp_engine=prov.create_engine(), registry=registry,
+                          supported_languages=["en"])
 
 
 class PresidioDetector:
